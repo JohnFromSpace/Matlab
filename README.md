@@ -22,3 +22,117 @@ In 2000, MathWorks added a Fortran-based library for linear algebra in MATLAB 6,
 ## Recent history
 Some especially large changes to the software were made with version 8 in 2012. The user interface was reworked and Simulink's functionality was expanded. By 2016, MATLAB had introduced several technical and user interface improvements, including the MATLAB Live Editor notebook, and other features.
 
+# Syntax
+The MATLAB application is built around the MATLAB programming language. Common usage of the MATLAB application involves using the "Command Window" as an interactive mathematical shell or executing text files containing MATLAB code.
+
+## Hello, World! example
+A example of "Hello, world!" exists in MATLAB.
+```disp('Hello, world!')```
+It displays like so:
+```It displays like so:```
+
+## Variables
+Variables are defined using the assignment operator, =. MATLAB is a weakly typed programming language because types are implicitly converted. It is an inferred typed language because variables can be assigned without declaring their type, except if they are to be treated as symbolic objects, and that their type can change. Values can come from constants, from computation involving values of other variables, or from the output of a function. For example:
+```
+>> x = 17
+x =
+ 17
+
+>> x = 'hat'
+x =
+hat
+
+>> x = [3*4, pi/2]
+x =
+   12.0000    1.5708
+
+>> y = 3*sin(x)
+y =
+   -1.6097    3.0000
+```
+
+##Vectors and matrices
+A simple array is defined using the colon syntax: initial :increment: terminator. For instance:
+```
+>> array = 1:2:9
+array =
+ 1 3 5 7 9
+```
+defines a variable named ```array``` (or assigns a new value to an existing variable with the name ```array```) which is an array consisting of the values 1, 3, 5, 7, and 9. That is, the array starts at 1 (the initial value), increments with each step from the previous value by 2 (the increment value), and stops once it reaches (or is about to exceed) 9 (the terminator value).
+
+The increment value can actually be left out of this syntax (along with one of the colons), to use a default value of 1.
+```
+>> ari = 1:5
+ari =
+ 1 2 3 4 5
+```
+assigns to the variable named ari an array with the values 1, 2, 3, 4, and 5, since the default value of 1 is used as the increment.
+
+Indexing is one-based, which is the usual convention for matrices in mathematics, unlike zero-based indexing commonly used in other programming languages such as C, C++, and Java.
+
+Matrices can be defined by separating the elements of a row with blank space or comma and using a semicolon to separate the rows. The list of elements should be surrounded by square brackets []. Parentheses () are used to access elements and subarrays (they are also used to denote a function argument list).
+```
+>> A = [16, 3, 2, 13  ; 5, 10, 11, 8 ; 9, 6, 7, 12 ; 4, 15, 14, 1]
+A =
+ 16  3  2 13
+  5 10 11  8
+  9  6  7 12
+  4 15 14  1
+
+>> A(2,3)
+ans =
+ 11
+```
+Sets of indices can be specified by expressions such as ```2:4```, which evaluates to ```[2, 3, 4]```. For example, a submatrix taken from rows 2 through 4 and columns 3 through 4 can be written as:
+```
+>> A(2:4,3:4)
+ans =
+ 11 8
+ 7 12
+ 14 1
+```
+A square identity matrix of size n can be generated using the function ```eye```, and matrices of any size with zeros or ones can be generated with the functions ```zeros``` and ```ones```, respectively.
+```
+>> eye(3,3)
+ans =
+ 1 0 0
+ 0 1 0
+ 0 0 1
+
+>> zeros(2,3)
+ans =
+ 0 0 0
+ 0 0 0
+
+>> ones(2,3)
+ans =
+ 1 1 1
+ 1 1 1
+```
+Transposing a vector or a matrix is done either by the function ```transpose``` or by adding dot-prime after the matrix (without the dot, prime will perform conjugate transpose for complex arrays):
+```
+>> A = [1 ; 2],  B = A.', C = transpose(A)
+A =
+     1
+     2
+B =
+     1     2
+C =
+     1     2
+
+>> D = [0, 3 ; 1, 5], D.'
+D =
+     0     3
+     1     5
+ans =
+     0     1
+     3     5
+```
+Most functions accept arrays as input and operate element-wise on each element. For example, ```mod(2*J,n)``` will multiply every element in J by 2, and then reduce each element modulo n. MATLAB does include standard for and while loops, but (as in other similar applications such as APL and R), using the vectorized notation is encouraged and is often faster to execute. The following code, excerpted from the function magic.m, creates a magic square M for odd values of n (MATLAB function ```meshgrid``` is used here to generate square matrices I and J containing ```1:n```):
+```
+[J,I] = meshgrid(1:n);
+A = mod(I + J - (n + 3) / 2, n);
+B = mod(I + 2 * J - 2, n);
+M = n * A + B + 1;
+```
+
