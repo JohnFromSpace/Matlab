@@ -19,3 +19,6 @@ Over time, MATLAB was re-written for early operating systems created by Digital 
 
 In 2000, MathWorks added a Fortran-based library for linear algebra in MATLAB 6, replacing the software's original LINPACK and EISPACK subroutines that were in C. MATLAB's Parallel Computing Toolbox was released at the 2004 Supercomputing Conference and support for graphics processing units (GPUs) was added to it in 2010.
 
+## Recent history
+Some especially large changes to the software were made with version 8 in 2012. The user interface was reworked and Simulink's functionality was expanded. By 2016, MATLAB had introduced several technical and user interface improvements, including the MATLAB Live Editor notebook, and other features.
+
