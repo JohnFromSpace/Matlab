@@ -27,9 +27,13 @@ The MATLAB application is built around the MATLAB programming language. Common u
 
 ## Hello, World! example
 A example of "Hello, world!" exists in MATLAB.
-```disp('Hello, world!')```
+```
+disp('Hello, world!')
+```
 It displays like so:
-```It displays like so:```
+```
+Hello, world!
+```
 
 ## Variables
 Variables are defined using the assignment operator, =. MATLAB is a weakly typed programming language because types are implicitly converted. It is an inferred typed language because variables can be assigned without declaring their type, except if they are to be treated as symbolic objects, and that their type can change. Values can come from constants, from computation involving values of other variables, or from the output of a function. For example:
