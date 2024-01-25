@@ -42,3 +42,7 @@ disp(['Mean: ' num2str(meanResult)]);
 % Calculate and display mode
 modeResult = calculateMode(data);
 disp(['Mode: ' num2str(modeResult)]);
+
+% Calculate and display median
+medianResult = calculateMedian(data);
+disp(['Median: ' num2str(medianResult)]);
