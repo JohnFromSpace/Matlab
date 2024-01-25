@@ -19,3 +19,8 @@ end
 function varianceValue = calculateVariance(data)
     varianceValue = var(data);
 end
+
+% Function to calculate standard deviation
+function stdDevValue = calculateStandardDeviation(data)
+    stdDevValue = std(data);
+end
