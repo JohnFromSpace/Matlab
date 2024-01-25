@@ -34,3 +34,7 @@ data = [4, 7, 2, 8, 5, 3, 7, 6, 9, 5];
 % Display the dataset
 disp('Dataset:');
 disp(data);
+
+% Calculate and display mean
+meanResult = calculateMean(data);
+disp(['Mean: ' num2str(meanResult)]);
