@@ -50,3 +50,7 @@ disp(['Median: ' num2str(medianResult)]);
 % Calculate and display variance
 varianceResult = calculateVariance(data);
 disp(['Variance: ' num2str(varianceResult)]);
+
+% Calculate and display standard deviation
+stdDevResult = calculateStandardDeviation(data);
+disp(['Standard Deviation: ' num2str(stdDevResult)]);
