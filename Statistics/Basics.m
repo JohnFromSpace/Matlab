@@ -38,3 +38,7 @@ disp(data);
 % Calculate and display mean
 meanResult = calculateMean(data);
 disp(['Mean: ' num2str(meanResult)]);
+
+% Calculate and display mode
+modeResult = calculateMode(data);
+disp(['Mode: ' num2str(modeResult)]);
