@@ -14,3 +14,8 @@ end
 function modeValue = calculateMode(data)
     modeValue = mode(data);
 end
+
+% Function to calculate variance
+function varianceValue = calculateVariance(data)
+    varianceValue = var(data);
+end
