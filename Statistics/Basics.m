@@ -30,3 +30,7 @@ disp('Basic Statistics Program in MATLAB');
 
 % Sample data (replace this with your own dataset)
 data = [4, 7, 2, 8, 5, 3, 7, 6, 9, 5];
+
+% Display the dataset
+disp('Dataset:');
+disp(data);
