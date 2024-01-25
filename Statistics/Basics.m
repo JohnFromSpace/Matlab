@@ -9,3 +9,8 @@ end
 function medianValue = calculateMedian(data)
     medianValue = median(data);
 end
+
+% Function to calculate mode
+function modeValue = calculateMode(data)
+    modeValue = mode(data);
+end
