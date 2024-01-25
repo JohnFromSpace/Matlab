@@ -24,3 +24,6 @@ end
 function stdDevValue = calculateStandardDeviation(data)
     stdDevValue = std(data);
 end
+
+% Main program
+disp('Basic Statistics Program in MATLAB');
