@@ -46,3 +46,7 @@ disp(['Mode: ' num2str(modeResult)]);
 % Calculate and display median
 medianResult = calculateMedian(data);
 disp(['Median: ' num2str(medianResult)]);
+
+% Calculate and display variance
+varianceResult = calculateVariance(data);
+disp(['Variance: ' num2str(varianceResult)]);
