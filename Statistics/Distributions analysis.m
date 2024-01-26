@@ -108,6 +108,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
     figure;
     qqplot(data);
     title('Q-Q Plot');
+
+    % Shapiro-Wilk Test for Normality
+    [~, shapiro_p_value, ~] = swtest(data);
+    fprintf('Shapiro-Wilk Test p-value: %.4f\n', shapiro_p_value);
     
     % Probability Density Function (PDF) or Probability Mass Function (PMF)
     figure;
