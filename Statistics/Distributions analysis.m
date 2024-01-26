@@ -122,3 +122,7 @@ function analyze_distribution(data, distribution_type, confidence_level)
     datacursormode on;
     
 end
+
+function interval = CI(data, confidence_level)
+    
+end
