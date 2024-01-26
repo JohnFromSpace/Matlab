@@ -112,6 +112,11 @@ function analyze_distribution(data, distribution_type, confidence_level)
     % Shapiro-Wilk Test for Normality
     [~, shapiro_p_value, ~] = swtest(data);
     fprintf('Shapiro-Wilk Test p-value: %.4f\n', shapiro_p_value);
+
+    % Anderson-Darling Test
+    [~, anderson_stat, anderson_critical_values] = adtest(data);
+    fprintf('Anderson-Darling Test Statistic: %.4f\n', anderson_stat);
+    fprintf('Anderson-Darling Test Critical Values: %.4f\n', anderson_critical_values);
     
     % Probability Density Function (PDF) or Probability Mass Function (PMF)
     figure;
