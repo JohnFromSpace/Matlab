@@ -69,5 +69,8 @@ function analyze_distribution(data, distribution_type, confidence_level)
             fprintf('Mean: %.4f\n', mean_value);
             fprintf('Median: %.4f\n', median_value);
             fprintf('Standard Deviation: %.4f\n', std_deviation);
+
+        otherwise
+            error('Invalid distribution type. Supported types: normal, poisson, binomial, uniform, exponential, gamma');
     end   
 end
