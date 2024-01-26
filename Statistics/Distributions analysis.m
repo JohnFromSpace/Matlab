@@ -57,5 +57,17 @@ function analyze_distribution(data, distribution_type, confidence_level)
             fprintf('Mean: %.4f\n', mean_value);
             fprintf('Median: %.4f\n', median_value);
             fprintf('Standard Deviation: %.4f\n', std_deviation);
+
+        case 'gamma'
+            % For gamma distribution
+            alpha = mean(data)^2 / var(data);
+            beta = var(data) / mean(data);
+            mean_value = alpha / beta;
+            median_value = gaminv(0.5, alpha, beta);
+            std_deviation = sqrt(alpha) / beta;
+            fprintf('Gamma Distribution:\n');
+            fprintf('Mean: %.4f\n', mean_value);
+            fprintf('Median: %.4f\n', median_value);
+            fprintf('Standard Deviation: %.4f\n', std_deviation);
     end   
 end
