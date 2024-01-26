@@ -79,4 +79,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
     kurtosis_value = kurtosis(data);
     fprintf('Skewness: %.4f\n', skewness_value);
     fprintf('Kurtosis: %.4f\n', kurtosis_value);
+
+    % Confidence Intervals
+    if nargin > 2
+        confidence_interval = CI(data, confidence_level);
+        fprintf('Confidence Interval (%.1f%%): [%.4f, %.4f]\n', confidence_level*100, confidence_interval(1), confidence_interval(2));
+    end
 end
