@@ -36,6 +36,16 @@ function analyze_distribution(data, distribution_type, confidence_level)
             fprintf('Binomial Distribution:\n');
             fprintf('Mean: %.4f\n', mean_value);
             fprintf('Median: %.4f\n', median_value);
-            fprintf('Standard Deviation: %.4f\n', std_deviation);        
+            fprintf('Standard Deviation: %.4f\n', std_deviation);   
+    
+        case 'uniform'
+            % For uniform distribution
+            mean_value = mean(data);
+            median_value = median(data);
+            std_deviation = std(data) / sqrt(12); % Approximate standard deviation for a uniform distribution
+            fprintf('Uniform Distribution:\n');
+            fprintf('Mean: %.4f\n', mean_value);
+            fprintf('Median: %.4f\n', median_value);
+            fprintf('Standard Deviation: %.4f\n', std_deviation);     
     end   
 end
