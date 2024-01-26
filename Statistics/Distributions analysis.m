@@ -73,4 +73,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
         otherwise
             error('Invalid distribution type. Supported types: normal, poisson, binomial, uniform, exponential, gamma');
     end   
+
+    % Skewness and Kurtosis
+    skewness_value = skewness(data);
+    kurtosis_value = kurtosis(data);
+    fprintf('Skewness: %.4f\n', skewness_value);
+    fprintf('Kurtosis: %.4f\n', kurtosis_value);
 end
