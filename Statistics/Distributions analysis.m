@@ -100,7 +100,9 @@ function analyze_distribution(data, distribution_type, confidence_level)
         case 'binomial'
             n = length(data);
             p = mean(data) / n;
-            pdf_values = binopdf(edges, n, p);    
+            pdf_values = binopdf(edges, n, p); 
+        case 'uniform'
+            pdf_values = unifpdf(edges, min(data), max(data));
     end
     
 end
