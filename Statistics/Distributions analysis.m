@@ -110,5 +110,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
         otherwise
             error('Invalid distribution type for PDF/PMF plotting.');
     end
+
+    plot(edges, pdf_values, 'LineWidth', 2);
+    title(sprintf('%s Distribution and PDF', distribution_type));
+    xlabel('Values');
+    ylabel('Probability');
     
 end
