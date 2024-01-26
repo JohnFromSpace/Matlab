@@ -107,6 +107,8 @@ function analyze_distribution(data, distribution_type, confidence_level)
             pdf_values = exppdf(edges, 1 / mean(data));
         case 'gamma'
             pdf_values = gampdf(edges, alpha, beta);
+        otherwise
+            error('Invalid distribution type for PDF/PMF plotting.');
     end
     
 end
