@@ -85,4 +85,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
         confidence_interval = CI(data, confidence_level);
         fprintf('Confidence Interval (%.1f%%): [%.4f, %.4f]\n', confidence_level*100, confidence_interval(1), confidence_interval(2));
     end
+
+    % Probability Density Function (PDF) or Probability Mass Function (PMF)
+    figure;
+    edges = linspace(min(data), max(data), 100);
+    histogram(data, 'Normalization', 'probability', 'EdgeColor', 'white');
+    hold on;
 end
