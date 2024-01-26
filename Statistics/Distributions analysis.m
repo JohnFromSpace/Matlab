@@ -97,7 +97,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
             pdf_values = normpdf(edges, mean(data), std(data));
         case 'poisson'
             pdf_values = poisspdf(edges, mean(data));
-            
+        case 'binomial'
+            n = length(data);
+            p = mean(data) / n;
+            pdf_values = binopdf(edges, n, p);    
     end
     
 end
