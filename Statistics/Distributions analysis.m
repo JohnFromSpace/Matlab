@@ -103,6 +103,8 @@ function analyze_distribution(data, distribution_type, confidence_level)
             pdf_values = binopdf(edges, n, p); 
         case 'uniform'
             pdf_values = unifpdf(edges, min(data), max(data));
+        case 'exponential'
+            pdf_values = exppdf(edges, 1 / mean(data));
     end
     
 end
