@@ -103,6 +103,11 @@ function analyze_distribution(data, distribution_type, confidence_level)
     title('Box Plot');
     xlabel('Variables');
     ylabel('Values');
+
+    % Q-Q Plot
+    figure;
+    qqplot(data);
+    title('Q-Q Plot');
     
     % Probability Density Function (PDF) or Probability Mass Function (PMF)
     figure;
