@@ -14,5 +14,16 @@ function analyze_distribution(data, distribution_type, confidence_level)
             fprintf('Mean: %.4f\n', mean_value);
             fprintf('Median: %.4f\n', median_value);
             fprintf('Standard Deviation: %.4f\n', std_deviation);
+
+        case 'poisson'
+            % For Poisson distribution
+            lambda = mean(data); % Poisson distribution parameter
+            mean_value = lambda;
+            median_value = floor(lambda + 1 / 3 - 0.02 / lambda);
+            std_deviation = sqrt(lambda);
+            fprintf('Poisson Distribution:\n');
+            fprintf('Mean: %.4f\n', mean_value);
+            fprintf('Median: %.4f\n', median_value);
+            fprintf('Standard Deviation: %.4f\n', std_deviation);
     end   
 end
