@@ -130,3 +130,8 @@ function interval = CI(data, confidence_level)
     z_value = norminv(1 - alpha/2);
     interval = mu + z_value * sigma / sqrt(length(data));    
 end
+
+% Interacive Plotting (it requires MATLAB version R2020a or later, which supports data cursors with custom data tips)
+function txt = custom_datatip(~, event_obj, data, distribution_type)
+    
+end
