@@ -105,6 +105,8 @@ function analyze_distribution(data, distribution_type, confidence_level)
             pdf_values = unifpdf(edges, min(data), max(data));
         case 'exponential'
             pdf_values = exppdf(edges, 1 / mean(data));
+        case 'gamma'
+            pdf_values = gampdf(edges, alpha, beta);
     end
     
 end
