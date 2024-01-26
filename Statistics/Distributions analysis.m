@@ -74,6 +74,17 @@ function analyze_distribution(data, distribution_type, confidence_level)
             error('Invalid distribution type. Supported types: normal, poisson, binomial, uniform, exponential, gamma');
     end   
 
+    % Additional Statistical Measures
+    if size(data, 2) > 1
+        % Covariance and Correlation
+        covariance_matrix = cov(data);
+        correlation_matrix = corrcoef(data);
+        disp('Covariance Matrix:');
+        disp(covariance_matrix);
+        disp('Correlation Coefficients:');
+        disp(correlation_matrix);
+    end
+    
     % Skewness and Kurtosis
     skewness_value = skewness(data);
     kurtosis_value = kurtosis(data);
