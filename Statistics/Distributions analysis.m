@@ -95,7 +95,9 @@ function analyze_distribution(data, distribution_type, confidence_level)
     switch distribution_type
         case 'normal'
             pdf_values = normpdf(edges, mean(data), std(data));
-        
+        case 'poisson'
+            pdf_values = poisspdf(edges, mean(data));
+            
     end
     
 end
