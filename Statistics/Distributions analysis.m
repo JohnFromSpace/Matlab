@@ -91,4 +91,11 @@ function analyze_distribution(data, distribution_type, confidence_level)
     edges = linspace(min(data), max(data), 100);
     histogram(data, 'Normalization', 'probability', 'EdgeColor', 'white');
     hold on;
+
+    switch distribution_type
+        case 'normal'
+            pdf_values = normpdf(edges, mean(data), std(data));
+        
+    end
+    
 end
