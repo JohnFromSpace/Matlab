@@ -124,5 +124,9 @@ function analyze_distribution(data, distribution_type, confidence_level)
 end
 
 function interval = CI(data, confidence_level)
-    
+    % Calculate confidence interval for the mean
+    alpha = 1 - confidence_level;
+    [mu, sigma] = normfit(data);
+    z_value = norminv(1 - alpha/2);
+    interval = mu + z_value * sigma / sqrt(length(data));    
 end
