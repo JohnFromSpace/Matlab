@@ -115,5 +115,10 @@ function analyze_distribution(data, distribution_type, confidence_level)
     title(sprintf('%s Distribution and PDF', distribution_type));
     xlabel('Values');
     ylabel('Probability');
+
+    % Interactive Plotting (it requires MATLAB version R2020a or later, which supports data cursors with custom data tips)
+    dcm = datacursormode(gcf);
+    set(dcm, 'UpdateFcn', @(obj,event_obj) custom_datatip(obj, event_obj, data, distribution_type));
+    datacursormode on;
     
 end
