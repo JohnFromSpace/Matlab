@@ -97,6 +97,13 @@ function analyze_distribution(data, distribution_type, confidence_level)
         fprintf('Confidence Interval (%.1f%%): [%.4f, %.4f]\n', confidence_level*100, confidence_interval(1), confidence_interval(2));
     end
 
+    % Box Plot
+    figure;
+    boxplot(data);
+    title('Box Plot');
+    xlabel('Variables');
+    ylabel('Values');
+    
     % Probability Density Function (PDF) or Probability Mass Function (PMF)
     figure;
     edges = linspace(min(data), max(data), 100);
