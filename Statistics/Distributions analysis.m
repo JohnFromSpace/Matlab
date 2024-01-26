@@ -117,6 +117,13 @@ function analyze_distribution(data, distribution_type, confidence_level)
     [~, anderson_stat, anderson_critical_values] = adtest(data);
     fprintf('Anderson-Darling Test Statistic: %.4f\n', anderson_stat);
     fprintf('Anderson-Darling Test Critical Values: %.4f\n', anderson_critical_values);
+
+    % Empirical Cumulative Distribution Function (ECDF)
+    figure;
+    ecdf(data);
+    title('Empirical Cumulative Distribution Function (ECDF)');
+    xlabel('Values');
+    ylabel('Cumulative Probability');
     
     % Probability Density Function (PDF) or Probability Mass Function (PMF)
     figure;
