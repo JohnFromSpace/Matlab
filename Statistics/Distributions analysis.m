@@ -133,5 +133,7 @@ end
 
 % Interacive Plotting (it requires MATLAB version R2020a or later, which supports data cursors with custom data tips)
 function txt = custom_datatip(~, event_obj, data, distribution_type)
-    
+    idx = get(event_obj, 'DataIndex');
+    value = data(idx);
+    txt = {sprintf('Value: %.4f', value); sprintf('Distribution: %s', distribution_type)};    
 end
