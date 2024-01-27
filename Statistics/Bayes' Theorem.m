@@ -24,3 +24,6 @@ end
 
 % Calculate the marginal probability of event B
 prob_B = prior_prob_A * prob_B_given_A + prior_prob_B * (1 - prob_A_given_B);
+
+% Apply Bayes' Theorem to calculate the posterior probability of event A given B
+posterior_prob_A_given_B = (prior_prob_A * prob_B_given_A) / prob_B;
