@@ -12,4 +12,9 @@ while true
     % Get user input for conditional probabilities
     prob_B_given_A = input(['Enter the probability of ' event_B_name ' given ' event_A_name ' (between 0 and 1): ']);
     prob_A_given_B = input(['Enter the probability of ' event_A_name ' given ' event_B_name ' (between 0 and 1): ']);
+
+    % Check if input probabilities are valid
+    if is_valid_probability(prior_prob_A) && is_valid_probability(prior_prob_B) && ...
+       is_valid_probability(prob_B_given_A) && is_valid_probability(prob_A_given_B)
+        break;
 end
