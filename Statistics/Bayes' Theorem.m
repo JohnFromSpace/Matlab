@@ -21,3 +21,6 @@ while true
         disp('Invalid input. Probabilities must be between 0 and 1. Please try again.');
     end
 end
+
+% Calculate the marginal probability of event B
+prob_B = prior_prob_A * prob_B_given_A + prior_prob_B * (1 - prob_A_given_B);
