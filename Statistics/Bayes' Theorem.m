@@ -42,3 +42,8 @@ title('Probabilities');
 ylabel('Probability');
 xticks(1:5);
 xticklabels({'Prior A', 'Prior B', ['P(' event_B_name '|', event_A_name, ')'], ['P(' event_A_name '|', event_B_name, ')'], ['Posterior ', event_A_name, '|', event_B_name]});
+
+% Function to check if a probability is valid
+function valid = is_valid_probability(prob)
+    valid = isscalar(prob) && isnumeric(prob) && prob >= 0 && prob <= 1;
+end
