@@ -35,3 +35,10 @@ disp(['Prior probability of ' event_B_name ': ' num2str(prior_prob_B)]);
 disp(['Probability of ' event_B_name ' given ' event_A_name ': ' num2str(prob_B_given_A)]);
 disp(['Probability of ' event_A_name ' given ' event_B_name ': ' num2str(prob_A_given_B)]);
 disp(['Posterior probability of ' event_A_name ' given ' event_B_name ': ' num2str(posterior_prob_A_given_B)]);
+
+% Plot probabilities on a bar chart
+bar([prior_prob_A, prior_prob_B, prob_B_given_A, prob_A_given_B, posterior_prob_A_given_B]);
+title('Probabilities');
+ylabel('Probability');
+xticks(1:5);
+xticklabels({'Prior A', 'Prior B', ['P(' event_B_name '|', event_A_name, ')'], ['P(' event_A_name '|', event_B_name, ')'], ['Posterior ', event_A_name, '|', event_B_name]});
