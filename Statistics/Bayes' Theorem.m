@@ -17,4 +17,7 @@ while true
     if is_valid_probability(prior_prob_A) && is_valid_probability(prior_prob_B) && ...
        is_valid_probability(prob_B_given_A) && is_valid_probability(prob_A_given_B)
         break;
+    else
+        disp('Invalid input. Probabilities must be between 0 and 1. Please try again.');
+    end
 end
