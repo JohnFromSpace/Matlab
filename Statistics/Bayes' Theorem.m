@@ -27,3 +27,11 @@ prob_B = prior_prob_A * prob_B_given_A + prior_prob_B * (1 - prob_A_given_B);
 
 % Apply Bayes' Theorem to calculate the posterior probability of event A given B
 posterior_prob_A_given_B = (prior_prob_A * prob_B_given_A) / prob_B;
+
+% Display the results
+disp('Results:');
+disp(['Prior probability of ' event_A_name ': ' num2str(prior_prob_A)]);
+disp(['Prior probability of ' event_B_name ': ' num2str(prior_prob_B)]);
+disp(['Probability of ' event_B_name ' given ' event_A_name ': ' num2str(prob_B_given_A)]);
+disp(['Probability of ' event_A_name ' given ' event_B_name ': ' num2str(prob_A_given_B)]);
+disp(['Posterior probability of ' event_A_name ' given ' event_B_name ': ' num2str(posterior_prob_A_given_B)]);
