@@ -212,3 +212,10 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
         disp(['Plot saved as ', fileName, '.png']);
     end
 end
+
+function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation(userBirthRank, totalHumansEstimate, numSimulations, histogramRange)
+    % Monte Carlo simulation to visualize the probability distribution
+
+    % Generate random birth ranks for simulation
+    simulatedBirthRanks = randi([1, totalHumansEstimate], 1, numSimulations);
+end
