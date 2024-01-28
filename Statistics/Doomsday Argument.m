@@ -9,6 +9,9 @@ function doomsdayArgument()
         try
             % Prompt the user for their birth rank
             userBirthRank = input('Enter your birth rank among all humans who will ever live: ');
+
+            % Prompt the user for the total estimated human population
+            totalHumansEstimate = input('Enter the estimated total number of humans who will ever live: ');
         end
     end
 end
