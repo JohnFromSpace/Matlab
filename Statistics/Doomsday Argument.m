@@ -75,6 +75,10 @@ function doomsdayArgument()
                 break;
             end
             
+        catch exception
+            % Display error message and allow the user to try again
+            disp(exception.message);
         end
     end
+    
 end
