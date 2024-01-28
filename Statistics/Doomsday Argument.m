@@ -250,4 +250,11 @@ function exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate,
 
     % Create or open the text file for writing
     fileId = fopen([exportFileName, '.txt'], 'w');
+
+    % Write header information
+    fprintf(fileId, 'Doomsday Argument Estimation Results\n');
+    fprintf(fileId, '-----------------------------------\n\n');
+    fprintf(fileId, 'User Input:\n');
+    fprintf(fileId, 'Birth Rank: %d\n', userBirthRank);
+    fprintf(fileId, 'Total Estimated Human Population: %d\n\n', totalHumansEstimate);
 end
