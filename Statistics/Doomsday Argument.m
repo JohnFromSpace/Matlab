@@ -203,4 +203,12 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
 
     legend('Location', 'Best');
     hold off;
+
+    % Option to save the plot as an image file
+    saveAsImage = input('Do you want to save the plot as an image file? (yes/no): ', 's');
+    if strcmpi(saveAsImage, 'yes')
+        fileName = input('Enter the file name (e.g., sensitivity_analysis_plot): ', 's');
+        saveas(gcf, [fileName, '.png']);
+        disp(['Plot saved as ', fileName, '.png']);
+    end
 end
