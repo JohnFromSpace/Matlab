@@ -67,6 +67,14 @@ function doomsdayArgument()
                     exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate, probabilityOfDoomsday, confidenceInterval, actualBirthRank, numSimulations, simulatedProbabilities, actualSimulationResult);
                     disp(['Results exported to ', exportFileName, '.txt']);
                 end
+            end
+
+            % Ask the user if they want to run the program again
+            runAgain = input('Do you want to run the program again? (yes/no): ', 's');
+            if ~strcmpi(runAgain, 'yes')
+                break;
+            end
+            
         end
     end
 end
