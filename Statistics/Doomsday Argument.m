@@ -43,6 +43,8 @@ function doomsdayArgument()
                 actualBirthRank = round(totalHumansEstimate * probabilityOfDoomsday);
                 fprintf('Your estimated probability corresponds to around birth rank %d\n', actualBirthRank);
 
+                % Option to run Monte Carlo simulation
+                runSimulation = input('Do you want to run a Monte Carlo simulation to visualize the probability distribution? (yes/no): ', 's');
         end
     end
 end
