@@ -73,12 +73,12 @@ function doomsdayArgument()
             runAgain = input('Do you want to run the program again? (yes/no): ', 's');
             if ~strcmpi(runAgain, 'yes')
                 break;
-            end
-            
+            end 
         catch exception
             % Display error message and allow the user to try again
             disp(exception.message);
         end
     end
     
+    disp('Thank you for using the Doomsday Argument Estimator!');
 end
