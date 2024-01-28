@@ -161,3 +161,11 @@ function plotSensitivityAnalysis(totalHumansEstimates, probabilities, confidence
     legend('Probability', 'Confidence Intervals', 'Location', 'Best');
     hold off;
 end
+
+function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, confidenceIntervals)
+    % Visualize multiple sensitivity analyses on a single plot
+
+    % Prompt the user for customization options
+    customPlot = input('Do you want to customize the multiple sensitivity analyses plot? (yes/no): ', 's');
+
+end
