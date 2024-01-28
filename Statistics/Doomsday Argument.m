@@ -96,4 +96,11 @@ function performSensitivityAnalysis(userBirthRank)
     probabilities = zeros(size(totalHumansEstimates));
     confidenceIntervals = zeros(length(totalHumansEstimates), 2);
 
+    % Perform sensitivity analysis
+    for i = 1:length(totalHumansEstimates)
+        % Symbolic math for the integration
+        syms x;
+        doomsdayFunction = x / totalHumansEstimates(i);
+        probabilities(i) = double(int(doomsdayFunction, x, 1, userBirthRank));
+    end
 end
