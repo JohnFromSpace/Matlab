@@ -102,5 +102,11 @@ function performSensitivityAnalysis(userBirthRank)
         syms x;
         doomsdayFunction = x / totalHumansEstimates(i);
         probabilities(i) = double(int(doomsdayFunction, x, 1, userBirthRank));
+
+        % Calculate confidence intervals (e.g., 95% confidence)
+        alpha = 1 - 0.95;
+        z = norminv(1 - alpha / 2);
+        standardError = sqrt(probabilities(i) * (1 - probabilities(i)) / totalHumansEstimates(i));
+        confidenceIntervals(i, :) = [probabilities(i) - z * standardError, probabilities(i) + z * standardError];
     end
 end
