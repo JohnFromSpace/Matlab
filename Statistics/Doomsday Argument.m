@@ -49,6 +49,9 @@ function doomsdayArgument()
                 if strcmpi(runSimulation, 'yes')
                     % Prompt the user for the number of simulation runs
                     numSimulations = input('Enter the number of simulation runs: ');
+
+                    % Prompt the user for the histogram range
+                    histogramRange = input('Enter the histogram range (e.g., [0 1]): ');
                 end
                     
         end
