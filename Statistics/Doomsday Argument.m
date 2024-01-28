@@ -17,6 +17,11 @@ function doomsdayArgument()
             if ~isnumeric(userBirthRank) || ~isnumeric(totalHumansEstimate) || userBirthRank <= 0 || totalHumansEstimate <= 0
                 error('Please enter valid positive numerical values for birth rank and total human population estimate.');
             end
+
+             % Perform sensitivity analysis
+            sensitivityAnalysis = input('Do you want to perform sensitivity analysis by varying the total estimated human population? (yes/no): ', 's');
+            if strcmpi(sensitivityAnalysis, 'yes')
+                performSensitivityAnalysis(userBirthRank);
         end
     end
 end
