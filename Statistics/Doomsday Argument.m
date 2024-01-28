@@ -27,6 +27,13 @@ function doomsdayArgument()
                 syms x;
                 doomsdayFunction = x / totalHumansEstimate;
                 probabilityOfDoomsday = double(int(doomsdayFunction, x, 1, userBirthRank));
+
+                % Calculate confidence intervals (e.g., 95% confidence)
+                confidenceLevel = 0.95;
+                alpha = 1 - confidenceLevel;
+                z = norminv(1 - alpha / 2);
+                standardError = sqrt(probabilityOfDoomsday * (1 - probabilityOfDoomsday) / totalHumansEstimate);
+                confidenceInterval = [probabilityOfDoomsday - z * standardError, probabilityOfDoomsday + z * standardError];
         end
     end
 end
