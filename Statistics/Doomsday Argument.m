@@ -112,4 +112,11 @@ function performSensitivityAnalysis(userBirthRank)
 
     % Option to visualize multiple sensitivity analyses on a single plot
     visualizeMultipleAnalyses = input('Do you want to visualize multiple sensitivity analyses on a single plot? (yes/no): ', 's');
+
+    if strcmpi(visualizeMultipleAnalyses, 'yes')
+        plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, confidenceIntervals);
+    else
+        % Plot sensitivity analysis results
+        plotSensitivityAnalysis(totalHumansEstimates, probabilities, confidenceIntervals);
+    end
 end
