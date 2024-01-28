@@ -226,4 +226,9 @@ function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation
     figure;
     ksdensity(simulatedProbabilities, 'Bandwidth', 0.1);
     hold on;
+
+    % Plot the Doomsday Argument probability line
+    x = linspace(0, 1, 1000);
+    y = x / totalHumansEstimate;
+    plot(x, y, 'LineWidth', 2, 'Color', 'red');
 end
