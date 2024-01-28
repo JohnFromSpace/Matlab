@@ -174,4 +174,8 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
 
         % Prompt the user for confidence interval display
         displayConfidenceInterval = input('Do you want to display confidence intervals on the plot? (yes/no): ', 's');
+    else
+        yRange = [];
+        displayConfidenceInterval = 'no';
+    end
 end
