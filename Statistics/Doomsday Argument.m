@@ -231,4 +231,10 @@ function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation
     x = linspace(0, 1, 1000);
     y = x / totalHumansEstimate;
     plot(x, y, 'LineWidth', 2, 'Color', 'red');
+
+    xlabel('Probability');
+    ylabel('Kernel Density Estimation');
+    title('Monte Carlo Simulation of Doomsday Argument Probability Distribution');
+    legend('Simulated Distribution (KDE)', 'Doomsday Argument');
+    grid on;
 end
