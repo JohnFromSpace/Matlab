@@ -257,4 +257,10 @@ function exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate,
     fprintf(fileId, 'User Input:\n');
     fprintf(fileId, 'Birth Rank: %d\n', userBirthRank);
     fprintf(fileId, 'Total Estimated Human Population: %d\n\n', totalHumansEstimate);
+
+    % Write estimation results
+    fprintf(fileId, 'Estimation Results:\n');
+    fprintf(fileId, 'Estimated Probability of the World Ending Soon: %.2f%%\n', probabilityOfDoomsday * 100);
+    fprintf(fileId, 'Confidence Interval (95%%): [%.2f%%, %.2f%%]\n', confidenceInterval * 100);
+    fprintf(fileId, 'Estimated Birth Rank for the Probability: %d\n\n', actualBirthRank);
 end
