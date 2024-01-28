@@ -137,4 +137,9 @@ function plotSensitivityAnalysis(totalHumansEstimates, probabilities, confidence
         yRange = [];
         displayConfidenceInterval = 'no';
     end
+
+    % Plot sensitivity analysis results
+    figure;
+    plot(totalHumansEstimates, probabilities, 'LineWidth', 2);
+    hold on;
 end
