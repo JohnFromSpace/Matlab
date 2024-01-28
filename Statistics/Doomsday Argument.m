@@ -195,4 +195,12 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
     ylabel('Probability of World Ending Soon');
     title('Multiple Sensitivity Analyses of Doomsday Argument');
     grid on;
+
+    % Customize the plot
+    if ~isempty(yRange)
+        ylim(yRange);
+    end
+
+    legend('Location', 'Best');
+    hold off;
 end
