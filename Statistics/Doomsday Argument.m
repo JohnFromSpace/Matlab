@@ -12,6 +12,11 @@ function doomsdayArgument()
 
             % Prompt the user for the total estimated human population
             totalHumansEstimate = input('Enter the estimated total number of humans who will ever live: ');
+
+            % Validate inputs
+            if ~isnumeric(userBirthRank) || ~isnumeric(totalHumansEstimate) || userBirthRank <= 0 || totalHumansEstimate <= 0
+                error('Please enter valid positive numerical values for birth rank and total human population estimate.');
+            end
         end
     end
 end
