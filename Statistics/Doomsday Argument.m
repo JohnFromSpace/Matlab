@@ -90,4 +90,10 @@ function performSensitivityAnalysis(userBirthRank)
     lowerLimit = input('Enter the lower limit of total estimated human population: ');
     upperLimit = input('Enter the upper limit of total estimated human population: ');
     stepSize = input('Enter the step size for sensitivity analysis: ');
+
+    % Initialize arrays to store results
+    totalHumansEstimates = lowerLimit:stepSize:upperLimit;
+    probabilities = zeros(size(totalHumansEstimates));
+    confidenceIntervals = zeros(length(totalHumansEstimates), 2);
+
 end
