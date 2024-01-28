@@ -142,4 +142,9 @@ function plotSensitivityAnalysis(totalHumansEstimates, probabilities, confidence
     figure;
     plot(totalHumansEstimates, probabilities, 'LineWidth', 2);
     hold on;
+
+    % Plot confidence intervals if requested
+    if strcmpi(displayConfidenceInterval, 'yes')
+        fill([totalHumansEstimates, fliplr(totalHumansEstimates)], [confidenceIntervals(:, 1)', fliplr(confidenceIntervals(:, 2)')], [0.8 0.8 0.8], 'EdgeColor', 'none');
+    end
 end
