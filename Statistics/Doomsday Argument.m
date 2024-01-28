@@ -45,6 +45,12 @@ function doomsdayArgument()
 
                 % Option to run Monte Carlo simulation
                 runSimulation = input('Do you want to run a Monte Carlo simulation to visualize the probability distribution? (yes/no): ', 's');
+
+                if strcmpi(runSimulation, 'yes')
+                    % Prompt the user for the number of simulation runs
+                    numSimulations = input('Enter the number of simulation runs: ');
+                end
+                    
         end
     end
 end
