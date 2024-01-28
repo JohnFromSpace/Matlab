@@ -39,7 +39,10 @@ function doomsdayArgument()
                 fprintf('Estimated probability of the world ending soon: %.2f%%\n', probabilityOfDoomsday * 100);
                 fprintf('Confidence interval ( %.0f%% ): [%.2f%%, %.2f%%]\n', confidenceLevel * 100, confidenceInterval * 100);
 
-                
+                % Display actual birth rank for the estimated probability
+                actualBirthRank = round(totalHumansEstimate * probabilityOfDoomsday);
+                fprintf('Your estimated probability corresponds to around birth rank %d\n', actualBirthRank);
+
         end
     end
 end
