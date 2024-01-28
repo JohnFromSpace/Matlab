@@ -263,4 +263,12 @@ function exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate,
     fprintf(fileId, 'Estimated Probability of the World Ending Soon: %.2f%%\n', probabilityOfDoomsday * 100);
     fprintf(fileId, 'Confidence Interval (95%%): [%.2f%%, %.2f%%]\n', confidenceInterval * 100);
     fprintf(fileId, 'Estimated Birth Rank for the Probability: %d\n\n', actualBirthRank);
+
+    % Write Monte Carlo simulation results if applicable
+    if exist('numSimulations', 'var') && exist('simulatedProbabilities', 'var') && exist('actualSimulationResult', 'var')
+        fprintf(fileId, 'Monte Carlo Simulation Results:\n');
+        fprintf(fileId, 'Number of Simulations: %d\n', numSimulations);
+        fprintf(fileId, 'Simulated Birth Ranks: %s\n', mat2str(simulatedProbabilities));
+        fprintf(fileId, 'Actual Birth Rank for the Estimated Probability: %d\n\n', actualSimulationResult);
+    end
 end
