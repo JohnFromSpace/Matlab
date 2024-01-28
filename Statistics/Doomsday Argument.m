@@ -168,4 +168,10 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
     % Prompt the user for customization options
     customPlot = input('Do you want to customize the multiple sensitivity analyses plot? (yes/no): ', 's');
 
+    if strcmpi(customPlot, 'yes')
+        % Prompt the user for y-axis range
+        yRange = input('Enter the y-axis range (e.g., [0 1]): ');
+
+        % Prompt the user for confidence interval display
+        displayConfidenceInterval = input('Do you want to display confidence intervals on the plot? (yes/no): ', 's');
 end
