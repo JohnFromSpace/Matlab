@@ -184,5 +184,10 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
     for i = 1:size(probabilities, 1)
         plot(totalHumansEstimates, probabilities(i, :), 'LineWidth', 2, 'DisplayName', ['Analysis ' num2str(i)]);
         hold on;
+
+        % Plot confidence intervals if requested
+        if strcmpi(displayConfidenceInterval, 'yes')
+            fill([totalHumansEstimates, fliplr(totalHumansEstimates)], [confidenceIntervals(i, :, 1), fliplr(confidenceIntervals(i, :, 2))], [0.8 0.8 0.8], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+        end
     end
 end
