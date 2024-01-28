@@ -109,4 +109,7 @@ function performSensitivityAnalysis(userBirthRank)
         standardError = sqrt(probabilities(i) * (1 - probabilities(i)) / totalHumansEstimates(i));
         confidenceIntervals(i, :) = [probabilities(i) - z * standardError, probabilities(i) + z * standardError];
     end
+
+    % Option to visualize multiple sensitivity analyses on a single plot
+    visualizeMultipleAnalyses = input('Do you want to visualize multiple sensitivity analyses on a single plot? (yes/no): ', 's');
 end
