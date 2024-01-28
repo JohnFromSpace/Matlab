@@ -221,4 +221,9 @@ function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation
 
     % Calculate probabilities for each simulated birth rank
     simulatedProbabilities = simulatedBirthRanks / totalHumansEstimate;
+
+    % Plot kernel density estimation for smoother visualization
+    figure;
+    ksdensity(simulatedProbabilities, 'Bandwidth', 0.1);
+    hold on;
 end
