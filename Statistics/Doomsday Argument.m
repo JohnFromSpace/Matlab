@@ -62,7 +62,11 @@ function doomsdayArgument()
 
                 % Option to export results to a text file
                 exportResults = input('Do you want to export the results to a text file? (yes/no): ', 's');
-                
+                if strcmpi(exportResults, 'yes')
+                    exportFileName = input('Enter the export file name (e.g., doomsday_results): ', 's');
+                    exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate, probabilityOfDoomsday, confidenceInterval, actualBirthRank, numSimulations, simulatedProbabilities, actualSimulationResult);
+                    disp(['Results exported to ', exportFileName, '.txt']);
+                end
         end
     end
 end
