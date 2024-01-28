@@ -271,4 +271,10 @@ function exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate,
         fprintf(fileId, 'Simulated Birth Ranks: %s\n', mat2str(simulatedProbabilities));
         fprintf(fileId, 'Actual Birth Rank for the Estimated Probability: %d\n\n', actualSimulationResult);
     end
+
+    % Write closing message
+    fprintf(fileId, 'Thank you for using the Doomsday Argument Estimator!\n');
+
+    % Close the file
+    fclose(fileId);
 end
