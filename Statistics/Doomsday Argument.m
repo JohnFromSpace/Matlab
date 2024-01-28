@@ -218,4 +218,7 @@ function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation
 
     % Generate random birth ranks for simulation
     simulatedBirthRanks = randi([1, totalHumansEstimate], 1, numSimulations);
+
+    % Calculate probabilities for each simulated birth rank
+    simulatedProbabilities = simulatedBirthRanks / totalHumansEstimate;
 end
