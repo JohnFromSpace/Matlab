@@ -59,7 +59,10 @@ function doomsdayArgument()
                     % Display actual birth rank for the simulated probability
                     fprintf('In the Monte Carlo simulation, your estimated probability corresponds to around birth rank %d\n', actualSimulationResult);
                 end
-                    
+
+                % Option to export results to a text file
+                exportResults = input('Do you want to export the results to a text file? (yes/no): ', 's');
+                
         end
     end
 end
