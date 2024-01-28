@@ -178,4 +178,11 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
         yRange = [];
         displayConfidenceInterval = 'no';
     end
+
+    % Plot multiple sensitivity analyses
+    figure;
+    for i = 1:size(probabilities, 1)
+        plot(totalHumansEstimates, probabilities(i, :), 'LineWidth', 2, 'DisplayName', ['Analysis ' num2str(i)]);
+        hold on;
+    end
 end
