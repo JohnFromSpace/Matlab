@@ -190,4 +190,9 @@ function plotMultipleSensitivityAnalyses(totalHumansEstimates, probabilities, co
             fill([totalHumansEstimates, fliplr(totalHumansEstimates)], [confidenceIntervals(i, :, 1), fliplr(confidenceIntervals(i, :, 2))], [0.8 0.8 0.8], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
         end
     end
+
+    xlabel('Total Estimated Human Population');
+    ylabel('Probability of World Ending Soon');
+    title('Multiple Sensitivity Analyses of Doomsday Argument');
+    grid on;
 end
