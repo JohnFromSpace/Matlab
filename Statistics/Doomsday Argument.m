@@ -22,6 +22,11 @@ function doomsdayArgument()
             sensitivityAnalysis = input('Do you want to perform sensitivity analysis by varying the total estimated human population? (yes/no): ', 's');
             if strcmpi(sensitivityAnalysis, 'yes')
                 performSensitivityAnalysis(userBirthRank);
+            else
+                % Symbolic math for the integration
+                syms x;
+                doomsdayFunction = x / totalHumansEstimate;
+                probabilityOfDoomsday = double(int(doomsdayFunction, x, 1, userBirthRank));
         end
     end
 end
