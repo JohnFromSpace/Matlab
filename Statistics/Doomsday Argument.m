@@ -84,5 +84,10 @@ function doomsdayArgument()
 end
 
 function performSensitivityAnalysis(userBirthRank)
+    % Perform sensitivity analysis by varying the total estimated human population
 
+    % Prompt the user for sensitivity analysis parameters
+    lowerLimit = input('Enter the lower limit of total estimated human population: ');
+    upperLimit = input('Enter the upper limit of total estimated human population: ');
+    stepSize = input('Enter the step size for sensitivity analysis: ');
 end
