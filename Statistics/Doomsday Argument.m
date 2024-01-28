@@ -237,4 +237,10 @@ function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation
     title('Monte Carlo Simulation of Doomsday Argument Probability Distribution');
     legend('Simulated Distribution (KDE)', 'Doomsday Argument');
     grid on;
+
+    % Find the actual birth rank for the user's estimated probability
+    [~, idx] = min(abs(simulatedProbabilities - userBirthRank / totalHumansEstimate));
+    actualSimulationResult = simulatedBirthRanks(idx);
+
+    hold off;
 end
