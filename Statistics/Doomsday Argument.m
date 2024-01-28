@@ -52,6 +52,9 @@ function doomsdayArgument()
 
                     % Prompt the user for the histogram range
                     histogramRange = input('Enter the histogram range (e.g., [0 1]): ');
+
+                    % Run Monte Carlo simulation
+                    [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation(userBirthRank, totalHumansEstimate, numSimulations, histogramRange);
                 end
                     
         end
