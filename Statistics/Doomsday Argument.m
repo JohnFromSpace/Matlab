@@ -82,3 +82,7 @@ function doomsdayArgument()
     
     disp('Thank you for using the Doomsday Argument Estimator!');
 end
+
+function performSensitivityAnalysis(userBirthRank)
+
+end
