@@ -244,3 +244,10 @@ function [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation
 
     hold off;
 end
+
+function exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate, probabilityOfDoomsday, confidenceInterval, actualBirthRank, numSimulations, simulatedProbabilities, actualSimulationResult)
+    % Export results to a text file
+
+    % Create or open the text file for writing
+    fileId = fopen([exportFileName, '.txt'], 'w');
+end
