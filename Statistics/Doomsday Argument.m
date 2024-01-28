@@ -147,4 +147,9 @@ function plotSensitivityAnalysis(totalHumansEstimates, probabilities, confidence
     if strcmpi(displayConfidenceInterval, 'yes')
         fill([totalHumansEstimates, fliplr(totalHumansEstimates)], [confidenceIntervals(:, 1)', fliplr(confidenceIntervals(:, 2)')], [0.8 0.8 0.8], 'EdgeColor', 'none');
     end
+
+    xlabel('Total Estimated Human Population');
+    ylabel('Probability of World Ending Soon');
+    title('Sensitivity Analysis of Doomsday Argument');
+    grid on;
 end
