@@ -55,6 +55,9 @@ function doomsdayArgument()
 
                     % Run Monte Carlo simulation
                     [simulatedProbabilities, actualSimulationResult] = monteCarloSimulation(userBirthRank, totalHumansEstimate, numSimulations, histogramRange);
+
+                    % Display actual birth rank for the simulated probability
+                    fprintf('In the Monte Carlo simulation, your estimated probability corresponds to around birth rank %d\n', actualSimulationResult);
                 end
                     
         end
