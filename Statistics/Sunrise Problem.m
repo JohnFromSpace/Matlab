@@ -68,3 +68,8 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         fprintf('Make sure the SAMPA library is correctly installed and the location and date inputs are valid.\n');
     end
 end    
+
+% Function to calculate moonrise and moonset times
+function [moonriseTime, moonsetTime] = moonrise_set(latitude, longitude, dateNum, timeZone)
+    [moonriseTime, moonsetTime] = lunarTimes(latitude, longitude, dateNum, timeZone, 'riseSet');
+end
