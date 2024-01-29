@@ -174,3 +174,10 @@ yyaxis left;
 plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.moonriseTime)], '-o', 'MarkerSize', 8, 'Color', [0.2 0.8 0.2]);
 ylabel('Moonrise Time');
 datetick('x', 'mmm dd', 'keepticks');
+
+yyaxis right;
+plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.moonsetTime)], '-o', 'MarkerSize', 8, 'Color', [0.8 0.2 0.2]);
+ylabel('Moonset Time');
+datetick('x', 'mmm dd', 'keepticks');
+
+title('Moonrise and Moonset Times');
