@@ -181,3 +181,11 @@ ylabel('Moonset Time');
 datetick('x', 'mmm dd', 'keepticks');
 
 title('Moonrise and Moonset Times');
+
+% Plot 5: Moon Azimuth over Time
+subplot(3, 2, 5);
+plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.moonAzimuth)], '-o', 'MarkerSize', 8, 'Color', [0.2 0.8 0.2]);
+title('Moon Azimuth over Time');
+xlabel('Date');
+ylabel('Moon Azimuth (degrees)');
+datetick('x', 'mmm dd', 'keepticks');
