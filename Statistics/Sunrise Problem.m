@@ -139,3 +139,15 @@ if strcmpi(saveToCSV, 'yes')
     writetable(struct2table(results), filename);
     disp(['Results saved to ', filename]);
 end
+
+% Visualize the results using plots
+figure;
+
+% Plot 1: Duration of Daylight and Civil Twilight
+subplot(3, 2, 1);
+bar(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.daylightDuration), vertcat(results.civilTwilightDuration)], 'stacked');
+title('Duration of Daylight and Civil Twilight');
+xlabel('Date');
+ylabel('Duration (hours)');
+legend('Daylight', 'Civil Twilight');
+datetick('x', 'mmm dd', 'keepticks');
