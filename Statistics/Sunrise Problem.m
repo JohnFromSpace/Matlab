@@ -92,3 +92,11 @@ dateRange = datetime(startDate):datetime(endDate);
 
 % Initialize structure arrays to store results
 results = [];
+
+% Calculate solar information for each date
+for i = 1:length(dateRange)
+    solarInfo = calculateSolarInfo(latitude, longitude, datestr(dateRange(i), 'yyyy-mm-dd'), timeZone);
+    
+    % Append the result to the structure array
+    results = [results; solarInfo];
+end
