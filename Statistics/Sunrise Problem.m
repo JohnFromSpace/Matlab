@@ -115,3 +115,9 @@ end
 disp('-------------------------------------------------------------------------------------------------------------------');
 disp('  Moonrise Time | Moonset Time | Moon Azimuth | Moon Elevation |');
 disp('-------------------------------------------------------------------------------------------------------------------');
+for i = 1:length(results)
+    fprintf('    %s    |    %s    | %.2f degrees | %.2f degrees |\n', ...
+        results(i).moonriseTime, results(i).moonsetTime, ...
+        results(i).moonAzimuth, results(i).moonElevation);
+end
+disp('-------------------------------------------------------------------------------------------------------------------');
