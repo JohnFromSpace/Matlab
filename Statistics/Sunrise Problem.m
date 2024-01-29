@@ -73,3 +73,13 @@ end
 function [moonriseTime, moonsetTime] = moonrise_set(latitude, longitude, dateNum, timeZone)
     [moonriseTime, moonsetTime] = lunarTimes(latitude, longitude, dateNum, timeZone, 'riseSet');
 end
+
+% Main script
+
+% Example location (San Francisco, CA)
+latitude = 37.7749;
+longitude = -122.4194;
+
+% Example date range (start and end dates)
+startDate = '2024-01-01';
+endDate = '2024-12-31';
