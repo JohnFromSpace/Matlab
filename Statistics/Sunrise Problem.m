@@ -106,3 +106,9 @@ disp('Solar and Lunar Information:');
 disp('-------------------------------------------------------------------------------------------------------------------');
 disp('  Latitude   |  Longitude  |    Date    | Time Zone | Sunrise Time | Sunset Time | Solar Noon | Duration of Daylight |');
 disp('-------------------------------------------------------------------------------------------------------------------');
+for i = 1:length(results)
+    fprintf('  %10.4f | %10.4f | %s |   %+02d:00   | %s | %s | %s | %.2f hours |\n', ...
+        results(i).latitude, results(i).longitude, results(i).date, ...
+        results(i).timeZone, results(i).sunriseTime, results(i).sunsetTime, ...
+        results(i).solarNoon, results(i).daylightDuration);
+end
