@@ -167,3 +167,10 @@ title('Solar Elevation over Time');
 xlabel('Date');
 ylabel('Solar Elevation (degrees)');
 datetick('x', 'mmm dd', 'keepticks');
+
+% Plot 4: Moonrise and Moonset Times
+subplot(3, 2, 4);
+yyaxis left;
+plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.moonriseTime)], '-o', 'MarkerSize', 8, 'Color', [0.2 0.8 0.2]);
+ylabel('Moonrise Time');
+datetick('x', 'mmm dd', 'keepticks');
