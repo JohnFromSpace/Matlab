@@ -16,4 +16,11 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         catch
             error('Invalid date format. Please use yyyy-mm-dd format.');
         end
+
+        % Calculate day of the year
+        dayOfYear = day(dateNum, 'dayofyear');
+
+        % Laplace's method for solar calculations
+        h = 360 * (dayOfYear - 81) / 365;
+        delta = 23.45 * sind(h);
 end    
