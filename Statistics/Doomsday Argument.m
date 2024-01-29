@@ -277,4 +277,12 @@ function exportResultsToFile(exportFileName, userBirthRank, totalHumansEstimate,
 
     % Close the file
     fclose(fileId);
+
+    % Save world map plot as an image
+    saveas(gcf, fullfile(foldername, 'world_map.png'));
+    
+    % Visualize solar position on a 3D globe
+    figure;
+    globeplot([results.latitude], [results.longitude], 50, 'o', 'MarkerSize', 8, 'MarkerEdgeColor', [0.2 0.2 0.2], 'MarkerFaceColor', [0.8 0.8 0.8]);
+    title('Solar Position on 3D Globe');
 end
