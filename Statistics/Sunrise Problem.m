@@ -38,4 +38,11 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         % Calculate sunrise and sunset times
         sunriseTime = solarNoonTime - hours(0.5 * abs(h));
         sunsetTime = solarNoonTime + hours(0.5 * abs(h));
+
+        % Calculate moonrise and moonset times
+        [moonriseTime, moonsetTime] = moonrise_set(latitude, longitude, dateNum, timeZone);
+
+        % Calculate moon position over time
+        moonTimes = linspace(moonriseTime, moonsetTime, 100);
+        [~, moonAzimuth, moonElevation] = sampa(moonTimes, latitude, longitude);
 end    
