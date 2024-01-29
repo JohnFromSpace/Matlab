@@ -83,3 +83,12 @@ longitude = -122.4194;
 % Example date range (start and end dates)
 startDate = '2024-01-01';
 endDate = '2024-12-31';
+
+% Specify time zone (e.g., Pacific Time)
+timeZone = -8; % Adjust this based on the location's time zone
+
+% Generate a date array for the given range
+dateRange = datetime(startDate):datetime(endDate);
+
+% Initialize structure arrays to store results
+results = [];
