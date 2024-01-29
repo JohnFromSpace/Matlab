@@ -159,3 +159,11 @@ title('Solar Azimuth over Time');
 xlabel('Date');
 ylabel('Solar Azimuth (degrees)');
 datetick('x', 'mmm dd', 'keepticks');
+
+% Plot 3: Solar Elevation over Time
+subplot(3, 2, 3);
+plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.solarElevation)], '-o', 'MarkerSize', 8, 'Color', [0.2 0.2 0.8]);
+title('Solar Elevation over Time');
+xlabel('Date');
+ylabel('Solar Elevation (degrees)');
+datetick('x', 'mmm dd', 'keepticks');
