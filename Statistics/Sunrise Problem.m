@@ -45,4 +45,20 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         % Calculate moon position over time
         moonTimes = linspace(moonriseTime, moonsetTime, 100);
         [~, moonAzimuth, moonElevation] = sampa(moonTimes, latitude, longitude);
+
+        % Store the results in a structure
+        solarInfo.latitude = latitude;
+        solarInfo.longitude = longitude;
+        solarInfo.date = dateStr;
+        solarInfo.timeZone = timeZone;
+        solarInfo.sunriseTime = datestr(sunriseTime, 'HH:MM:SS');
+        solarInfo.sunsetTime = datestr(sunsetTime, 'HH:MM:SS');
+        solarInfo.daylightDuration = hours(sunsetTime - sunriseTime);
+        solarInfo.solarNoon = datestr(solarNoonTime, 'HH:MM:SS');
+        solarInfo.solarAzimuth = solarAzimuth(maxElevationIdx);
+        solarInfo.solarElevation = solarElevation(maxElevationIdx);
+        solarInfo.moonriseTime = datestr(moonriseTime, 'HH:MM:SS');
+        solarInfo.moonsetTime = datestr(moonsetTime, 'HH:MM:SS');
+        solarInfo.moonAzimuth = moonAzimuth;
+        solarInfo.moonElevation = moonElevation;
 end    
