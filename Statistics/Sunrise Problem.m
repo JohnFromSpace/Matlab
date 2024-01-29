@@ -151,3 +151,11 @@ xlabel('Date');
 ylabel('Duration (hours)');
 legend('Daylight', 'Civil Twilight');
 datetick('x', 'mmm dd', 'keepticks');
+
+% Plot 2: Solar Azimuth over Time
+subplot(3, 2, 2);
+plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.solarAzimuth)], '-o', 'MarkerSize', 8, 'Color', [0.8 0.2 0.2]);
+title('Solar Azimuth over Time');
+xlabel('Date');
+ylabel('Solar Azimuth (degrees)');
+datetick('x', 'mmm dd', 'keepticks');
