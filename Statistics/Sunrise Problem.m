@@ -121,3 +121,21 @@ for i = 1:length(results)
         results(i).moonAzimuth, results(i).moonElevation);
 end
 disp('-------------------------------------------------------------------------------------------------------------------');
+
+% Optionally, save results to a CSV file
+saveToCSV = input('Do you want to save results to a CSV file? (yes/no): ', 's');
+if strcmpi(saveToCSV, 'yes')
+    % Validate user input for the file name
+    validFileName = false;
+    while ~validFileName
+        filename = input('Enter the CSV file name (including .csv extension): ', 's');
+        if ~isempty(filename) && isvarname(filename) && ~exist(filename, 'file')
+            validFileName = true;
+        else
+            disp('Invalid file name. Please enter a valid, non-existing file name.');
+        end
+    end
+
+    writetable(struct2table(results), filename);
+    disp(['Results saved to ', filename]);
+end
