@@ -189,3 +189,11 @@ title('Moon Azimuth over Time');
 xlabel('Date');
 ylabel('Moon Azimuth (degrees)');
 datetick('x', 'mmm dd', 'keepticks');
+
+% Plot 6: Moon Elevation over Time
+subplot(3, 2, 6);
+plot(datetime({results.date}, 'Format', 'yyyy-MM-dd'), [vertcat(results.moonElevation)], '-o', 'MarkerSize', 8, 'Color', [0.8 0.2 0.2]);
+title('Moon Elevation over Time');
+xlabel('Date');
+ylabel('Moon Elevation (degrees)');
+datetick('x', 'mmm dd', 'keepticks');
