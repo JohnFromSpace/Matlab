@@ -100,3 +100,9 @@ for i = 1:length(dateRange)
     % Append the result to the structure array
     results = [results; solarInfo];
 end
+
+% Display the results in a tabular format
+disp('Solar and Lunar Information:');
+disp('-------------------------------------------------------------------------------------------------------------------');
+disp('  Latitude   |  Longitude  |    Date    | Time Zone | Sunrise Time | Sunset Time | Solar Noon | Duration of Daylight |');
+disp('-------------------------------------------------------------------------------------------------------------------');
