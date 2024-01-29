@@ -197,3 +197,22 @@ title('Moon Elevation over Time');
 xlabel('Date');
 ylabel('Moon Elevation (degrees)');
 datetick('x', 'mmm dd', 'keepticks');
+
+sgtitle('Solar and Lunar Information Analysis');
+
+% Optionally, save plots as images
+savePlots = input('Do you want to save plots as images? (yes/no): ', 's');
+if strcmpi(savePlots, 'yes')
+    % Validate user input for the folder name
+    validFolderName = false;
+    while ~validFolderName
+        foldername = input('Enter the folder name to save plots: ', 's');
+        if ~isempty(foldername) && isvarname(foldername) && ~exist(foldername, 'dir')
+            mkdir(foldername);
+            validFolderName = true;
+        else
+            disp('Invalid folder name. Please enter a valid, non-existing folder name.');
+        end
+    end
+
+end    
