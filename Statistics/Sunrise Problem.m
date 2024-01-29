@@ -61,4 +61,10 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         solarInfo.moonsetTime = datestr(moonsetTime, 'HH:MM:SS');
         solarInfo.moonAzimuth = moonAzimuth;
         solarInfo.moonElevation = moonElevation;
+
+    catch exception
+        % Handle any errors during calculation
+        fprintf('Error: %s\n', exception.message);
+        fprintf('Make sure the SAMPA library is correctly installed and the location and date inputs are valid.\n');
+    end
 end    
