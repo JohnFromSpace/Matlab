@@ -23,4 +23,12 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         % Laplace's method for solar calculations
         h = 360 * (dayOfYear - 81) / 365;
         delta = 23.45 * sind(h);
+
+        % Calculate solar noon time
+        solarNoon = 12:0.1:13; % Assume solar noon occurs between 12:00 and 13:00
+        [~, solarAzimuth, solarElevation] = sampa(dateNum, latitude, longitude, solarNoon);
+
+        % Find the time at which solar elevation is maximized (solar noon)
+        [~, maxElevationIdx] = max(solarElevation);
+        solarNoonTime = solarNoon(maxElevationIdx);
 end    
