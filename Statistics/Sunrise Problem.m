@@ -220,4 +220,13 @@ if strcmpi(savePlots, 'yes')
         subplot(3, 2, i);
         saveas(gcf, fullfile(foldername, ['plot_', num2str(i), '.png']));
     end
+
+    % Visualize solar position on a world map
+    figure;
+    geoplot([results.latitude], [results.longitude], 'o-', 'MarkerSize', 8, 'Color', [0.2 0.8 0.2]);
+    geolimits([min([results.latitude]) max([results.latitude])], [min([results.longitude]) max([results.longitude])]);
+    title('Solar Position on World Map');
+    xlabel('Latitude');
+    ylabel('Longitude');
+    grid on;
 end    
