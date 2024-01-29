@@ -31,4 +31,11 @@ function solarInfo = calculateSolarInfo(latitude, longitude, dateStr, timeZone)
         % Find the time at which solar elevation is maximized (solar noon)
         [~, maxElevationIdx] = max(solarElevation);
         solarNoonTime = solarNoon(maxElevationIdx);
+
+        % Convert solar noon time to the specified time zone
+        solarNoonTime = solarNoonTime + hours(timeZone);
+
+        % Calculate sunrise and sunset times
+        sunriseTime = solarNoonTime - hours(0.5 * abs(h));
+        sunsetTime = solarNoonTime + hours(0.5 * abs(h));
 end    
