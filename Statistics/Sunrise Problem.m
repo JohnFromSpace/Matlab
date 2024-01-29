@@ -229,4 +229,9 @@ if strcmpi(savePlots, 'yes')
     xlabel('Latitude');
     ylabel('Longitude');
     grid on;
+
+    % Save 3D globe plot as an image
+    saveas(gcf, fullfile(foldername, '3d_globe.png'));
+    
+    disp(['Plots, world map, 3D globe, and lunar information saved to ', foldername]);
 end    
