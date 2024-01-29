@@ -112,3 +112,6 @@ for i = 1:length(results)
         results(i).timeZone, results(i).sunriseTime, results(i).sunsetTime, ...
         results(i).solarNoon, results(i).daylightDuration);
 end
+disp('-------------------------------------------------------------------------------------------------------------------');
+disp('  Moonrise Time | Moonset Time | Moon Azimuth | Moon Elevation |');
+disp('-------------------------------------------------------------------------------------------------------------------');
