@@ -215,4 +215,9 @@ if strcmpi(savePlots, 'yes')
         end
     end
 
+    % Save each subplot as an image
+    for i = 1:6
+        subplot(3, 2, i);
+        saveas(gcf, fullfile(foldername, ['plot_', num2str(i), '.png']));
+    end
 end    
