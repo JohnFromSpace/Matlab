@@ -92,4 +92,18 @@ function visualize_results(sample_sizes, distribution_parameters, results)
         legend('Location', 'Best');
         grid on;
     end
+
+    % Plot percentage improvements
+    for distribution_idx = 1:numel(results)
+        subplot(numel(results), 2, 2 * distribution_idx);
+        hold on;
+        for strategy_idx = 1:size(results(distribution_idx).improvements, 1)
+            plot(sample_sizes, squeeze(results(distribution_idx).improvements(strategy_idx, :, :)), '-o', 'DisplayName', strategies{strategy_idx});
+        end
+        title(['Percentage Improvements for ', results(distribution_idx).distribution_type, ' Distribution']);
+        xlabel('Sample Size');
+        ylabel('Percentage Improvement');
+        legend('Location', 'Best');
+        grid on;
+    end
 end
