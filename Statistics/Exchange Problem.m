@@ -8,4 +8,62 @@ function two_envelopes_problem()
     % Initialize variables
     strategies = {'Always Exchange', 'Never Exchange', 'Random Exchange', 'Optimal Exchange'};
     results = struct('strategy', {}, 'avg_amounts', {}, 'improvements', {});
+
+    % Simulate the Two Envelopes Problem for different strategies, sample sizes, and distributions
+    for distribution_idx = 1:numel(distribution_types)
+        current_distribution_type = distribution_types{distribution_idx};
+        avg_amounts = zeros(numel(strategies), numel(sample_sizes), numel(distribution_parameters));
+        improvements = zeros(numel(strategies), numel(sample_sizes), numel(distribution_parameters));
+
+        for parameter_idx = 1:numel(distribution_parameters)
+            current_distribution_parameter = distribution_parameters(parameter_idx);
+
+            for strategy_idx = 1:numel(strategies)
+                current_strategy = strategies{strategy_idx};
+
+                for sample_idx = 1:numel(sample_sizes)
+                    current_sample_size = sample_sizes(sample_idx);
+                    total_money_without_exchange = 0;
+                    total_money_with_exchange = 0;
+
+                    % Simulate the Two Envelopes Problem with the specified strategy and distribution
+                    for i = 1:current_sample_size
+                        [amount1, amount2] = generate_random_amounts(current_distribution_type, current_distribution_parameter);
+
+                        % Choose one envelope based on the strategy
+                        switch current_strategy
+                            case 'Always Exchange'
+                                chosen_envelope = randi([1, 2]);
+                            case 'Never Exchange'
+                                chosen_envelope = 1;  % Always keep the first envelope
+                            case 'Random Exchange'
+                                chosen_envelope = randi([1, 2]);
+                            case 'Optimal Exchange'
+                                chosen_envelope = optimal_exchange_strategy(amount1, amount2);
+                            % Add more strategies as needed
+                        end
+
+                        % Get the amount of money in the chosen envelope
+                        selected_amount = (chosen_envelope == 1) * amount1 + (chosen_envelope == 2) * amount2;
+
+                        % Calculate the total money without exchange
+                        total_money_without_exchange = total_money_without_exchange + selected_amount;
+
+                        % Calculate the total money with exchange
+                        exchanged_amount = (chosen_envelope == 1) * amount2 + (chosen_envelope == 2) * amount1;
+                        total_money_with_exchange = total_money_with_exchange + max(selected_amount, exchanged_amount);
+                    end
+
+                    % Calculate the average amounts
+                    avg_money_without_exchange = total_money_without_exchange / current_sample_size;
+                    avg_money_with_exchange = total_money_with_exchange / current_sample_size;
+
+                    % Store the results for the current sample size and distribution parameter
+                    avg_amounts(strategy_idx, sample_idx, parameter_idx) = avg_money_with_exchange;
+                    improvements(strategy_idx, sample_idx, parameter_idx) = ((avg_money_with_exchange - avg_money_without_exchange) / avg_money_without_exchange) * 100;
+                end
+            end
+        end
+
+        
 end
