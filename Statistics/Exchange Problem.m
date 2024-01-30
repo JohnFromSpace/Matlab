@@ -65,5 +65,10 @@ function two_envelopes_problem()
             end
         end
 
+       % Store the results for the current distribution type
+        results(distribution_idx).distribution_type = current_distribution_type;
+        results(distribution_idx).avg_amounts = avg_amounts;
+        results(distribution_idx).improvements = improvements;
+    end 
         
 end
