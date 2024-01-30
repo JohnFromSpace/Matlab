@@ -110,4 +110,15 @@ end
 
 function [amount1, amount2] = generate_random_amounts(distribution_type, parameter)
     % Generate random amounts of money based on the specified distribution type and parameter
+
+    switch distribution_type
+        case 'uniform'
+            amount1 = randi([1, parameter]);
+            amount2 = randi([1, parameter]);
+        case 'normal'
+            amount1 = round(normrnd(parameter, parameter / 2));
+            amount2 = round(normrnd(parameter, parameter / 2));
+        otherwise
+            error('Invalid distribution type.');
+    end
 end
