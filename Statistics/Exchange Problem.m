@@ -74,3 +74,22 @@ function two_envelopes_problem()
     % Visualize the results
     visualize_results(sample_sizes, distribution_parameters, results);        
 end
+
+function visualize_results(sample_sizes, distribution_parameters, results)
+    % Visualize the results for different strategies, sample sizes, and distributions
+
+    % Plot average amounts
+    figure;
+    for distribution_idx = 1:numel(results)
+        subplot(numel(results), 2, 2 * distribution_idx - 1);
+        hold on;
+        for strategy_idx = 1:size(results(distribution_idx).avg_amounts, 1)
+            plot(sample_sizes, squeeze(results(distribution_idx).avg_amounts(strategy_idx, :, :)), '-o', 'DisplayName', strategies{strategy_idx});
+        end
+        title(['Average Amounts for ', results(distribution_idx).distribution_type, ' Distribution']);
+        xlabel('Sample Size');
+        ylabel('Average Amount');
+        legend('Location', 'Best');
+        grid on;
+    end
+end
