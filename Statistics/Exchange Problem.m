@@ -122,3 +122,14 @@ function [amount1, amount2] = generate_random_amounts(distribution_type, paramet
             error('Invalid distribution type.');
     end
 end
+
+function chosen_envelope = optimal_exchange_strategy(amount1, amount2)
+    % Implement an optimal exchange strategy based on the observed amounts
+
+    % In this example, the strategy is to always exchange if amount2 > amount1
+    if amount2 > amount1
+        chosen_envelope = 2;
+    else
+        chosen_envelope = 1;
+    end
+end
