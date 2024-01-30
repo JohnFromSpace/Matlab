@@ -70,5 +70,7 @@ function two_envelopes_problem()
         results(distribution_idx).avg_amounts = avg_amounts;
         results(distribution_idx).improvements = improvements;
     end 
-        
+
+    % Visualize the results
+    visualize_results(sample_sizes, distribution_parameters, results);        
 end
