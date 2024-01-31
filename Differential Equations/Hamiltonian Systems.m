@@ -73,4 +73,28 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     % Poincaré section
     poincare_points = struct('positions', [], 'momenta', []);
 
+    % Progress bar initialization
+    h = waitbar(0, 'Simulating Hamiltonian System...');
+
+    for i = 1:bifurcation_steps
+        waitbar(i / bifurcation_steps, h, sprintf('Performing Bifurcation Analysis... %d%%', round(i / bifurcation_steps * 100)));
+
+        % Update the parameter value
+        eval([bifurcation_parameter ' = bifurcation_values(i);']);
+
+        % Perform simulation
+        [t, y] = ode45(@(t, y) [dqdt(y(1), y(2)); dpdt(y(1), y(2), t)], tspan, [q0; p0], ode45_options);
+
+        bifurcation_results.positions{i} = y(:, 1);
+        bifurcation_results.momenta{i} = y(:, 2);
+
+        % Extract Poincaré section points
+        [poincare_positions, poincare_momenta] = extract_poincare_section(y, t, poincare_plane, poincare_slice_value);
+        poincare_points.positions = [poincare_points.positions; poincare_positions];
+        poincare_points.momenta = [poincare_points.momenta; poincare_momenta];
+    end
+
+    % Close the progress bar
+    close(h);
+    
 end
