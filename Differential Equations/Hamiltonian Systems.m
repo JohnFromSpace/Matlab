@@ -214,3 +214,11 @@ function plot_energy_landscape(q, p, t, energy, energy_landscape_options)
     colormap(colormap_option);
     colorbar;
 end
+
+function plot_bifurcation_diagram(bifurcation_results, bifurcation_options)
+    % Extract parameters
+    parameter_values = bifurcation_results.parameter_values;
+    positions = bifurcation_results.positions;
+    momenta = bifurcation_results.momenta;
+    
+end
