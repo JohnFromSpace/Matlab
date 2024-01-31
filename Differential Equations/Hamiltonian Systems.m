@@ -130,5 +130,13 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
         ylabel('Momentum');
         zlabel('Time');
     end
+
+    % Energy conservation plot
+    subplot(2, 3, 6);
+    energy = H(y(:, 1), y(:, 2), t);
+    plot(t, energy, plot_options.energy);
+    title('Energy Conservation');
+    xlabel('Time');
+    ylabel('Energy');
     
 end
