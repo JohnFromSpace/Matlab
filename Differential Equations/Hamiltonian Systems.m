@@ -120,5 +120,15 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     title('Phase Space Plot');
     xlabel('Position');
     ylabel('Momentum');
+
+    % 3D trajectory plot
+    if isfield(plot_options, 'trajectory') && plot_options.trajectory
+        subplot(2, 3, 3);
+        plot3(y(:, 1), y(:, 2), t, plot_options.trajectory_style);
+        title('3D Trajectory Plot');
+        xlabel('Position');
+        ylabel('Momentum');
+        zlabel('Time');
+    end
     
 end
