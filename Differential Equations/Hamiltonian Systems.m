@@ -145,5 +145,24 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
         save('bifurcation_results.mat', 'bifurcation_results');
         save('poincare_points.mat', 'poincare_points');
     end
-    
+
+    % Display phase portraits for different initial conditions
+    if isfield(plot_options, 'phase_portraits') && plot_options.phase_portraits
+        display_phase_portraits(tspan, dt, integration_method, plot_options, custom_hamiltonian, external_force, initial_conditions, ode45_options);
+    end
+
+    % Plot 3D Energy Landscape
+    if isfield(plot_options, 'energy_landscape') && plot_options.energy_landscape
+        plot_energy_landscape(y(:, 1), y(:, 2), t, energy, energy_landscape_options);
+    end
+
+    % Plot Bifurcation Diagram
+    if isfield(plot_options, 'bifurcation_diagram') && plot_options.bifurcation_diagram
+        plot_bifurcation_diagram(bifurcation_results, bifurcation_options);
+    end
+
+    % Plot Poincaré section
+    if isfield(plot_options, 'poincare_section') && plot_options.poincare_section
+        plot_poincare_section(poincare_points, poincare_options);
+    end
 end
