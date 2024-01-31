@@ -96,5 +96,15 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
 
     % Close the progress bar
     close(h);
+
+    % Plotting the results
+    figure;
+
+    % Position vs Time
+    subplot(2, 3, 1);
+    plot(t, y(:, 1), plot_options.position_time);
+    title('Position vs Time');
+    xlabel('Time');
+    ylabel('Position');
     
 end
