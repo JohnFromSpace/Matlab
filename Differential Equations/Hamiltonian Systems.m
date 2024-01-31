@@ -33,5 +33,12 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     p0 = get_param(initial_conditions, 'p0', 0);
     mass = get_param(initial_conditions, 'mass', 1);
     omega = get_param(initial_conditions, 'omega', 1);
+
+    % Hamiltonian function with external force
+    H = @(q, p, t) custom_hamiltonian(q, p) + external_force(t);
+
+    % Hamilton's equations
+    dqdt = @(q, p) p / mass;
+    dpdt = @(q, p, t) -mass * omega^2 * q - gradient(external_force, t);
     
 end
