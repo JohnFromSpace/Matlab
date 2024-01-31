@@ -316,3 +316,13 @@ plot_options.phase_portraits_style = '.';
 plot_options.energy_landscape = true;
 plot_options.bifurcation_diagram = true;
 plot_options.poincare_section = true;
+
+energy_landscape_options.colormap = 'parula';
+
+bifurcation_options.parameter = 'omega';
+bifurcation_options.range = [0.1, 2];
+bifurcation_options.steps = 50;
+bifurcation_options.label = 'Angular Frequency';
+
+poincare_options.plane = 'xy';
+poincare_options.slice_value = 0;
