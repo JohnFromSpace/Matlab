@@ -40,5 +40,18 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     % Hamilton's equations
     dqdt = @(q, p) p / mass;
     dpdt = @(q, p, t) -mass * omega^2 * q - gradient(external_force, t);
+
+    % Poincaré section parameters
+    if isfield(poincare_options, 'plane')
+        poincare_plane = poincare_options.plane;
+    else
+        poincare_plane = 'xy';
+    end
+
+    if isfield(poincare_options, 'slice_value')
+        poincare_slice_value = poincare_options.slice_value;
+    else
+        poincare_slice_value = 0;
+    end
     
 end
