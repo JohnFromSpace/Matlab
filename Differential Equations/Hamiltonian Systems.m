@@ -271,3 +271,11 @@ function plot_poincare_section(poincare_points, poincare_options)
             plot(slice_value, momenta, 'ro', 'MarkerSize', 10);
     end
 end
+
+function param = get_param(structure, param_name, default_value)
+    if isfield(structure, param_name)
+        param = structure.(param_name);
+    else
+        param = default_value;
+    end
+end
