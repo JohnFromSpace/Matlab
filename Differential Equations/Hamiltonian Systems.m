@@ -27,5 +27,11 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     if nargin < 6
         custom_hamiltonian = @(q, p) 0.5 * p.^2 + 0.5 * (1 * q).^2; % Default harmonic oscillator
     end
+
+    % Extract parameters
+    q0 = get_param(initial_conditions, 'q0', 1);
+    p0 = get_param(initial_conditions, 'p0', 0);
+    mass = get_param(initial_conditions, 'mass', 1);
+    omega = get_param(initial_conditions, 'omega', 1);
     
 end
