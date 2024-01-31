@@ -54,4 +54,15 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
         poincare_slice_value = 0;
     end
     
+    % Bifurcation analysis parameters
+    if isfield(bifurcation_options, 'parameter')
+        bifurcation_parameter = bifurcation_options.parameter;
+        bifurcation_range = get_param(bifurcation_options, 'range', [0, 2]);
+        bifurcation_steps = get_param(bifurcation_options, 'steps', 50);
+    else
+        bifurcation_parameter = 'omega';
+        bifurcation_range = [0, 2];
+        bifurcation_steps = 50;
+    end
+
 end
