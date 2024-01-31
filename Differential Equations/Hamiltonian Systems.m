@@ -244,4 +244,30 @@ function plot_poincare_section(poincare_points, poincare_options)
 
     poincare_plane = poincare_options.plane;
     slice_value = poincare_options.slice_value;
+
+    % Plot Poincaré section
+    figure;
+    switch poincare_plane
+        case 'xy'
+            plot(positions, momenta, '.', 'Color', [0.8 0.8 0.8]);
+            title('Poincaré Section (xy-plane)');
+            xlabel('Position');
+            ylabel('Momentum');
+            hold on;
+            plot(slice_value, momenta, 'ro', 'MarkerSize', 10);
+        case 'xz'
+            plot(positions, momenta, '.', 'Color', [0.8 0.8 0.8]);
+            title('Poincaré Section (xz-plane)');
+            xlabel('Position');
+            ylabel('Momentum');
+            hold on;
+            plot(slice_value, momenta, 'ro', 'MarkerSize', 10);
+        case 'yz'
+            plot(positions, momenta, '.', 'Color', [0.8 0.8 0.8]);
+            title('Poincaré Section (yz-plane)');
+            xlabel('Position');
+            ylabel('Momentum');
+            hold on;
+            plot(slice_value, momenta, 'ro', 'MarkerSize', 10);
+    end
 end
