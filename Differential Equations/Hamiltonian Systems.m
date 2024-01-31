@@ -298,3 +298,9 @@ function [positions, momenta] = extract_poincare_section(y, t, plane, slice_valu
             momenta = y(abs(y(:, 1) - slice_value) < eps, 3);
     end
 end
+
+% Example usage with custom parameters
+tspan = [0, 100];
+dt = 0.01;
+integration_method = 'ode45'; % 'ode45', 'euler', or 'runge-kutta'
+save_results = true;
