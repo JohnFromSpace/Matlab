@@ -138,5 +138,12 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     title('Energy Conservation');
     xlabel('Time');
     ylabel('Energy');
+
+    % Save results to a file
+    if save_results
+        save('hamiltonian_simulation_results.mat', 't', 'y', 'energy');
+        save('bifurcation_results.mat', 'bifurcation_results');
+        save('poincare_points.mat', 'poincare_points');
+    end
     
 end
