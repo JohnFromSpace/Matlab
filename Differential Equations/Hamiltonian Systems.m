@@ -236,3 +236,12 @@ function plot_bifurcation_diagram(bifurcation_results, bifurcation_options)
     ylabel('Position');
     grid on;    
 end
+
+function plot_poincare_section(poincare_points, poincare_options)
+    % Extract parameters
+    positions = poincare_points.positions;
+    momenta = poincare_points.momenta;
+
+    poincare_plane = poincare_options.plane;
+    slice_value = poincare_options.slice_value;
+end
