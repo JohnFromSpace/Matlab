@@ -326,3 +326,12 @@ bifurcation_options.label = 'Angular Frequency';
 
 poincare_options.plane = 'xy';
 poincare_options.slice_value = 0;
+
+custom_hamiltonian = @(q, p) 0.25 * p.^2 + 0.5 * (2 * q).^2; % Custom Hamiltonian
+
+initial_conditions.q0 = 1;
+initial_conditions.p0 = 0;
+initial_conditions.mass = 1;
+initial_conditions.omega = 2;
+
+hamiltonian_simulation(tspan, dt, integration_method, save_results, plot_options, custom_hamiltonian, initial_conditions, bifurcation_options, energy_landscape_options, poincare_options);
