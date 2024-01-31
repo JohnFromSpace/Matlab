@@ -304,3 +304,15 @@ tspan = [0, 100];
 dt = 0.01;
 integration_method = 'ode45'; % 'ode45', 'euler', or 'runge-kutta'
 save_results = true;
+
+plot_options.position_time = '-o'; % Customize the appearance of the plot
+plot_options.momentum_time = '--';
+plot_options.phase_space = '.';
+plot_options.trajectory = true;
+plot_options.trajectory_style = '-';
+plot_options.energy = '-';
+plot_options.phase_portraits = true;
+plot_options.phase_portraits_style = '.';
+plot_options.energy_landscape = true;
+plot_options.bifurcation_diagram = true;
+plot_options.poincare_section = true;
