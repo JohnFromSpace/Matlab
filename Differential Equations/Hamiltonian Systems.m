@@ -279,3 +279,12 @@ function param = get_param(structure, param_name, default_value)
         param = default_value;
     end
 end
+
+function [positions, momenta] = extract_poincare_section(y, t, plane, slice_value)
+    % Extract Poincaré section points from the trajectory
+
+    positions = [];
+    momenta = [];
+
+    
+end
