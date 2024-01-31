@@ -200,4 +200,17 @@ function plot_energy_landscape(q, p, t, energy, energy_landscape_options)
     if nargin < 5
         energy_landscape_options = struct();
     end
+
+    % Extract parameters
+    colormap_option = get_param(energy_landscape_options, 'colormap', 'parula');
+
+    % Plot 3D Energy Landscape
+    figure;
+    scatter3(q, p, energy, 20, energy, 'filled');
+    title('3D Energy Landscape');
+    xlabel('Position');
+    ylabel('Momentum');
+    zlabel('Energy');
+    colormap(colormap_option);
+    colorbar;
 end
