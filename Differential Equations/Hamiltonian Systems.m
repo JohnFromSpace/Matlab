@@ -65,4 +65,12 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
         bifurcation_steps = 50;
     end
 
+    % Bifurcation analysis
+    bifurcation_values = linspace(bifurcation_range(1), bifurcation_range(2), bifurcation_steps);
+
+    bifurcation_results = struct('parameter_values', bifurcation_values, 'positions', cell(1, bifurcation_steps), 'momenta', cell(1, bifurcation_steps));
+
+    % Poincaré section
+    poincare_points = struct('positions', [], 'momenta', []);
+
 end
