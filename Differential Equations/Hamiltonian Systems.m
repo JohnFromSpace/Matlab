@@ -194,3 +194,10 @@ function display_phase_portraits(tspan, dt, integration_method, plot_options, cu
     xlabel('Position');
     ylabel('Momentum');  
 end
+
+function plot_energy_landscape(q, p, t, energy, energy_landscape_options)
+    % Default options
+    if nargin < 5
+        energy_landscape_options = struct();
+    end
+end
