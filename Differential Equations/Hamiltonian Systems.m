@@ -106,5 +106,19 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
     title('Position vs Time');
     xlabel('Time');
     ylabel('Position');
+
+    % Momentum vs Time
+    subplot(2, 3, 2);
+    plot(t, y(:, 2), plot_options.momentum_time);
+    title('Momentum vs Time');
+    xlabel('Time');
+    ylabel('Momentum');
+
+    % Phase space plot
+    subplot(2, 3, [4, 5]);
+    plot(y(:, 1), y(:, 2), plot_options.phase_space);
+    title('Phase Space Plot');
+    xlabel('Position');
+    ylabel('Momentum');
     
 end
