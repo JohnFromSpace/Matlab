@@ -175,4 +175,20 @@ function display_phase_portraits(tspan, dt, integration_method, plot_options, cu
     q_range = linspace(-2, 2, 20);
     p_range = linspace(-2, 2, 20);
 
+    % Plot phase portraits
+    for q0 = q_range
+        for p0 = p_range
+            initial_conditions.q0 = q0;
+            initial_conditions.p0 = p0;
+
+            [t, y] = ode45(@(t, y) [y(2); -y(1)], tspan, [q0; p0], ode45_options);
+            q = y(:, 1);
+            p = y(:, 2);
+
+            plot(q, p, plot_options.phase_portraits_style);
+        end
+    end
+
+    
+    
 end
