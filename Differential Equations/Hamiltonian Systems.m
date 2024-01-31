@@ -231,5 +231,8 @@ function plot_bifurcation_diagram(bifurcation_results, bifurcation_options)
         hold on;
     end
 
-    
+    title(['Bifurcation Diagram for ' bifurcation_label]);
+    xlabel(bifurcation_label);
+    ylabel('Position');
+    grid on;    
 end
