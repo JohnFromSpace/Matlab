@@ -220,5 +220,16 @@ function plot_bifurcation_diagram(bifurcation_results, bifurcation_options)
     parameter_values = bifurcation_results.parameter_values;
     positions = bifurcation_results.positions;
     momenta = bifurcation_results.momenta;
+
+    bifurcation_parameter = bifurcation_options.parameter;
+    bifurcation_label = get_param(bifurcation_options, 'label', bifurcation_parameter);
+
+    % Plot Bifurcation Diagram
+    figure;
+    for i = 1:length(parameter_values)
+        plot(parameter_values(i) * ones(size(positions{i})), positions{i}, '.', 'Color', [0.8 0.8 0.8]);
+        hold on;
+    end
+
     
 end
