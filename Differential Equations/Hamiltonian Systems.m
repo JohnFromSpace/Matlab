@@ -286,5 +286,15 @@ function [positions, momenta] = extract_poincare_section(y, t, plane, slice_valu
     positions = [];
     momenta = [];
 
-    
+    switch plane
+        case 'xy'
+            positions = y(abs(y(:, 3) - slice_value) < eps, 1);
+            momenta = y(abs(y(:, 3) - slice_value) < eps, 2);
+        case 'xz'
+            positions = y(abs(y(:, 2) - slice_value) < eps, 1);
+            momenta = y(abs(y(:, 2) - slice_value) < eps, 3);
+        case 'yz'
+            positions = y(abs(y(:, 1) - slice_value) < eps, 2);
+            momenta = y(abs(y(:, 1) - slice_value) < eps, 3);
+    end
 end
