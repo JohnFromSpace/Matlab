@@ -166,3 +166,13 @@ function hamiltonian_simulation(tspan, dt, integration_method, save_results, plo
         plot_poincare_section(poincare_points, poincare_options);
     end
 end
+
+function display_phase_portraits(tspan, dt, integration_method, plot_options, custom_hamiltonian, external_force, initial_conditions, ode45_options)
+    figure;
+    hold on;
+
+    % Define range for phase portraits
+    q_range = linspace(-2, 2, 20);
+    p_range = linspace(-2, 2, 20);
+
+end
