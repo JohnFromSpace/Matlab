@@ -189,6 +189,8 @@ function display_phase_portraits(tspan, dt, integration_method, plot_options, cu
         end
     end
 
-    
-    
+    hold off;
+    title('Phase Portraits for Different Initial Conditions');
+    xlabel('Position');
+    ylabel('Momentum');  
 end
