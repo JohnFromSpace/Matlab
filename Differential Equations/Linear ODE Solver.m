@@ -68,6 +68,12 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
 
     % Create a figure with sliders for initial conditions and parameter
     figure('Name', 'Interactive Phase Portrait Explorer', 'Position', [100, 100, 1200, 800]);
-
     
+    % Define sliders for each initial condition
+    sliderHandlesIC = zeros(1, length(initialConditions));
+    for i = 1:length(initialConditions)
+        sliderHandlesIC(i) = uicontrol('Style', 'slider', 'Min', -10, 'Max', 10, 'Value', initialConditions(i), ...
+            'Position', [20 + 120 * (i - 1), 10, 100, 20], 'Callback', {@updateSliderIC, i});
+        uicontrol('Style', 'text', 'Position', [20 + 120 * (i - 1), 35, 100, 20], 'String', ['y' num2str(i) '(t0)']);
+    end
 end
