@@ -11,5 +11,8 @@ function solveLinearODE()
         % Convert the user input string to a symbolic expression
         ode = evalin(symengine, equationStr);
 
-        
+        % Check if the system of differential equations is linear
+        if ~isLinearODE(ode, y)
+            error('The provided system of differential equations is not linear.');
+        end
 end
