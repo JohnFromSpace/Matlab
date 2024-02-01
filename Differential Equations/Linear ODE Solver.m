@@ -76,4 +76,9 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
             'Position', [20 + 120 * (i - 1), 10, 100, 20], 'Callback', {@updateSliderIC, i});
         uicontrol('Style', 'text', 'Position', [20 + 120 * (i - 1), 35, 100, 20], 'String', ['y' num2str(i) '(t0)']);
     end
+
+    % Define sliders for each parameter
+    sliderHandleParam = uicontrol('Style', 'slider', 'Min', -10, 'Max', 10, 'Value', 1, ...
+        'Position', [20, 70, 100, 20], 'Callback', @updateSliderParam);
+    uicontrol('Style', 'text', 'Position', [20, 95, 100, 20], 'String', 'Parameter Value');
 end
