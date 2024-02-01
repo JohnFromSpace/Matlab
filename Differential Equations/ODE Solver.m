@@ -60,4 +60,25 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
     catch
         error('Invalid solver or options. Please provide a valid solver function handle and options.');
     end
+
+    % Initialize figure
+    figure('Position', [100, 100, p.Results.FigureSize]);
+
+    % Loop through different values of 'a'
+    for i = 1:length(a_values)
+        % Solve the ODE
+        sol = p.Results.Solver(@(t, y) odeFunction(t, y, a_values(i)), tspan, y0, p.Results.SolverOptions);
+
+        % Extract solution
+        t = sol.x;
+        y = sol.y;
+
+        % Plot the solution with customizable colors, line styles, and line widths
+        plot(t, y, 'LineWidth', p.Results.LineWidths(i), 'DisplayName', p.Results.LegendEntries{i}, ...
+            'Color', p.Results.Colors(i, :), 'LineStyle', p.Results.LineStyles, ...
+            'Marker', p.Results.Markers{i}, 'MarkerSize', p.Results.MarkerSize, 'MarkerFaceColor', p.Results.Colors(i, :));
+
+        % Hold on for subsequent plots
+        hold on;
+    end
 end
