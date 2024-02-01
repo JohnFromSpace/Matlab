@@ -54,3 +54,8 @@ function isLinear = isLinearODE(ode, y)
     % Check if the system of differential equations is linear
     isLinear = all(arrayfun(@(eq) isLinear(eq, y), ode));
 end
+
+function isLinear = isLinear(expr, y)
+    % Check if the expression is linear with respect to the variable y
+    isLinear = islinear(expr, y);
+end
