@@ -109,6 +109,20 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
                     saveas(gcf, ['phase_portrait_', num2str(k), '.', p.Results.PhasePortraitSaveFormat]);
                 end
             end
-        
+        else
+            % Display a single phase portrait
+            figure;
+            phase_portrait(@(t, y) odeFunction(t, y, a_values(1)), tspan, y0, p.Results.SolverOptions, ...
+                'TrajectoryArrows', p.Results.TrajectoryArrows, 'ArrowScale', p.Results.ArrowScale, 'ArrowColor', p.Results.ArrowColor, 'ArrowDensity', p.Results.ArrowDensity);
+            title('Phase Portrait', 'FontSize', p.Results.TitleFontSize);
+            xlabel('Solution (y)', 'FontSize', p.Results.AxisFontSize);
+            ylabel("dy/dt", 'FontSize', p.Results.AxisFontSize);
+            grid on;
+
+            % Save phase portrait as an image file if specified
+            if p.Results.PhasePortraitSave
+                saveas(gcf, ['phase_portrait.', p.Results.PhasePortraitSaveFormat]);
+            end
+        end
     end
 end
