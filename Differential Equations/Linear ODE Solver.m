@@ -8,4 +8,8 @@ function solveLinearODE()
         syms t
         y = sym('y', [1, length(str2num(equationStr))]);
 
+        % Convert the user input string to a symbolic expression
+        ode = evalin(symengine, equationStr);
+
+        
 end
