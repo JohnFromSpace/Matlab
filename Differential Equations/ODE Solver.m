@@ -194,4 +194,13 @@ function phase_portrait(ode, tspan, y0, options, varargin)
 
     [~, sol] = ode45(ode, tspan, y0, options);
     plot(sol(:, 1), sol(:, 2));
+
+    if p.Results.TrajectoryArrows
+        hold on;
+        quiver(sol(1:p.Results.ArrowDensity:end, 1), sol(1:p.Results.ArrowDensity:end, 2), ...
+            sol(1:p.Results.ArrowDensity:end, 1) - sol(1:p.Results.ArrowDensity:end - 1, 1), ...
+            sol(1:p.Results.ArrowDensity:end, 2) - sol(1:p.Results.ArrowDensity:end - 1, 2), p.Results.ArrowScale, 'Color', p.Results.ArrowColor);
+    end
+
+    axis('equal');
 end
