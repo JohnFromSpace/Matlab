@@ -23,4 +23,8 @@ function solveLinearODE()
         % Get user input for integration method
         prompt = 'Choose integration method (e.g., ''ode45'', ''ode23'', ''ode15s''): ';
         integrationMethod = input(prompt, 's');
+
+        % Get user input for the time span
+        prompt = 'Enter the time span as [t_start, t_end]: ';
+        timeSpan = input(prompt);
 end
