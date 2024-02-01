@@ -45,4 +45,7 @@ function solveLinearODE()
 
         % Plot the solution, phase portrait, time evolution, and eigenvalue evolution
         plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, numTimeSteps, animationSpeed);
+    catch ME
+        fprintf('Error: %s\n', ME.message);
+    end
 end
