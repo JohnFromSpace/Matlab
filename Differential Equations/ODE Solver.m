@@ -90,4 +90,25 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
             'Marker', p.Results.Markers{j}, 'MarkerSize', p.Results.MarkerSize, 'MarkerFaceColor', p.Results.Colors(j, :));
         hold on;
     end
+
+    % Display phase portrait if specified
+    if p.Results.PhasePortrait
+        if p.Results.MultiplePhasePortraits && ~isempty(p.Results.InitialConditions)
+            % Display multiple phase portraits with different initial conditions
+            for k = 1:size(p.Results.InitialConditions, 1)
+                figure;
+                phase_portrait(@(t, y) odeFunction(t, y, a_values(1)), tspan, p.Results.InitialConditions(k, :), p.Results.SolverOptions, ...
+                    'TrajectoryArrows', p.Results.TrajectoryArrows, 'ArrowScale', p.Results.ArrowScale, 'ArrowColor', p.Results.ArrowColor, 'ArrowDensity', p.Results.ArrowDensity);
+                title(['Phase Portrait - Initial Conditions: ', num2str(p.Results.InitialConditions(k, :))], 'FontSize', p.Results.TitleFontSize);
+                xlabel('Solution (y)', 'FontSize', p.Results.AxisFontSize);
+                ylabel("dy/dt", 'FontSize', p.Results.AxisFontSize);
+                grid on;
+
+                % Save each phase portrait as an image file if specified
+                if p.Results.PhasePortraitSave
+                    saveas(gcf, ['phase_portrait_', num2str(k), '.', p.Results.PhasePortraitSaveFormat]);
+                end
+            end
+        
+    end
 end
