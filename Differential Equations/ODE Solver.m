@@ -159,4 +159,11 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
     if ~isempty(p.Results.YLim)
         ylim(p.Results.YLim);
     end
+
+    % Customize grid visibility
+    if p.Results.Grid
+        grid on;
+    else
+        grid off;
+    end
 end
