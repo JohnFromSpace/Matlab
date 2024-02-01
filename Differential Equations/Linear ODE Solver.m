@@ -19,4 +19,8 @@ function solveLinearODE()
         % Get user input for initial conditions
         prompt = 'Enter initial conditions as a matrix [y1(t0), y2(t0), ...]: ';
         initialConditions = input(prompt);
+
+        % Get user input for integration method
+        prompt = 'Choose integration method (e.g., ''ode45'', ''ode23'', ''ode15s''): ';
+        integrationMethod = input(prompt, 's');
 end
