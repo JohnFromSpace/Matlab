@@ -49,3 +49,8 @@ function solveLinearODE()
         fprintf('Error: %s\n', ME.message);
     end
 end
+
+function isLinear = isLinearODE(ode, y)
+    % Check if the system of differential equations is linear
+    isLinear = all(arrayfun(@(eq) isLinear(eq, y), ode));
+end
