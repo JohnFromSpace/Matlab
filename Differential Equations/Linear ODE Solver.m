@@ -42,4 +42,7 @@ function solveLinearODE()
         % Display the solution
         disp('Solution:');
         disp(sol);
+
+        % Plot the solution, phase portrait, time evolution, and eigenvalue evolution
+        plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, numTimeSteps, animationSpeed);
 end
