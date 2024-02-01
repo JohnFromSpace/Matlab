@@ -31,4 +31,8 @@ function solveLinearODE()
         % Get user input for the number of time steps
         prompt = 'Enter the number of time steps: ';
         numTimeSteps = input(prompt);
+
+        % Get user input for animation speed
+        prompt = 'Enter animation speed (e.g., 1 for normal speed): ';
+        animationSpeed = input(prompt);
 end
