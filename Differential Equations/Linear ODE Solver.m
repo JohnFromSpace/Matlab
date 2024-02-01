@@ -59,3 +59,15 @@ function isLinear = isLinear(expr, y)
     % Check if the expression is linear with respect to the variable y
     isLinear = islinear(expr, y);
 end
+
+function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, numTimeSteps, animationSpeed)
+    % Plot the solution, phase portrait, time evolution, eigenvalue evolution, and perform sensitivity analysis
+
+    % Define a time span for the trajectory
+    tspan = linspace(timeSpan(1), timeSpan(2), numTimeSteps);
+
+    % Create a figure with sliders for initial conditions and parameter
+    figure('Name', 'Interactive Phase Portrait Explorer', 'Position', [100, 100, 1200, 800]);
+
+    
+end
