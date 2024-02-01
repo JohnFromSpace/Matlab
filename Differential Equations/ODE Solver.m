@@ -166,4 +166,15 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
     else
         grid off;
     end
+
+    % Customize legend visibility and indices
+    if p.Results.ShowLegend
+        if isempty(p.Results.LegendIndices)
+            legend('Location', p.Results.LegendLocation, 'FontSize', p.Results.LegendFontSize);
+        else
+            legend(p.Results.LegendIndices, 'Location', p.Results.LegendLocation, 'FontSize', p.Results.LegendFontSize);
+        end
+    else
+        legend('off');
+    end
 end
