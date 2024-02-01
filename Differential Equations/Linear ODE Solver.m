@@ -15,4 +15,8 @@ function solveLinearODE()
         if ~isLinearODE(ode, y)
             error('The provided system of differential equations is not linear.');
         end
+
+        % Get user input for initial conditions
+        prompt = 'Enter initial conditions as a matrix [y1(t0), y2(t0), ...]: ';
+        initialConditions = input(prompt);
 end
