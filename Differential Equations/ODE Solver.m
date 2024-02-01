@@ -192,5 +192,6 @@ function phase_portrait(ode, tspan, y0, options, varargin)
     addParameter(p, 'ArrowDensity', 10, @isnumeric);
     parse(p, varargin{:});
 
-    
+    [~, sol] = ode45(ode, tspan, y0, options);
+    plot(sol(:, 1), sol(:, 2));
 end
