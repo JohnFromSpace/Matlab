@@ -125,4 +125,17 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
             end
         end
     end
+
+    % Display 3D plot if specified
+    if p.Results.ThreeDPlot
+        figure;
+        plot3(sol(:, 1), sol(:, 2), t, ...
+            'Color', p.Results.3DPlotColor, 'LineStyle', p.Results.3DPlotLineStyle, 'LineWidth', p.Results.3DPlotLineWidth, ...
+            'Marker', p.Results.3DPlotMarker, 'MarkerSize', p.Results.3DPlotMarkerSize, 'MarkerFaceColor', p.Results.3DPlotColor);
+        grid on;
+        xlabel('Solution (y)', 'FontSize', p.Results.AxisFontSize);
+        ylabel("dy/dt", 'FontSize', p.Results.AxisFontSize);
+        zlabel('Time (t)', 'FontSize', p.Results.AxisFontSize);
+        title('3D Plot of ODE Solutions', 'FontSize', p.Results.TitleFontSize);
+    end
 end
