@@ -53,4 +53,11 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
     addParameter(p, '3DPlotMarker', 'o', @ischar);
     addParameter(p, '3DPlotMarkerSize', 6, @isnumeric);
     parse(p, varargin{:});
+
+    % Error handling for invalid solver options
+    try
+        [~] = p.Results.Solver(tspan, y0, odeFunction, p.Results.SolverOptions);
+    catch
+        error('Invalid solver or options. Please provide a valid solver function handle and options.');
+    end
 end
