@@ -177,4 +177,9 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
     else
         legend('off');
     end
+
+    % Save the plot if specified
+    if p.Results.SavePlot
+        saveas(gcf, [p.Results.SaveFilename, '.', p.Results.SaveFormat]);
+    end
 end
