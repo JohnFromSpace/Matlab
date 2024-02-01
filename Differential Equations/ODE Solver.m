@@ -146,4 +146,9 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
         caxis([min(p.Results.ColormapParameter), max(p.Results.ColormapParameter)]);
         colorbar('Label', p.Results.ColorbarLabel, 'FontSize', p.Results.AxisFontSize);
     end
+
+    % Customize the plot
+    xlabel(p.Results.XLabel, 'FontSize', p.Results.AxisFontSize);
+    ylabel(p.Results.YLabel, 'FontSize', p.Results.AxisFontSize);
+    title(p.Results.Title, 'FontSize', p.Results.TitleFontSize);
 end
