@@ -183,3 +183,14 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
         saveas(gcf, [p.Results.SaveFilename, '.', p.Results.SaveFormat]);
     end
 end
+
+function phase_portrait(ode, tspan, y0, options, varargin)
+    p = inputParser;
+    addParameter(p, 'TrajectoryArrows', false, @islogical);
+    addParameter(p, 'ArrowScale', 0.5, @isnumeric);
+    addParameter(p, 'ArrowColor', 'k', @ischar);
+    addParameter(p, 'ArrowDensity', 10, @isnumeric);
+    parse(p, varargin{:});
+
+    
+end
