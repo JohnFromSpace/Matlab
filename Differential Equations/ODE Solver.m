@@ -138,4 +138,12 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
         zlabel('Time (t)', 'FontSize', p.Results.AxisFontSize);
         title('3D Plot of ODE Solutions', 'FontSize', p.Results.TitleFontSize);
     end
+
+    % Display colorbar if ColormapParameter is specified
+    if ~isempty(p.Results.ColormapParameter)
+        colormap(p.Results.Colormap);
+        colorbar('Ticks', linspace(0, 1, length(a_values)), 'TickLabels', arrayfun(@(x) num2str(x), p.Results.ColormapParameter, 'UniformOutput', false));
+        caxis([min(p.Results.ColormapParameter), max(p.Results.ColormapParameter)]);
+        colorbar('Label', p.Results.ColorbarLabel, 'FontSize', p.Results.AxisFontSize);
+    end
 end
