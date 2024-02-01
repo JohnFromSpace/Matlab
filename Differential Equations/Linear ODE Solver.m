@@ -27,4 +27,8 @@ function solveLinearODE()
         % Get user input for the time span
         prompt = 'Enter the time span as [t_start, t_end]: ';
         timeSpan = input(prompt);
+
+        % Get user input for the number of time steps
+        prompt = 'Enter the number of time steps: ';
+        numTimeSteps = input(prompt);
 end
