@@ -35,4 +35,7 @@ function solveLinearODE()
         % Get user input for animation speed
         prompt = 'Enter animation speed (e.g., 1 for normal speed): ';
         animationSpeed = input(prompt);
+
+        % Solve the system of differential equations with the initial conditions using the chosen method
+        sol = dsolve(ode, initialConditions, 'Solver', integrationMethod);
 end
