@@ -81,4 +81,13 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
         % Hold on for subsequent plots
         hold on;
     end
+
+    % Plot additional user-defined functions
+    for j = 1:length(p.Results.AdditionalFunctions)
+        fun = p.Results.AdditionalFunctions{j};
+        plot(tspan, fun(tspan), '--', 'DisplayName', func2str(fun), ...
+            'Color', p.Results.Colors(j, :), 'LineStyle', p.Results.LineStyles, ...
+            'Marker', p.Results.Markers{j}, 'MarkerSize', p.Results.MarkerSize, 'MarkerFaceColor', p.Results.Colors(j, :));
+        hold on;
+    end
 end
