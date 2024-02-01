@@ -38,4 +38,8 @@ function solveLinearODE()
 
         % Solve the system of differential equations with the initial conditions using the chosen method
         sol = dsolve(ode, initialConditions, 'Solver', integrationMethod);
+
+        % Display the solution
+        disp('Solution:');
+        disp(sol);
 end
