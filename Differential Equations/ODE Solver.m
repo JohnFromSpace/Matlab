@@ -151,4 +151,12 @@ function solve_and_plot_ode(a_values, tspan, y0, varargin)
     xlabel(p.Results.XLabel, 'FontSize', p.Results.AxisFontSize);
     ylabel(p.Results.YLabel, 'FontSize', p.Results.AxisFontSize);
     title(p.Results.Title, 'FontSize', p.Results.TitleFontSize);
+
+    % Customize axis limits
+    if ~isempty(p.Results.XLim)
+        xlim(p.Results.XLim);
+    end
+    if ~isempty(p.Results.YLim)
+        ylim(p.Results.YLim);
+    end
 end
