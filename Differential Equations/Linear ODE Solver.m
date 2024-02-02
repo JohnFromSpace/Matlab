@@ -135,6 +135,15 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
             eigenvalueEvolution(i, :) = eig(subs(odeWithParam, {'t', 'y'}, {t(end), y(end, :)}));
         end
 
-                
+        % Plot time evolution
+        subplot(2, 3, 4);
+        plot(tspan, yEvolution, 'LineWidth', 1.5);
+        xlabel('Time');
+        ylabel('y(t)');
+        title('Time Evolution');
+        legend('y1(t)', 'y2(t)');
+        grid on;
+
+                        
     end
 end
