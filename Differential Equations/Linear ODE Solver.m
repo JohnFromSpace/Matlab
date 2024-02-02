@@ -160,4 +160,18 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
         subplot(2, 3, 6);
         animateTimeEvolution(tspan, yEvolution, animationSpeed);                
     end
+
+    function animateTimeEvolution(tspan, yEvolution, speed)
+        % Animate the time evolution of trajectories
+
+        for i = 1:length(tspan)
+            plot(yEvolution(1:i, 1), yEvolution(1:i, 2), 'LineWidth', 1.5, 'DisplayName', ['t = ' num2str(tspan(i))]);
+            xlabel('y1(t)');
+            ylabel('y2(t)');
+            title('Animated Time Evolution');
+            legend('Location', 'Best');
+            grid on;
+            pause((tspan(2) - tspan(1)) / speed);
+        end
+    end
 end
