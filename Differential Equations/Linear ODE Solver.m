@@ -81,4 +81,14 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
     sliderHandleParam = uicontrol('Style', 'slider', 'Min', -10, 'Max', 10, 'Value', 1, ...
         'Position', [20, 70, 100, 20], 'Callback', @updateSliderParam);
     uicontrol('Style', 'text', 'Position', [20, 95, 100, 20], 'String', 'Parameter Value');
+
+    % Plot initial trajectories, time evolution, and eigenvalue evolution
+    plotInteractiveTrajectories(ode, integrationMethod, initialConditions, tspan, get(sliderHandleParam, 'Value'));
+
+    % Add Save buttons
+    uicontrol('Style', 'pushbutton', 'String', 'Save Phase Portrait', 'Position', [400, 10, 150, 30], 'Callback', {@savePlots, 'PhasePortrait'});
+    uicontrol('Style', 'pushbutton', 'String', 'Save Eigenvalue Trajectories', 'Position', [560, 10, 200, 30], 'Callback', {@savePlots, 'EigenvalueTrajectories'});
+
+    % Add Sensitivity Analysis button
+    uicontrol('Style', 'pushbutton', 'String', 'Perform Sensitivity Analysis', 'Position', [800, 10, 220, 30], 'Callback', @performSensitivityAnalysis
 end
