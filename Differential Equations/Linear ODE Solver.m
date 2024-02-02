@@ -116,6 +116,25 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
         yEvolution = zeros(length(tspan), length(initialConditions));
         eigenvalueEvolution = zeros(length(tspan), length(initialConditions));
 
-        
+        for i = 1:length(tspan)
+            % Solve the system of differential equations at each time step
+            [t, y] = feval(integrationMethod, @(t, y) double(subs(odeWithParam, {'t', 'y'}, {t, y})), [tspan(i), tspan(end)], initialConditions);
+
+            % Plot the trajectory in the phase plane
+            subplot(2, 3, [1, 2]);
+            plot(y(:,1), y(:,2), 'LineWidth', 1.5, 'DisplayName', ['t = ' num2str(tspan(i))]);
+            xlabel('y1(t)');
+            ylabel('y2(t)');
+            title('Interactive Phase Portrait');
+            legend('Location', 'Best');
+            grid on;
+            hold on;
+
+            % Store the time evolution and eigenvalues
+            yEvolution(i, :) = y(end, :);
+            eigenvalueEvolution(i, :) = eig(subs(odeWithParam, {'t', 'y'}, {t(end), y(end, :)}));
+        end
+
+                
     end
 end
