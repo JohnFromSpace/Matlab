@@ -91,4 +91,10 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
 
     % Add Sensitivity Analysis button
     uicontrol('Style', 'pushbutton', 'String', 'Perform Sensitivity Analysis', 'Position', [800, 10, 220, 30], 'Callback', @performSensitivityAnalysis
+
+    function updateSliderIC(~, ~, index)
+        % Callback function for updating initial condition sliders
+        initialConditions(index) = get(sliderHandlesIC(index), 'Value');
+        plotInteractiveTrajectories(ode, integrationMethod, initialConditions, tspan, get(sliderHandleParam, 'Value'));
+    end
 end
