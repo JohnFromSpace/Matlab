@@ -143,6 +143,18 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
         title('Time Evolution');
         legend('y1(t)', 'y2(t)');
         grid on;
+        
+        % Plot eigenvalue evolution
+        subplot(2, 3, 5);
+        plot(tspan, real(eigenvalueEvolution), 'LineWidth', 1.5, 'DisplayName', 'Real');
+        hold on;
+        plot(tspan, imag(eigenvalueEvolution), 'LineWidth', 1.5, 'DisplayName', 'Imaginary');
+        xlabel('Time');
+        ylabel('Eigenvalues');
+        title('Eigenvalue Evolution');
+        legend('Location', 'Best');
+        grid on;
+        hold off;
 
                         
     end
