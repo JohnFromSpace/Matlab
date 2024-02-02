@@ -174,4 +174,26 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
             pause((tspan(2) - tspan(1)) / speed);
         end
     end
+
+    function performSensitivityAnalysis(~, ~)
+        % Perform sensitivity analysis by varying initial conditions and plotting trajectories and eigenvalue evolution
+
+        % Initialize matrices to store sensitivity analysis results
+        sensitivityResults = zeros(length(initialConditions), length(tspan), 2);
+
+        % Vary each initial condition and observe the impact
+        for i = 1:length(initialConditions)
+            perturbedInitialConditions = initialConditions;
+            perturbedInitialConditions(i) = perturbedInitialConditions(i) + 0.1; % Perturb the initial condition
+
+            % Solve the system of differential equations with perturbed initial conditions
+            [~, y] = feval(integrationMethod, @(t, y) double(subs(odeWithParam, {'t', 'y'}, {t, y})), tspan, perturbedInitialConditions);
+
+            % Store the results for sensitivity analysis
+            sensitivityResults(i, :, 1) = y(:, 1);
+            sensitivityResults(i, :, 2) = y(:, 2);
+        end
+
+        
+    end
 end
