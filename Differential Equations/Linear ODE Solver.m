@@ -193,7 +193,24 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
             sensitivityResults(i, :, 1) = y(:, 1);
             sensitivityResults(i, :, 2) = y(:, 2);
         end
-
         
+        % Plot sensitivity analysis results
+        figure('Name', 'Sensitivity Analysis', 'Position', [100, 100, 1200, 400]);
+
+        for i = 1:length(initialConditions)
+            subplot(2, length(initialConditions), i);
+            plot(tspan, sensitivityResults(i, :, 1), 'LineWidth', 1.5);
+            xlabel('Time');
+            ylabel(['y' num2str(i) '(t)']);
+            title(['Sensitivity Analysis - y' num2str(i) ' Initial Condition']);
+            grid on;
+
+            subplot(2, length(initialConditions), i + length(initialConditions));
+            plot(tspan, sensitivityResults(i, :, 2), 'LineWidth', 1.5);
+            xlabel('Time');
+            ylabel(['y' num2str(i) '(t)']);
+            title(['Sensitivity Analysis - y' num2str(i) ' Initial Condition']);
+            grid on;
+        end
     end
 end
