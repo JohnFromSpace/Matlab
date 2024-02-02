@@ -97,4 +97,10 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
         initialConditions(index) = get(sliderHandlesIC(index), 'Value');
         plotInteractiveTrajectories(ode, integrationMethod, initialConditions, tspan, get(sliderHandleParam, 'Value'));
     end
+
+    function updateSliderParam(~, ~)
+        % Callback function for updating parameter slider
+        paramValue = get(sliderHandleParam, 'Value');
+        plotInteractiveTrajectories(ode, integrationMethod, initialConditions, tspan, paramValue);
+    end
 end
