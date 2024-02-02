@@ -155,7 +155,9 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
         legend('Location', 'Best');
         grid on;
         hold off;
-
-                        
+        
+        % Animate time evolution
+        subplot(2, 3, 6);
+        animateTimeEvolution(tspan, yEvolution, animationSpeed);                
     end
 end
