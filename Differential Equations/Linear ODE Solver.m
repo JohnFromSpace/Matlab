@@ -213,4 +213,16 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
             grid on;
         end
     end
+
+    function savePlots(~, ~, plotType)
+        % Callback function for saving plots
+        switch plotType
+            case 'PhasePortrait'
+                saveas(gcf, 'Interactive_Phase_Portrait.png');
+                disp('Phase Portrait saved as Interactive_Phase_Portrait.png');
+            case 'EigenvalueTrajectories'
+                saveas(gcf, 'Eigenvalue_Trajectories.png');
+                disp('Eigenvalue Trajectories saved as Eigenvalue_Trajectories.png');
+        end
+    end
 end
