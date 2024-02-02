@@ -103,4 +103,19 @@ function plotSolution(sol, ode, integrationMethod, initialConditions, timeSpan, 
         paramValue = get(sliderHandleParam, 'Value');
         plotInteractiveTrajectories(ode, integrationMethod, initialConditions, tspan, paramValue);
     end
+
+    function plotInteractiveTrajectories(ode, integrationMethod, initialConditions, tspan, paramValue)
+        % Plot trajectories, time evolution, and eigenvalue evolution
+
+        clf; % Clear the current figure
+
+        % Substitute parameter value into the system
+        odeWithParam = subs(ode, 'k', paramValue);
+
+        % Initialize matrices to store time evolution and eigenvalues
+        yEvolution = zeros(length(tspan), length(initialConditions));
+        eigenvalueEvolution = zeros(length(tspan), length(initialConditions));
+
+        
+    end
 end
