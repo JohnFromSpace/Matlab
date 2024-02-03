@@ -440,5 +440,27 @@ function interactive_simulation(tspan, initial_conditions, parameters, options, 
         initial_conditions(condition_index) = src.Value;
     end
 
+    % Callback function to run the simulation
+    function run_simulation()
+        selected_solver = solver_options{solver_dropdown.Value};
+        [t, y] = feval(selected_solver, @(t, y) ode_function(t, y, parameters, user_inputs), tspan, initial_conditions, options, 'OutputFcn', output_function);
+
+        % Plot and save results
+        plot_and_save_results(t, y, plot_options, csv_filename, true, parameters);
+
+        % Display the phase portrait if requested
+        if show_phase_portrait
+            display_phase_portrait(y, plot_options.legend);
+            
+            % Visualize the trajectory in 3D phase space
+            visualize_3d_trajectory(y, plot_options.legend);
+        end
+
+        % Animate the time evolution of the solution if output_function is provided
+        if ~isempty(output_function)
+            animate_solution(t, y, plot_options, animation_speed);
+        end
+    end
+
         
 end
