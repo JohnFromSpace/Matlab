@@ -97,4 +97,9 @@ function solve_ode_system(tspan, initial_conditions, parameters, options, plot_o
     if isempty(user_inputs)
         user_inputs = cell(1, 1);
     end
+
+    % Check if options is provided, otherwise set to default
+    if isempty(options)
+        options = odeset('RelTol', 1e-6, 'AbsTol', 1e-8);
+    end
 end
