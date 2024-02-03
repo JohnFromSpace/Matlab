@@ -72,4 +72,15 @@ function solve_nonlinear_ode(varargin)
             end
         end
     end
+
+    % Solve the system of non-linear ODEs
+    try
+        if interactive_mode
+            interactive_simulation(tspan, initial_conditions, parameters, options, plot_options, csv_filename, higher_order_ode, sensitivity_analysis, sensitivity_options, bifurcation_analysis, bifurcation_parameter_range, periodic_orbit_analysis, periodic_orbit_options, ode_solver, output_function, animation_speed, varargin);
+        else
+            solve_ode_system(tspan, initial_conditions, parameters, options, plot_options, save_results, show_phase_portrait, output_function, ode_solver, animation_speed, csv_filename, parameter_variations, higher_order_ode, sensitivity_analysis, sensitivity_options, bifurcation_analysis, bifurcation_parameter_range, periodic_orbit_analysis, periodic_orbit_options, varargin);
+        end
+    catch
+        error('Error solving the ODEs. Check your input functions and parameters.');
+    end
 end
