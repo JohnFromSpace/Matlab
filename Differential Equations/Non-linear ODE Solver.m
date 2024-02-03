@@ -219,3 +219,19 @@ function display_phase_portrait(results, legend_labels)
     legend(cellfun(@(x) sprintf('Parameters: %.2f, %.2f', x), {results.parameters}, 'UniformOutput', false));
     grid on;
 end
+
+function animate_solution(results, plot_options, animation_speed)
+    % Animate the time evolution of the solution for multiple parameter variations
+    figure;
+    for i = 1:length(results)
+        t = results{i}.time;
+        y = results{i}.solution;
+        plot(t, y(:, 1), 'r-', t, y(:, 2), 'b-');
+        xlabel(plot_options.xlabel);
+        ylabel(plot_options.ylabel);
+        legend(plot_options.legend);
+        title([plot_options.title, ' (', sprintf('Parameters: %.2f, %.2f', results{i}.parameters), ')']);
+        grid on;
+        pause(animation_speed);
+    end
+end
