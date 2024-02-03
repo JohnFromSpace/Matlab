@@ -275,6 +275,23 @@ function perform_bifurcation_analysis(results, plot_options, csv_filename, bifur
 
     num_values = length(bifurcation_parameter_values);
     bifurcation_solutions = cell(1, num_values);
-
     
+    for i = 1:num_values
+        current_value = bifurcation_parameter_values(i);
+        parameters = results{1}.parameters;
+        parameters(bifurcation_parameter_index) = current_value;
+
+        [~, bifurcation_solutions{i}] = ode45(@(t, y) ode_function(t, y, parameters, user_inputs), results{1}.time, results{1}.solution(1, :));
+
+        % Plot and save bifurcation results
+        figure;
+        plot(bifurcation_solutions{i}(:, 1), bifurcation_solutions{i}(:, 2), 'b-', 'LineWidth', 1.5);
+        xlabel(plot_options.legend{1});
+        ylabel(plot_options.legend{2});
+        title(['Bifurcation Analysis - ', plot_options.legend{bifurcation_parameter_index}, ' = ', num2str(current_value), ' (', sprintf('Parameters: %.2f, %.2f', parameters), ')']);
+        grid on;
+
+        bifurcation_csv_filename = [csv_filename(1:end-4), '_bifurcation_', num2str(bifurcation_parameter_index), '_', num2str(current_value), '.csv'];
+        save_results_to_csv(results{1}.time, bifurcation_solutions{i}, bifurcation_csv_filename, parameters);
+    end
 end
