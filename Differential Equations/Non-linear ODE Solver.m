@@ -369,3 +369,41 @@ function [stable_orbits, unstable_orbits] = detect_periodic_orbits(ode_function,
         initial_guess = trajectory(end, :);
     end
 end
+
+function stability = is_stable(trajectory, ode_function, time, tolerance)
+    % Check the stability of a periodic orbit using linearized stability analysis
+    perturbation = 1e-5;
+    num_points = size(trajectory, 1);
+    eigenvalues = zeros(num_points, 2);
+
+    for i = 1:num_points
+        % Perturb the trajectory
+        perturbed_trajectory = trajectory;
+        perturbed_trajectory(i, :) = perturbed_trajectory(i, :) + perturbation;
+
+        % Integrate the perturbed trajectory
+        [~, perturbed_solution] = ode45(@(t, y) ode_function(t, y), time, perturbed_trajectory(i, :));
+
+        % Calculate the eigenvalues of the Jacobian matrix
+        jacobian_matrix = (perturbed_solution(end, :) - trajectory(end, :)) / perturbation;
+        eigenvalues(i, :) = eig(jacobian_matrix);
+    end
+
+    % Check the stability based on the real parts of the eigenvalues
+    stability = all(real(eigenvalues(:)) < 0) && norm(trajectory(end, :) - trajectory(1, :)) < tolerance;
+end
+
+function interactive_simulation(tspan, initial_conditions, parameters, options, plot_options, csv_filename, higher_order_ode, sensitivity_analysis, sensitivity_options, bifurcation_analysis, bifurcation_parameter_range, periodic_orbit_analysis, periodic_orbit_options, ode_solver, output_function, animation_speed, user_inputs)
+    % Interactive mode allowing the user to adjust parameters and initial conditions dynamically
+    h = figure;
+
+    % Create sliders for parameters
+    num_parameters = length(parameters);
+    parameter_sliders = cell(1, num_parameters);
+    for i = 1:num_parameters
+        uicontrol('Style', 'text', 'String', [plot_options.legend{i}, ':'], 'Units', 'normalized', 'Position', [0.05, 0.95 - 0.1*i, 0.1, 0.05]);
+        parameter_sliders{i} = uicontrol('Style', 'slider', 'Min', -1, 'Max', 1, 'Value', parameters(i), 'Units', 'normalized', 'Position', [0.15, 0.95 - 0.1*i, 0.2, 0.05], 'Callback', @(src, event) update_parameters(src, i));
+    end
+
+    
+end
