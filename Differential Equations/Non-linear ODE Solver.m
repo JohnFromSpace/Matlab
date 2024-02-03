@@ -307,6 +307,19 @@ function perform_periodic_orbit_analysis(results, plot_options, csv_filename, pe
     % Preallocate arrays for storing periodic orbits
     stable_orbits = cell(1, num_variations);
     unstable_orbits = cell(1, num_variations);
-
     
+    for i = 1:num_variations
+        current_parameters = results{i}.parameters;
+
+        % Iterate through each condition for periodic orbit analysis
+        for j = 1:num_conditions
+            initial_guess = results{i}.solution(1, :);
+            initial_guess(j) = initial_guess(j) + tolerance;  % Perturb the initial condition slightly
+
+            % Detect periodic orbits
+            [stable_orbits{i, j}, unstable_orbits{i, j}] = detect_periodic_orbits(@(t, y) ode_function(t, y, current_parameters, user_inputs), initial_guess, results{i}.time, max_iterations, tolerance);
+        end
+
+        
+    end
 end
