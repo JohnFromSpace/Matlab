@@ -175,5 +175,10 @@ function dydt = ode_function(t, y, parameters, user_inputs)
         dydt_user = zeros(size(y));
     end
 
-    
+    % Standard ODEs
+    dy1dt = a * y(1) + b * y(2) + dydt_user(1);
+    dy2dt = c * y(1)^2 + d * y(2)^2 + dydt_user(2);
+
+    % Pack the derivatives into a column vector
+    dydt = [dy1dt; dy2dt];
 end
