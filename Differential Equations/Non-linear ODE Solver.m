@@ -295,3 +295,18 @@ function perform_bifurcation_analysis(results, plot_options, csv_filename, bifur
         save_results_to_csv(results{1}.time, bifurcation_solutions{i}, bifurcation_csv_filename, parameters);
     end
 end
+
+function perform_periodic_orbit_analysis(results, plot_options, csv_filename, periodic_orbit_options)
+    % Periodic orbit analysis to detect stable and unstable periodic orbits
+    max_iterations = periodic_orbit_options.max_iterations;
+    tolerance = periodic_orbit_options.tolerance;
+
+    num_variations = length(results);
+    num_conditions = size(results{1}.solution, 2);
+
+    % Preallocate arrays for storing periodic orbits
+    stable_orbits = cell(1, num_variations);
+    unstable_orbits = cell(1, num_variations);
+
+    
+end
