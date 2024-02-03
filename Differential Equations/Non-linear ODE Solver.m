@@ -319,7 +319,22 @@ function perform_periodic_orbit_analysis(results, plot_options, csv_filename, pe
             % Detect periodic orbits
             [stable_orbits{i, j}, unstable_orbits{i, j}] = detect_periodic_orbits(@(t, y) ode_function(t, y, current_parameters, user_inputs), initial_guess, results{i}.time, max_iterations, tolerance);
         end
+    
+        % Plot and save periodic orbit results
+        for j = 1:num_conditions
+            figure;
+            plot(results{i}.solution(:, 1), results{i}.solution(:, 2), 'k-', 'LineWidth', 1.5);
+            hold on;
+            plot(stable_orbits{i, j}(:, 1), stable_orbits{i, j}(:, 2), 'g-', 'LineWidth', 1.5);
+            plot(unstable_orbits{i, j}(:, 1), unstable_orbits{i, j}(:, 2), 'r-', 'LineWidth', 1.5);
+            xlabel(plot_options.legend{1});
+            ylabel(plot_options.legend{2});
+            legend('All Orbits', 'Stable Orbits', 'Unstable Orbits');
+            title(['Periodic Orbit Analysis - ', plot_options.legend{j}, ' (', sprintf('Parameters: %.2f, %.2f', current_parameters), ')']);
+            grid on;
 
-        
+            periodic_csv_filename = [csv_filename(1:end-4), '_periodic_orbits_', num2str(i), '_', num2str(j), '.csv'];
+            save_results_to_csv(results{i}.time, [results{i}.solution, stable_orbits{i, j}, unstable_orbits{i, j}], periodic_csv_filename, current_parameters);
+        end   
     end
 end
