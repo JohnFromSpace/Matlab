@@ -338,3 +338,15 @@ function perform_periodic_orbit_analysis(results, plot_options, csv_filename, pe
         end   
     end
 end
+
+function [stable_orbits, unstable_orbits] = detect_periodic_orbits(ode_function, initial_conditions, time, max_iterations, tolerance)
+    % Detect stable and unstable periodic orbits using numerical continuation
+    num_points = length(initial_conditions);
+    initial_guess = initial_conditions;
+
+    % Preallocate arrays for storing periodic orbits
+    stable_orbits = [];
+    unstable_orbits = [];
+
+    
+end
