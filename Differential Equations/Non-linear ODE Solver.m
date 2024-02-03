@@ -429,6 +429,16 @@ function interactive_simulation(tspan, initial_conditions, parameters, options, 
     solver_options = {'ode45', 'ode23', 'ode113', 'ode15s', 'ode23s', 'ode23t', 'ode23tb'};
     uicontrol('Style', 'text', 'String', 'Choose ODE Solver:', 'Units', 'normalized', 'Position', [0.65, 0.65 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05]);
     solver_dropdown = uicontrol('Style', 'popupmenu', 'String', solver_options, 'Units', 'normalized', 'Position', [0.65, 0.6 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05], 'Callback', @(src, event) update_ode_solver(src));
+    
+    % Callback function to update parameters dynamically
+    function update_parameters(src, parameter_index)
+        parameters(parameter_index) = src.Value;
+    end
+
+    % Callback function to update initial conditions dynamically
+    function update_initial_conditions(src, condition_index)
+        initial_conditions(condition_index) = src.Value;
+    end
 
         
 end
