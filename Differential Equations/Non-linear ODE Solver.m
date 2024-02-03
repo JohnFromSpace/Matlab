@@ -102,4 +102,18 @@ function solve_ode_system(tspan, initial_conditions, parameters, options, plot_o
     if isempty(options)
         options = odeset('RelTol', 1e-6, 'AbsTol', 1e-8);
     end
+
+    % Preallocate results cell array
+    results = cell(length(parameter_variations), 1);
+
+    % Iterate through parameter variations
+    for i = 1:length(parameter_variations)
+        current_parameters = parameter_variations{i};
+        [~, y] = ode_solver(@(t, y) ode_function(t, y, current_parameters, user_inputs), tspan, initial_conditions, options, 'OutputFcn', output_function);
+
+        % Save results to cell array
+        results{i}.parameters = current_parameters;
+        results{i}.time = tspan;
+        results{i}.solution = y;
+    end
 end
