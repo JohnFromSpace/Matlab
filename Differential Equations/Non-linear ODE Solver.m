@@ -198,3 +198,10 @@ function plot_and_save_results(t, y, plot_options, csv_filename, save_results, p
         save_results_to_csv(t, y, csv_filename, parameters);
     end
 end
+
+function save_results_to_csv(t, y, csv_filename, parameters)
+    % Save time and solution data to a CSV file with customizable filename
+    data = [t, y];
+    csvwrite(csv_filename, data);
+    disp(['Results saved to ', csv_filename]);
+end
