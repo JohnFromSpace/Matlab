@@ -23,4 +23,53 @@ function solve_nonlinear_ode(varargin)
     periodic_orbit_analysis = false;
     periodic_orbit_options = struct('max_iterations', 1000, 'tolerance', 1e-6);
 
+    % Parse user inputs
+    if nargin > 0
+        for i = 1:2:(nargin - 1)
+            switch varargin{i}
+                case 'tspan'
+                    tspan = varargin{i + 1};
+                case 'initial_conditions'
+                    initial_conditions = varargin{i + 1};
+                case 'parameters'
+                    parameters = varargin{i + 1};
+                case 'options'
+                    options = varargin{i + 1};
+                case 'plot_options'
+                    plot_options = varargin{i + 1};
+                case 'save_results'
+                    save_results = varargin{i + 1};
+                case 'show_phase_portrait'
+                    show_phase_portrait = varargin{i + 1};
+                case 'output_function'
+                    output_function = varargin{i + 1};
+                case 'ode_solver'
+                    ode_solver = varargin{i + 1};
+                case 'animation_speed'
+                    animation_speed = varargin{i + 1};
+                case 'csv_filename'
+                    csv_filename = varargin{i + 1};
+                case 'parameter_variations'
+                    parameter_variations = varargin{i + 1};
+                case 'interactive_mode'
+                    interactive_mode = varargin{i + 1};
+                case 'higher_order_ode'
+                    higher_order_ode = varargin{i + 1};
+                case 'sensitivity_analysis'
+                    sensitivity_analysis = varargin{i + 1};
+                case 'sensitivity_options'
+                    sensitivity_options = varargin{i + 1};
+                case 'bifurcation_analysis'
+                    bifurcation_analysis = varargin{i + 1};
+                case 'bifurcation_parameter_range'
+                    bifurcation_parameter_range = varargin{i + 1};
+                case 'periodic_orbit_analysis'
+                    periodic_orbit_analysis = varargin{i + 1};
+                case 'periodic_orbit_options'
+                    periodic_orbit_options = varargin{i + 1};
+                otherwise
+                    error(['Unexpected input: ', varargin{i}]);
+            end
+        end
+    end
 end
