@@ -245,6 +245,25 @@ function perform_sensitivity_analysis(results, sensitivity_options, csv_filename
     num_conditions = size(results{1}.solution, 2);
 
     sensitivity_matrix = zeros(length(results{1}.time), num_conditions, num_variations);
-
     
+    for i = 1:num_variations
+        for j = 1:num_conditions
+            perturbed_solution = results{i}.solution;
+            perturbed_solution(:, j) = perturbed_solution(:, j) + perturbation_magnitude * perturbed_solution(:, j);
+
+            % Calculate sensitivity as the difference between perturbed and unperturbed solutions
+            sensitivity_matrix(:, j, i) = perturbed_solution(:, j) - results{i}.solution(:, j);
+
+            % Plot and save sensitivity results
+            figure;
+            plot(results{i}.time, sensitivity_matrix(:, j, i), 'b-');
+            xlabel('Time');
+            ylabel(['Sensitivity of ', plot_options.legend{j}]);
+            title(['Sensitivity Analysis - ', plot_options.legend{j}, ' (', sprintf('Parameters: %.2f, %.2f', results{i}.parameters), ')']);
+            grid on;
+
+            sensitivity_csv_filename = [csv_filename(1:end-4), '_sensitivity_', num2str(i), '_', num2str(j), '.csv'];
+            save_results_to_csv(results{i}.time, sensitivity_matrix(:, j, i), sensitivity_csv_filename, results{i}.parameters);
+        end
+    end
 end
