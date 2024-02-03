@@ -92,6 +92,9 @@ function solve_ode_system(tspan, initial_conditions, parameters, options, plot_o
     if isempty(parameter_variations)
         parameter_variations = parameters;
     end
-
     
+    % Check if user_inputs is provided, otherwise set to empty
+    if isempty(user_inputs)
+        user_inputs = cell(1, 1);
+    end
 end
