@@ -405,5 +405,13 @@ function interactive_simulation(tspan, initial_conditions, parameters, options, 
         parameter_sliders{i} = uicontrol('Style', 'slider', 'Min', -1, 'Max', 1, 'Value', parameters(i), 'Units', 'normalized', 'Position', [0.15, 0.95 - 0.1*i, 0.2, 0.05], 'Callback', @(src, event) update_parameters(src, i));
     end
 
-    
+    % Create sliders for initial conditions
+    num_conditions = length(initial_conditions);
+    condition_sliders = cell(1, num_conditions);
+    for i = 1:num_conditions
+        uicontrol('Style', 'text', 'String', [plot_options.legend{num_parameters + i}, ':'], 'Units', 'normalized', 'Position', [0.05, 0.95 - 0.1*(num_parameters + i), 0.1, 0.05]);
+        condition_sliders{i} = uicontrol('Style', 'slider', 'Min', -1, 'Max', 1, 'Value', initial_conditions(i), 'Units', 'normalized', 'Position', [0.15, 0.95 - 0.1*(num_parameters + i), 0.2, 0.05], 'Callback', @(src, event) update_initial_conditions(src, i));
+    end
+
+        
 end
