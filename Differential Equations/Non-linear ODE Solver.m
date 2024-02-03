@@ -235,3 +235,16 @@ function animate_solution(results, plot_options, animation_speed)
         pause(animation_speed);
     end
 end
+
+function perform_sensitivity_analysis(results, sensitivity_options, csv_filename)
+    % Sensitivity analysis to explore the impact of variations in initial conditions
+    perturbation_magnitude = sensitivity_options.perturbation_magnitude;
+    perturbation_duration = sensitivity_options.perturbation_duration;
+
+    num_variations = length(results);
+    num_conditions = size(results{1}.solution, 2);
+
+    sensitivity_matrix = zeros(length(results{1}.time), num_conditions, num_variations);
+
+    
+end
