@@ -182,3 +182,19 @@ function dydt = ode_function(t, y, parameters, user_inputs)
     % Pack the derivatives into a column vector
     dydt = [dy1dt; dy2dt];
 end
+
+function plot_and_save_results(t, y, plot_options, csv_filename, save_results, parameters)
+    % Plot the results with customizable options
+    figure;
+    plot(t, y(:, 1), 'r-', t, y(:, 2), 'b-');
+    xlabel(plot_options.xlabel);
+    ylabel(plot_options.ylabel);
+    legend(plot_options.legend);
+    title([plot_options.title, ' (', sprintf('Parameters: %.2f, %.2f', parameters), ')']);
+    grid on;
+
+    % Save results to a CSV file if requested
+    if save_results
+        save_results_to_csv(t, y, csv_filename, parameters);
+    end
+end
