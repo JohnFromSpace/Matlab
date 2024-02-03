@@ -267,3 +267,14 @@ function perform_sensitivity_analysis(results, sensitivity_options, csv_filename
         end
     end
 end
+
+function perform_bifurcation_analysis(results, plot_options, csv_filename, bifurcation_parameter_range)
+    % Bifurcation analysis to explore changes in the solution based on varying a specific parameter
+    bifurcation_parameter_index = bifurcation_parameter_range(1);
+    bifurcation_parameter_values = bifurcation_parameter_range(2:end);
+
+    num_values = length(bifurcation_parameter_values);
+    bifurcation_solutions = cell(1, num_values);
+
+    
+end
