@@ -133,4 +133,29 @@ function solve_ode_system(tspan, initial_conditions, parameters, options, plot_o
             save_results_to_csv(results{i}.time, results{i}.solution, csv_filename);
         end
     end
+
+    % Display the phase portrait if requested
+    if show_phase_portrait
+        display_phase_portrait(results, plot_options.legend);
+    end
+
+    % Animate the time evolution of the solution if output_function is provided
+    if ~isempty(output_function)
+        animate_solution(results, plot_options, animation_speed);
+    end
+
+    % Perform sensitivity analysis if requested
+    if sensitivity_analysis
+        perform_sensitivity_analysis(results, sensitivity_options, csv_filename);
+    end
+
+    % Perform bifurcation analysis if requested
+    if bifurcation_analysis
+        perform_bifurcation_analysis(results, plot_options, csv_filename, bifurcation_parameter_range);
+    end
+
+    % Perform periodic orbit analysis if requested
+    if periodic_orbit_analysis
+        perform_periodic_orbit_analysis(results, plot_options, csv_filename, periodic_orbit_options);
+    end
 end
