@@ -205,3 +205,17 @@ function save_results_to_csv(t, y, csv_filename, parameters)
     csvwrite(csv_filename, data);
     disp(['Results saved to ', csv_filename]);
 end
+
+function display_phase_portrait(results, legend_labels)
+    % Display the phase portrait for multiple parameter variations
+    figure;
+    hold on;
+    for i = 1:length(results)
+        plot(results{i}.solution(:, 1), results{i}.solution(:, 2), 'LineWidth', 1.5);
+    end
+    xlabel(legend_labels{1});
+    ylabel(legend_labels{2});
+    title('Phase Portrait for Multiple Parameter Variations');
+    legend(cellfun(@(x) sprintf('Parameters: %.2f, %.2f', x), {results.parameters}, 'UniformOutput', false));
+    grid on;
+end
