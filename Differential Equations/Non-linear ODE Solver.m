@@ -413,5 +413,22 @@ function interactive_simulation(tspan, initial_conditions, parameters, options, 
         condition_sliders{i} = uicontrol('Style', 'slider', 'Min', -1, 'Max', 1, 'Value', initial_conditions(i), 'Units', 'normalized', 'Position', [0.15, 0.95 - 0.1*(num_parameters + i), 0.2, 0.05], 'Callback', @(src, event) update_initial_conditions(src, i));
     end
 
+    % Create button for simulation
+    uicontrol('Style', 'pushbutton', 'String', 'Run Simulation', 'Units', 'normalized', 'Position', [0.4, 0.95 - 0.1*(num_parameters + num_conditions + 1), 0.2, 0.05], 'Callback', @(src, event) run_simulation());
+
+    % Create button for sensitivity analysis
+    uicontrol('Style', 'pushbutton', 'String', 'Sensitivity Analysis', 'Units', 'normalized', 'Position', [0.65, 0.95 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05], 'Callback', @(src, event) sensitivity_analysis());
+
+    % Create button for bifurcation analysis
+    uicontrol('Style', 'pushbutton', 'String', 'Bifurcation Analysis', 'Units', 'normalized', 'Position', [0.65, 0.85 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05], 'Callback', @(src, event) bifurcation_analysis());
+
+    % Create button for periodic orbit analysis
+    uicontrol('Style', 'pushbutton', 'String', 'Periodic Orbit Analysis', 'Units', 'normalized', 'Position', [0.65, 0.75 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05], 'Callback', @(src, event) periodic_orbit_analysis());
+
+    % Create dropdown for choosing ODE solver
+    solver_options = {'ode45', 'ode23', 'ode113', 'ode15s', 'ode23s', 'ode23t', 'ode23tb'};
+    uicontrol('Style', 'text', 'String', 'Choose ODE Solver:', 'Units', 'normalized', 'Position', [0.65, 0.65 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05]);
+    solver_dropdown = uicontrol('Style', 'popupmenu', 'String', solver_options, 'Units', 'normalized', 'Position', [0.65, 0.6 - 0.1*(num_parameters + num_conditions + 1), 0.3, 0.05], 'Callback', @(src, event) update_ode_solver(src));
+
         
 end
