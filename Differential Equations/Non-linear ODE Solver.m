@@ -116,4 +116,21 @@ function solve_ode_system(tspan, initial_conditions, parameters, options, plot_o
         results{i}.time = tspan;
         results{i}.solution = y;
     end
+
+    % Plot and save results for each parameter variation
+    for i = 1:length(results)
+        % Plot the results with customizable options
+        figure;
+        plot(results{i}.time, results{i}.solution(:, 1), 'r-', results{i}.time, results{i}.solution(:, 2), 'b-');
+        xlabel(plot_options.xlabel);
+        ylabel(plot_options.ylabel);
+        legend(plot_options.legend);
+        title([plot_options.title, ' (', sprintf('Parameters: %.2f, %.2f', results{i}.parameters), ')']);
+        grid on;
+
+        % Save results to a CSV file if requested
+        if save_results
+            save_results_to_csv(results{i}.time, results{i}.solution, csv_filename);
+        end
+    end
 end
