@@ -462,5 +462,24 @@ function interactive_simulation(tspan, initial_conditions, parameters, options, 
         end
     end
 
-        
+    % Callback function to perform sensitivity analysis
+    function sensitivity_analysis()
+        perform_sensitivity_analysis(results, sensitivity_options, csv_filename);
+    end
+
+    % Callback function to perform bifurcation analysis
+    function bifurcation_analysis()
+        perform_bifurcation_analysis(results, plot_options, csv_filename, bifurcation_parameter_range);
+    end
+
+    % Callback function to perform periodic orbit analysis
+    function periodic_orbit_analysis()
+        perform_periodic_orbit_analysis(results, plot_options, csv_filename, periodic_orbit_options);
+    end
+
+    % Callback function to update ODE solver dynamically
+    function update_ode_solver(src)
+        selected_solver = solver_options{src.Value};
+        ode_solver = str2func(selected_solver);
+    end        
 end
