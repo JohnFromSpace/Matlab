@@ -347,6 +347,25 @@ function [stable_orbits, unstable_orbits] = detect_periodic_orbits(ode_function,
     % Preallocate arrays for storing periodic orbits
     stable_orbits = [];
     unstable_orbits = [];
-
     
+    for iteration = 1:max_iterations
+        % Integrate the system for one period
+        [~, trajectory] = ode45(@(t, y) ode_function(t, y), time, initial_guess);
+
+        % Check if the trajectory returns to the initial conditions within the specified tolerance
+        if norm(trajectory(end, :) - initial_guess) < tolerance
+            % Periodic orbit found
+            if is_stable(trajectory, ode_function, time, tolerance)
+                stable_orbits = [stable_orbits; trajectory];
+            else
+                unstable_orbits = [unstable_orbits; trajectory];
+            end
+        else
+            % No periodic orbit found, break the loop
+            break;
+        end
+
+        % Update the initial conditions for the next iteration
+        initial_guess = trajectory(end, :);
+    end
 end
