@@ -159,3 +159,21 @@ function solve_ode_system(tspan, initial_conditions, parameters, options, plot_o
         perform_periodic_orbit_analysis(results, plot_options, csv_filename, periodic_orbit_options);
     end
 end
+
+function dydt = ode_function(t, y, parameters, user_inputs)
+    % Example: dy1/dt = a*y1 + b*y2, dy2/dt = c*y1^2 + d*y2^2
+    a = parameters(1);
+    b = parameters(2);
+    c = parameters(3);
+    d = parameters(4);
+
+    % Include user-defined ODE function if provided
+    if ~isempty(user_inputs)
+        ode_function_user = user_inputs{1};
+        dydt_user = ode_function_user(t, y, parameters);
+    else
+        dydt_user = zeros(size(y));
+    end
+
+    
+end
