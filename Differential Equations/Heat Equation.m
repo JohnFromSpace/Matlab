@@ -37,6 +37,18 @@ function solveHeatEquation(pdeCoefficients, domain, spatialResolution, timeResol
         pdeCoefficients.diffusion = @(x, t) 1;  % Default diffusion coefficient
         pdeCoefficients.reaction = @(x, t) 0;   % No reaction term
     end
+        
+    % Define the spatial and time span
+    xspan = linspace(domain.start, domain.end, spatialResolution);
+    tspan = linspace(timeSpan(1), timeSpan(2), timeResolution);
 
-    
+    try
+        % Solve the PDE using the specified solver
+        solution = solvePDE(pdeCoefficients, initialCondition, xspan, tspan, boundaryConditions, solver);
+
+        % Plot and save the solution
+        plotAndSaveSolution(solution, xspan, tspan, plotOptions);
+    catch exception
+        disp(['Error: ', exception.message]);
+    end
 end
