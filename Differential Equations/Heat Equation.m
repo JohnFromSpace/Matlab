@@ -209,5 +209,11 @@ function plotHeatmap(solution, xspan, tspan, targetTime, timeSpan, colormapName)
     title(['Temperature Distribution at t = ', num2str(targetTime)]);
     colorbar;
     
-    
+    % Plot 1D profile at the specified time
+    subplot(1, 2, 2);
+    plot(xspan, solution.u(timeIndex, :), 'LineWidth', 2);
+    xlabel('Position (x)');
+    ylabel('Temperature (u)');
+    title(['Temperature Profile at t = ', num2str(targetTime)]);
+    grid on;
 end
