@@ -182,3 +182,12 @@ function savePlotAsImage(savePath, plotTitle)
     saveas(gcf, savePath);
     disp(['Plot saved as ', savePath]);
 end
+
+function plotMultipleHeatmaps(solution, xspan, tspan, targetTimes, colormapName)
+    % Plot multiple 2D heatmaps at different time points
+    figure;
+    for i = 1:length(targetTimes)
+        subplot(1, length(targetTimes), i);
+        plotHeatmap(solution, xspan, tspan, targetTimes(i), [tspan(1), tspan(end)], colormapName);
+    end
+end
