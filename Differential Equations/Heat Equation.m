@@ -138,3 +138,18 @@ function bc = getBoundaryCondition(type)
             error('Invalid boundary condition type.');
     end
 end
+
+function plotAndSaveSolution(solution, xspan, tspan, plotOptions)
+    % Plot the solution interactively
+    plot3DSolution(solution, xspan, tspan, plotOptions);
+
+    % Save the plot if specified
+    if plotOptions.savePlot
+        savePlotAsImage(plotOptions.savePath, plotOptions.plotTitle);
+    end
+
+    % Display the heatmaps if specified
+    if plotOptions.showHeatmap
+        plotMultipleHeatmaps(solution, xspan, tspan, plotOptions.heatmapTimes, plotOptions.colormap);
+    end
+end
