@@ -97,6 +97,23 @@ function solution = solvePDEFiniteDifference(coefficients, initialCondition, xsp
 
     % Set initial condition
     solution.u(1, :) = initialCondition(xspan);
-
     
+    % Finite difference method
+    for n = 1:timePoints - 1
+        for i = 2:spatialPoints - 1
+            % Variable diffusion coefficient
+            diffusionCoefficient = coefficients.diffusion(xspan(i), tspan(n));
+
+            % Variable convection coefficient
+            convectionCoefficient = coefficients.convection(xspan(i), tspan(n));
+
+            solution.u(n + 1, i) = solution.u(n, i) + ...
+                diffusionCoefficient * dt / dx^2 * (solution.u(n, i + 1) - 2 * solution.u(n, i) + solution.u(n, i - 1)) ...
+                + convectionCoefficient * dt / (2 * dx) * (solution.u(n, i + 1) - solution.u(n, i - 1));
+        end
+
+        % Apply boundary conditions
+        solution.u(n + 1, 1) = boundaryConditions.left(xspan(1), tspan(n + 1));
+        solution.u(n + 1, end) = boundaryConditions.right(xspan(end), tspan(n + 1));
+    end
 end
