@@ -117,3 +117,10 @@ function solution = solvePDEFiniteDifference(coefficients, initialCondition, xsp
         solution.u(n + 1, end) = boundaryConditions.right(xspan(end), tspan(n + 1));
     end
 end
+
+function [c, f, s] = heatEquationPDE(x, t, u, DuDx, coefficients)
+    % PDE coefficients
+    c = 1;                   % Coefficient multiplying u_t
+    f = coefficients.diffusion(x, t) * DuDx; % Variable diffusion term
+    s = coefficients.reaction(x, t) * u;          % Reaction term
+end
