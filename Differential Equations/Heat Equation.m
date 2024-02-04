@@ -191,3 +191,16 @@ function plotMultipleHeatmaps(solution, xspan, tspan, targetTimes, colormapName)
         plotHeatmap(solution, xspan, tspan, targetTimes(i), [tspan(1), tspan(end)], colormapName);
     end
 end
+
+function plotHeatmap(solution, xspan, tspan, targetTime, timeSpan, colormapName)
+    % Plot a 2D heatmap of the temperature distribution at a specific time
+    timeIndex = find(tspan >= targetTime, 1, 'first');
+    
+    % Ensure the specified time is within the time span
+    if isempty(timeIndex) || targetTime < timeSpan(1) || targetTime > timeSpan(2)
+        warning('Invalid time specified for heatmap. Not plotted.');
+        return;
+    end
+    
+    
+end
