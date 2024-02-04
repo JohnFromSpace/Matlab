@@ -202,5 +202,12 @@ function plotHeatmap(solution, xspan, tspan, targetTime, timeSpan, colormapName)
         return;
     end
     
+    subplot(1, 2, 1);
+    heatmap(xspan, solution.u(timeIndex, :), 'Colormap', colormap(colormapName));
+    xlabel('Position (x)');
+    ylabel('Temperature (u)');
+    title(['Temperature Distribution at t = ', num2str(targetTime)]);
+    colorbar;
+    
     
 end
