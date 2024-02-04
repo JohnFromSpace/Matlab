@@ -153,3 +153,18 @@ function plotAndSaveSolution(solution, xspan, tspan, plotOptions)
         plotMultipleHeatmaps(solution, xspan, tspan, plotOptions.heatmapTimes, plotOptions.colormap);
     end
 end
+
+function plot3DSolution(solution, xspan, tspan, plotOptions)
+    % Plot the solution interactively
+    figure;
+    surf(solution.x, tspan, solution.u, 'EdgeColor', 'none');
+    xlabel('Position (x)');
+    ylabel('Time (t)');
+    zlabel('Temperature (u)');
+    title(plotOptions.plotTitle);
+    axis tight;
+    rotate3d on;
+    view(45, 30);
+    colorbar;
+    colormap(plotOptions.colormap);
+end
