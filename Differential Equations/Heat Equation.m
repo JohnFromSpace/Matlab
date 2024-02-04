@@ -168,3 +168,17 @@ function plot3DSolution(solution, xspan, tspan, plotOptions)
     colorbar;
     colormap(plotOptions.colormap);
 end
+
+function savePlotAsImage(savePath, plotTitle)
+    % Save the plot as an image
+    [~, ~, ext] = fileparts(savePath);
+    supportedFormats = {'.png', '.jpg', '.jpeg', '.pdf', '.fig'};
+
+    if ~any(strcmpi(ext, supportedFormats))
+        warning('Unsupported file format. Plot not saved.');
+        return;
+    end
+
+    saveas(gcf, savePath);
+    disp(['Plot saved as ', savePath]);
+end
