@@ -52,3 +52,15 @@ function solveHeatEquation(pdeCoefficients, domain, spatialResolution, timeResol
         disp(['Error: ', exception.message]);
     end
 end
+
+function solution = solvePDE(coefficients, initialCondition, xspan, tspan, boundaryConditions, solver)
+    % Solve the PDE using the specified solver
+    switch lower(solver)
+        case 'pdepe'
+            solution = solvePDEPDEPE(coefficients, initialCondition, xspan, tspan, boundaryConditions);
+        case 'finitedifference'
+            solution = solvePDEFiniteDifference(coefficients, initialCondition, xspan, tspan, boundaryConditions);
+        otherwise
+            error('Invalid solver specified.');
+    end
+end
