@@ -124,3 +124,17 @@ function [c, f, s] = heatEquationPDE(x, t, u, DuDx, coefficients)
     f = coefficients.diffusion(x, t) * DuDx; % Variable diffusion term
     s = coefficients.reaction(x, t) * u;          % Reaction term
 end
+
+function bc = getBoundaryCondition(type)
+    % Convert boundary condition type to pdepe format
+    switch type
+        case 'dirichlet'
+            bc = @(x) 0; % Dirichlet condition
+        case 'neumann'
+            bc = @(x) 0; % Neumann condition (zero flux)
+        case 'mixed'
+            bc = @(x) [0; 0]; % Mixed condition (both Dirichlet and Neumann)
+        otherwise
+            error('Invalid boundary condition type.');
+    end
+end
