@@ -83,3 +83,20 @@ function solution = solvePDEPDEPE(coefficients, initialCondition, xspan, tspan, 
     solution.x = sol.x;
     solution.u = sol.u;
 end
+
+function solution = solvePDEFiniteDifference(coefficients, initialCondition, xspan, tspan, boundaryConditions)
+    % Solve the PDE using finite difference method
+    dx = xspan(2) - xspan(1);
+    dt = tspan(2) - tspan(1);
+    spatialPoints = length(xspan);
+    timePoints = length(tspan);
+
+    % Initialize solution matrix
+    solution.u = zeros(timePoints, spatialPoints);
+    solution.x = xspan;
+
+    % Set initial condition
+    solution.u(1, :) = initialCondition(xspan);
+
+    
+end
