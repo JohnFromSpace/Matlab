@@ -64,3 +64,22 @@ function solution = solvePDE(coefficients, initialCondition, xspan, tspan, bound
             error('Invalid solver specified.');
     end
 end
+
+function solution = solvePDEPDEPE(coefficients, initialCondition, xspan, tspan, boundaryConditions)
+    % Solve the PDE using pdepe
+    m = 0; % Assume one-dimensional problem
+    
+    % Convert boundary conditions to pdepe format
+    pdepeBC.left = getBoundaryCondition(boundaryConditions.left);
+    pdepeBC.right = getBoundaryCondition(boundaryConditions.right);
+
+    % Define variable diffusion coefficient
+    diffusionCoefficient = coefficients.diffusion;
+
+    % Solve the PDE
+    sol = pdepe(m, @heatEquationPDE, initialCondition, pdepeBC, xspan, tspan, 'diffusion', diffusionCoefficient);
+
+    % Store the solution in a structure for easy access
+    solution.x = sol.x;
+    solution.u = sol.u;
+end
