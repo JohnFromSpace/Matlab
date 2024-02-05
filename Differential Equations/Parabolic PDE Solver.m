@@ -61,3 +61,8 @@ function validateInput(spatialGridSize, timeGridSize, solverType)
         error('Invalid solver type. Choose ''pdepe'' or ''adaptPDE''.');
     end
 end
+
+function solution = solveParabolicPDEUsingPDEPE(pde, initialCondition, boundaryCondition, spatialGrid, timeGrid, pdeCoefficients, solverOptions)
+    % Solve the parabolic PDE using pdepe
+    solution = pdepe(pdeCoefficients, pde, initialCondition, boundaryCondition, spatialGrid, timeGrid, solverOptions);
+end
