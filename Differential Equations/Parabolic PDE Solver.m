@@ -164,3 +164,14 @@ function handleSolverError(exception)
     % Handle errors during PDE solver execution
     disp(['Error: Unable to solve the parabolic PDE. ', exception.message]);
 end
+
+function [c, f, s] = parabolicPDE(x, t, u, DuDx, pdeCoefficients)
+    % Parabolic PDE coefficients
+    diffusionCoefficient = pdeCoefficients(1);
+    convectionCoefficient = DuDx;
+    sourceTerm = pdeCoefficients(2);
+
+    c = diffusionCoefficient;
+    f = convectionCoefficient;
+    s = sourceTerm;
+end
