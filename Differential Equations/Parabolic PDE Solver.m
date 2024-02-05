@@ -83,3 +83,8 @@ function [pl, ql, pr, qr] = boundaryCondition(xl, ul, xr, ur, t)
     pr = 0;   % Right boundary condition
     qr = ur;  % Right boundary condition derivative
 end
+
+function concentrationField = extractConcentrationField(solution)
+    % Extract the concentration field from the solution
+    concentrationField = solution(:, :, 1);
+end
