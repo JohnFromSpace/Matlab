@@ -42,6 +42,8 @@ function solveParabolicPDE(spatialGridSize, timeGridSize, saveSolution, pdeCoeff
 
         % Display solution statistics
         displaySolutionStatistics(concentrationField);
-
-     
+    
+    catch exception
+        handleSolverError(exception);
+    end 
 end
