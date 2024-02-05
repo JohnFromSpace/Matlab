@@ -151,3 +151,11 @@ function saveSolutionToFile(x, t, u, solverType, useAMR, outputFilename)
     save(outputFilename, 'x', 't', 'u');
     disp(['Solution saved to ', outputFilename]);
 end
+
+function displaySolutionStatistics(concentrationField)
+    % Display solution statistics
+    disp('Solution Statistics:');
+    disp(['Maximum Concentration: ', num2str(max(concentrationField(:)))]);
+    disp(['Minimum Concentration: ', num2str(min(concentrationField(:)))]);
+    disp(['Average Concentration: ', num2str(mean(concentrationField(:)))]);
+end
