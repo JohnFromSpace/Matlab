@@ -88,3 +88,17 @@ function concentrationField = extractConcentrationField(solution)
     % Extract the concentration field from the solution
     concentrationField = solution(:, :, 1);
 end
+
+function displaySolverSummary(solverType, useAMR, showPlots, saveSolution, solverOptions)
+    % Display a summary of the solver settings
+    disp('Solver Summary:');
+    disp(['Solver Type: ', solverType]);
+    disp(['Adaptive Mesh Refinement (AMR): ', conditional(useAMR, 'Enabled', 'Disabled')]);
+    disp(['Display Plots: ', conditional(showPlots, 'Yes', 'No')]);
+    disp(['Save Solution: ', conditional(saveSolution, 'Yes', 'No')]);
+
+    if ~isempty(solverOptions)
+        disp('Additional Solver Options:');
+        disp(solverOptions);
+    end
+end
