@@ -66,3 +66,12 @@ function solution = solveParabolicPDEUsingPDEPE(pde, initialCondition, boundaryC
     % Solve the parabolic PDE using pdepe
     solution = pdepe(pdeCoefficients, pde, initialCondition, boundaryCondition, spatialGrid, timeGrid, solverOptions);
 end
+
+function solution = solveAdaptiveParabolicPDE(pde, initialCondition, boundaryCondition, spatialGrid, timeGrid, pdeCoefficients, useAMR, solverOptions)
+    % Solve the parabolic PDE using adaptPDE with optional adaptive mesh refinement (AMR)
+    if useAMR
+        solverOptions = odeset(solverOptions, 'Refine', 1);
+    end
+
+    solution = adaptPDE(pde, initialCondition, boundaryCondition, spatialGrid, timeGrid, pdeCoefficients, solverOptions);
+end
