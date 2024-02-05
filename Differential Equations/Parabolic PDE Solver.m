@@ -14,5 +14,34 @@ function solveParabolicPDE(spatialGridSize, timeGridSize, saveSolution, pdeCoeff
         initialCondition = customInitialCondition;
     end
 
-    
+   try
+        % Solve the parabolic PDE using pdepe or adaptPDE
+        if strcmpi(solverType, 'pdepe')
+            solution = solveParabolicPDEUsingPDEPE(@parabolicPDE, initialCondition, @boundaryCondition, spatialGrid, timeGrid, pdeCoefficients, solverOptions);
+        elseif strcmpi(solverType, 'adaptPDE')
+            solution = solveAdaptiveParabolicPDE(@parabolicPDE, initialCondition, @boundaryCondition, spatialGrid, timeGrid, pdeCoefficients, useAMR, solverOptions);
+        else
+            error('Invalid solver type. Choose ''pdepe'' or ''adaptPDE''.');
+        end
+
+        % Extract the concentration field from the solution
+        concentrationField = extractConcentrationField(solution);
+
+        % Display solver summary
+        displaySolverSummary(solverType, useAMR, showPlots, saveSolution, solverOptions);
+
+        % Plot the solution(s) if specified
+        if showPlots
+            plotPDESolution(spatialGrid, timeGrid, concentrationField, plotStyle, plotOptions, colorMap, plotTitle);
+        end
+
+        % Save the solution if specified
+        if saveSolution
+            saveSolutionToFile(spatialGrid, timeGrid, concentrationField, solverType, useAMR, outputFilename);
+        end
+
+        % Display solution statistics
+        displaySolutionStatistics(concentrationField);
+
+     
 end
