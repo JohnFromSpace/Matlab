@@ -7,5 +7,12 @@ function solveParabolicPDE(spatialGridSize, timeGridSize, saveSolution, pdeCoeff
     spatialGrid = linspace(0, 1, spatialGridSize);
     timeGrid = linspace(0, 1, timeGridSize);
 
+    % Set up initial condition
+    if nargin < 5
+        initialCondition = @(x) sin(pi * x);  % Default initial condition
+    else
+        initialCondition = customInitialCondition;
+    end
+
     
 end
