@@ -116,3 +116,22 @@ function plotPDESolution(x, t, u, plotStyle, plotOptions, colorMap, plotTitle)
         plotSingleSolution(x, u, t, plotStyle, plotOptions, colorMap, plotTitle);
     end
 end
+
+function plotSingleSolution(x, u, t, plotStyle, plotOptions, colorMap, plotTitle)
+    % Plot a single solution
+    if isempty(plotOptions)
+        if isempty(colorMap)
+            plot(x, u, plotStyle);
+        else
+            plotlyPlot(x, u, colorMap, plotTitle);
+        end
+    else
+        if isempty(colorMap)
+            plot(x, u, plotStyle, plotOptions{:});
+        else
+            plotlyPlot(x, u, colorMap, plotTitle);
+        end
+    end
+
+    
+end
