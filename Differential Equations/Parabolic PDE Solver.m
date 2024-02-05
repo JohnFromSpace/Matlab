@@ -102,3 +102,17 @@ function displaySolverSummary(solverType, useAMR, showPlots, saveSolution, solve
         disp(solverOptions);
     end
 end
+
+function plotPDESolution(x, t, u, plotStyle, plotOptions, colorMap, plotTitle)
+    % Plot the solution(s)
+    figure;
+
+    if iscell(u)
+        for i = 1:length(u)
+            subplot(length(u), 1, i);
+            plotSingleSolution(x, u{i}, t(i), plotStyle, plotOptions, colorMap, plotTitle);
+        end
+    else
+        plotSingleSolution(x, u, t, plotStyle, plotOptions, colorMap, plotTitle);
+    end
+end
