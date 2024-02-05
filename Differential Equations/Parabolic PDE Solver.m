@@ -133,5 +133,11 @@ function plotSingleSolution(x, u, t, plotStyle, plotOptions, colorMap, plotTitle
         end
     end
 
-    
+    xlabel('Spatial coordinate (x)');
+    ylabel('Concentration');
+    title(['Solution at t = ', num2str(t)]);
+
+    if ~isempty(plotOptions)
+        legend(plotOptions);
+    end
 end
