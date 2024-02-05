@@ -175,3 +175,17 @@ function [c, f, s] = parabolicPDE(x, t, u, DuDx, pdeCoefficients)
     f = convectionCoefficient;
     s = sourceTerm;
 end
+
+function plotlyPlot(x, u, colorMap, plotTitle)
+    % Create a 3D surface plot using Plotly and save as HTML
+    fig = figure;
+    surface(x, ones(size(x)), u, 'FaceColor', 'interp', 'EdgeColor', 'none');
+    colormap(colorMap);
+    colorbar;
+
+    if ~isempty(plotTitle)
+        title(plotTitle);
+    end
+
+    
+end
