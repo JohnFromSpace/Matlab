@@ -47,3 +47,14 @@ function solveParabolicPDE(spatialGridSize, timeGridSize, saveSolution, pdeCoeff
         handleSolverError(exception);
     end 
 end
+
+function validateInput(spatialGridSize, timeGridSize, solverType)
+    % Validate input parameters
+    if ~(isnumeric(spatialGridSize) && isnumeric(timeGridSize) && ...
+            isscalar(spatialGridSize) && isscalar(timeGridSize) && ...
+            spatialGridSize > 1 && timeGridSize > 1)
+        error('Invalid input. Grid sizes must be numeric scalars greater than 1.');
+    end
+
+    
+end
