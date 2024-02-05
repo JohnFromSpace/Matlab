@@ -187,5 +187,8 @@ function plotlyPlot(x, u, colorMap, plotTitle)
         title(plotTitle);
     end
 
-    
+    filename = ['solution_plot_', datestr(now, 'yyyymmddHHMMSS'), '.html'];
+    plotlyfig = plotlyoffline(fig, 'Filename', filename, 'Visible', 'off');
+    plotlyoffline(plotlyfig, 'Visible', 'on');
+    disp(['Interactive 3D surface plot saved as ', filename]);
 end
