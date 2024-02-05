@@ -159,3 +159,8 @@ function displaySolutionStatistics(concentrationField)
     disp(['Minimum Concentration: ', num2str(min(concentrationField(:)))]);
     disp(['Average Concentration: ', num2str(mean(concentrationField(:)))]);
 end
+
+function handleSolverError(exception)
+    % Handle errors during PDE solver execution
+    disp(['Error: Unable to solve the parabolic PDE. ', exception.message]);
+end
