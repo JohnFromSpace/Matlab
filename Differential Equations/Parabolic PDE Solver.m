@@ -56,5 +56,8 @@ function validateInput(spatialGridSize, timeGridSize, solverType)
         error('Invalid input. Grid sizes must be numeric scalars greater than 1.');
     end
 
-    
+    validSolvers = {'pdepe', 'adaptPDE'};
+    if ~ismember(lower(solverType), validSolvers)
+        error('Invalid solver type. Choose ''pdepe'' or ''adaptPDE''.');
+    end
 end
