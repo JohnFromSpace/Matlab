@@ -75,3 +75,11 @@ function solution = solveAdaptiveParabolicPDE(pde, initialCondition, boundaryCon
 
     solution = adaptPDE(pde, initialCondition, boundaryCondition, spatialGrid, timeGrid, pdeCoefficients, solverOptions);
 end
+
+function [pl, ql, pr, qr] = boundaryCondition(xl, ul, xr, ur, t)
+    % Set boundary conditions at x = 0 and x = 1
+    pl = ul;  % Left boundary condition
+    ql = 0;   % Left boundary condition derivative
+    pr = 0;   % Right boundary condition
+    qr = ur;  % Right boundary condition derivative
+end
