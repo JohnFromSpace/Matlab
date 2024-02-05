@@ -141,3 +141,13 @@ function plotSingleSolution(x, u, t, plotStyle, plotOptions, colorMap, plotTitle
         legend(plotOptions);
     end
 end
+
+function saveSolutionToFile(x, t, u, solverType, useAMR, outputFilename)
+    % Save the solution to a file
+    if nargin < 6
+        outputFilename = ['parabolic_pde_solution_', solverType, '_', conditional(useAMR, 'AMR', 'nonAMR'), '.mat'];
+    end
+
+    save(outputFilename, 'x', 't', 'u');
+    disp(['Solution saved to ', outputFilename]);
+end
