@@ -22,6 +22,18 @@ function [optimalPath, optimalCost] = bellmanLostInForest(costMatrix, obstacles,
     if nargin < 6
         customColormap = 'parula';
     end
-
+    
+    % Get the size of the cost matrix
+    [rows, cols] = size(costMatrix);
+    
+    % Initialize the cost-to-go matrix with infinity
+    costToGo = inf(rows, cols);
+    
+    % Initialize the optimal action matrix
+    optimalAction = zeros(rows, cols);
+    
+    % Set the destination cell cost to 0
+    costToGo(rows, cols) = 0;
+    
     
 end
