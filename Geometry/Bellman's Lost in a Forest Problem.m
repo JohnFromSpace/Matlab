@@ -71,5 +71,26 @@ function [optimalPath, optimalCost] = bellmanLostInForest(costMatrix, obstacles,
         optimalPath = [optimalPath; [i, j]];
     end
     
+    % Compute the optimal cost
+    optimalCost = costToGo(1, 1);
+    
+    % Visualization of the forest, obstacles, and optimal path
+    figure;
+    imagesc(costMatrix);
+    colormap(customColormap);
+    colorbar;
+    hold on;
+    
+    % Plot obstacles
+    [obs_i, obs_j] = find(obstacles);
+    plot(obs_j, obs_i, 's', 'MarkerSize', obstacleMarkerSize, 'MarkerFaceColor', obstacleMarkerColor, 'MarkerEdgeColor', 'k', 'DisplayName', 'Obstacles');
+    
+    % Plot optimal path
+    plot(optimalPath(:,2), optimalPath(:,1), 'ro-', 'LineWidth', 2, 'LineStyle', pathLineStyle, 'DisplayName', 'Optimal Path');
+    
+    title('Forest Grid with Obstacles and Optimal Path');
+    xlabel('Column');
+    ylabel('Row');
+    
     
 end
