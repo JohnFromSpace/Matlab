@@ -99,6 +99,16 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
     % Display the result
     fprintf('Coordinates of the third vertex: (%f, %f)\n', x3, y3);
 
-                    
+    % Visualization (optional)
+    if visualize
+        figure;
+        plot([x1 x2 x3 x1], [y1 y2 y3 y1], 'b.-');
+        axis equal;
+        title('Kobon Triangle');
+        xlabel('X');
+        ylabel('Y');
+        legend('Triangle');
+        grid on;
+    end                
 end
 
