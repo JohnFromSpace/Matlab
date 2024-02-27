@@ -67,6 +67,14 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
         error('Triangle cannot be formed with the given inputs.');
     end
 
-            
+    % Calculate the direction from the first vertex to the second
+    dx = (x2 - x1) / d;
+    dy = (y2 - y1) / d;
+
+    if strcmpi(angleMode, 'degrees')
+        angle = deg2rad(angle);
+    end
+
+                
 end
 
