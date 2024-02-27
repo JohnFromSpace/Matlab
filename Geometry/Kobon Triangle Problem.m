@@ -21,6 +21,25 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
     angleMode = 'radians'; % default angle mode (radians)
     visualize = false;     % default visualization flag
 
+    % Parse optional arguments
+    if ~isempty(varargin)
+        for i = 1:numel(varargin)
+            if ischar(varargin{i}) && strcmpi(varargin{i}, 'angle') || strcmpi(varargin{i}, 'included angle')
+                angleMode = 'angle';
+            elseif ischar(varargin{i}) && strcmpi(varargin{i}, 'degrees')
+                angleMode = 'degrees';
+            elseif isnumeric(varargin{i}) && numel(varargin{i}) == 1
+                side2 = varargin{i};
+            elseif isnumeric(varargin{i}) && numel(varargin{i}) == 2
+                angle = varargin{i};
+            elseif islogical(varargin{i}) && numel(varargin{i}) == 1
+                visualize = varargin{i};
+            else
+                error('Invalid input arguments.');
+            end
+        end
+    end
+
     
 end
 
