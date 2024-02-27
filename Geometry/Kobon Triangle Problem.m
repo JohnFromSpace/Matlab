@@ -54,6 +54,9 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
         error('Insufficient input arguments.');
     end
 
+    % Calculate the distance between the two given vertices
+    d = hypot(x2 - x1, y2 - y1);
+
         
 end
 
