@@ -75,6 +75,24 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
         angle = deg2rad(angle);
     end
 
-                
+    % Calculate the coordinates of the unknown vertex
+    if exist('angle', 'var')
+        % Given two sides and an angle
+        if exist('side2', 'var')
+            % Cosine rule
+            x3 = x1 + side1 * dx + side2 * cos(angle) * (-dy);
+            y3 = y1 + side1 * dy + side2 * cos(angle) * dx;
+        else
+            % Sine rule
+            x3 = x1 + side1 * dx + side1 * sin(angle) * dy;
+            y3 = y1 + side1 * dy + side1 * sin(angle) * (-dx);
+        end
+    else
+        % Given two sides and an included angle
+        x3 = x1 + side1 * dx + side2 * cos(angle) * (-dy);
+        y3 = y1 + side1 * dy + side2 * cos(angle) * dx;
+    end
+
+                    
 end
 
