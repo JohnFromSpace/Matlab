@@ -62,6 +62,11 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
         error('Side lengths are too long.');
     end
 
+    % Check if triangle inequality is satisfied
+    if (exist('side2', 'var') && side1 + side2 <= d) || (exist('angle', 'var') && angle >= pi)
+        error('Triangle cannot be formed with the given inputs.');
+    end
+
             
 end
 
