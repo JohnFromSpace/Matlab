@@ -17,6 +17,10 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
     %   - x3, y3: Coordinates of the third vertex
     %   - success: Boolean flag indicating whether the computation was successful
 
+    % Default values
+    angleMode = 'radians'; % default angle mode (radians)
+    visualize = false;     % default visualization flag
+
     
 end
 
