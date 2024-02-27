@@ -96,6 +96,9 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
     % Set success flag
     success = true;
 
+    % Display the result
+    fprintf('Coordinates of the third vertex: (%f, %f)\n', x3, y3);
+
                     
 end
 
