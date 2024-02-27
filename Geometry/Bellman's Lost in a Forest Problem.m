@@ -92,5 +92,16 @@ function [optimalPath, optimalCost] = bellmanLostInForest(costMatrix, obstacles,
     xlabel('Column');
     ylabel('Row');
     
+    % Add labels to the grid cells
+    for i = 1:rows
+        for j = 1:cols
+            text(j, i, num2str(costMatrix(i,j)), 'HorizontalAlignment', 'center', 'Color', 'w');
+        end
+    end
+    
+    % Add legend with detailed information
+    legend('Location', 'northeastoutside');
+    legend('show');
+    
     
 end
