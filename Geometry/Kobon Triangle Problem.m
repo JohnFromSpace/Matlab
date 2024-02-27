@@ -57,6 +57,11 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
     % Calculate the distance between the two given vertices
     d = hypot(x2 - x1, y2 - y1);
 
-        
+    % Check if the given sides are longer than the distance between the points
+    if side1 >= d || (exist('side2', 'var') && side2 >= d)
+        error('Side lengths are too long.');
+    end
+
+            
 end
 
