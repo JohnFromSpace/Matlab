@@ -103,5 +103,14 @@ function [optimalPath, optimalCost] = bellmanLostInForest(costMatrix, obstacles,
     legend('Location', 'northeastoutside');
     legend('show');
     
+    % Add grid lines
+    for i = 1:rows
+        plot([0.5, cols+0.5], [i+0.5, i+0.5], 'k', 'LineWidth', 0.5);
+    end
+    for j = 1:cols
+        plot([j+0.5, j+0.5], [0.5, rows+0.5], 'k', 'LineWidth', 0.5);
+    end
     
+    axis equal;
+    hold off;
 end
