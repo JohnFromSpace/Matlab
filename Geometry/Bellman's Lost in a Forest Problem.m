@@ -35,5 +35,28 @@ function [optimalPath, optimalCost] = bellmanLostInForest(costMatrix, obstacles,
     % Set the destination cell cost to 0
     costToGo(rows, cols) = 0;
     
+    % Perform dynamic programming
+    for i = rows:-1:1
+        for j = cols:-1:1
+            % Check if it's not the destination cell and not an obstacle
+            if ~(i == rows && j == cols) && ~obstacles(i, j)
+                % Compute the cost of moving right
+                costRight = inf;
+                if j < cols && ~obstacles(i, j+1)
+                    costRight = costMatrix(i, j+1);
+                end
+                
+                % Compute the cost of moving down
+                costDown = inf;
+                if i < rows && ~obstacles(i+1, j)
+                    costDown = costMatrix(i+1, j);
+                end
+                
+                % Update the cost-to-go matrix
+                [costToGo(i, j), optimalAction(i, j)] = min([costRight, costDown]) + costMatrix(i, j);
+            end
+        end
+    end
+    
     
 end
