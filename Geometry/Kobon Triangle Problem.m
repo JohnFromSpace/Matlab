@@ -40,6 +40,20 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
         end
     end
 
-    
+    % Validate inputs
+    validateattributes(x1, {'numeric'}, {'scalar','finite'});
+    validateattributes(y1, {'numeric'}, {'scalar','finite'});
+    validateattributes(side1, {'numeric'}, {'scalar','positive','finite'});
+    validateattributes(x2, {'numeric'}, {'scalar','finite'});
+    validateattributes(y2, {'numeric'}, {'scalar','finite'});
+    if exist('side2', 'var')
+        validateattributes(side2, {'numeric'}, {'scalar','positive','finite'});
+    elseif exist('angle', 'var')
+        validateattributes(angle, {'numeric'}, {'scalar','finite'});
+    else
+        error('Insufficient input arguments.');
+    end
+
+        
 end
 
