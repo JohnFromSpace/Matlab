@@ -93,6 +93,9 @@ function [x3, y3, success] = kobonTriangle(x1, y1, side1, x2, y2, varargin)
         y3 = y1 + side1 * dy + side2 * cos(angle) * dx;
     end
 
+    % Set success flag
+    success = true;
+
                     
 end
 
