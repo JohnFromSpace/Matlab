@@ -58,5 +58,18 @@ function [optimalPath, optimalCost] = bellmanLostInForest(costMatrix, obstacles,
         end
     end
     
+    % Construct the optimal path
+    optimalPath = [1, 1];
+    i = 1;
+    j = 1;
+    while ~(i == rows && j == cols)
+        if optimalAction(i, j) == 1 % Move right
+            j = j + 1;
+        else % Move down
+            i = i + 1;
+        end
+        optimalPath = [optimalPath; [i, j]];
+    end
+    
     
 end
