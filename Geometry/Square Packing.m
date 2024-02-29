@@ -105,5 +105,12 @@ function mutated_offspring = mutation(offspring, mutation_rate, container_width,
     % Mutation
     mutated_offspring = offspring;
     [num_offspring, ~] = size(mutated_offspring);
-        
+    for i = 1:num_offspring
+        if rand < mutation_rate
+            num_squares = size(mutated_offspring, 2) / 2;
+            idx = randi(num_squares);
+            mutated_offspring(i, (idx-1)*2+1) = randi([1, container_width]);
+            mutated_offspring(i, (idx-1)*2+2) = randi([1, container_height]);
+        end
+    end    
 end
