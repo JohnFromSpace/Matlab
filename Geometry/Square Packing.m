@@ -52,6 +52,9 @@ function solution = generate_random_solution(square_sizes, container_width, cont
     % Generate a random solution
     num_squares = numel(square_sizes);
     solution = zeros(1, num_squares * 2); % Each square represented by [x, y] coordinates
-
-    
+    for i = 1:num_squares
+        x = randi([1, container_width - square_sizes(i)]);
+        y = randi([1, container_height - square_sizes(i)]);
+        solution((i-1)*2+1:i*2) = [x, y];
+    end
 end
