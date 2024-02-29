@@ -27,5 +27,13 @@ function [packed_squares, remaining_space] = pack_squares_genetic_lkh(container_
         population = mutated_offspring;
     end
     
-        
+    % Find the best individual in the final population
+    [~, idx] = min(evaluate_fitness(population, square_sizes, container_width, container_height));
+    best_individual = population(idx, :);
+    
+    % Decode best individual into packed squares
+    packed_squares = decode_solution(best_individual, square_sizes);
+    
+    % Calculate remaining space
+    remaining_space = calculate_remaining_space(container_width, container_height, packed_squares);    
 end
