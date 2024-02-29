@@ -191,3 +191,11 @@ population_size = 100;
 generations = 100;
 local_search_iterations = 10;
 num_workers = 4; % Number of parallel workers
+
+[packed_squares, remaining_space] = pack_squares_genetic_lkh(container_width, container_height, square_sizes, population_size, generations, local_search_iterations, num_workers);
+
+disp('Packed squares:');
+disp(packed_squares);
+
+disp('Remaining space:');
+disp(remaining_space);
