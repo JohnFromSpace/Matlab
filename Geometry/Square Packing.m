@@ -63,5 +63,9 @@ function fitness = evaluate_fitness(population, square_sizes, container_width, c
     % Evaluate fitness of each individual
     num_individuals = size(population, 1);
     fitness = zeros(num_individuals, 1);
-        
+    for i = 1:num_individuals
+        packed_squares = decode_solution(population(i, :), square_sizes);
+        remaining_space = calculate_remaining_space(container_width, container_height, packed_squares);
+        fitness(i) = -remaining_space; % Maximizing remaining space is equivalent to minimizing used space
+    end    
 end
