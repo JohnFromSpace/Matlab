@@ -47,3 +47,7 @@ function population = generate_population(population_size, square_sizes, contain
         population(i, :) = generate_random_solution(square_sizes, container_width, container_height);
     end
 end
+
+function solution = generate_random_solution(square_sizes, container_width, container_height)
+    
+end
