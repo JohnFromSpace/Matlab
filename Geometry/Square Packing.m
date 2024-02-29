@@ -74,5 +74,13 @@ function selected_parents = tournament_selection(population, fitness, k)
     % Tournament selection
     num_individuals = size(population, 1);
     selected_parents = zeros(k, size(population, 2));
-    
+
+    for i = 1:k
+        idx = randperm(num_individuals, 2);
+        if fitness(idx(1)) > fitness(idx(2))
+            selected_parents(i, :) = population(idx(1), :);
+        else
+            selected_parents(i, :) = population(idx(2), :);
+        end
+    end
 end
