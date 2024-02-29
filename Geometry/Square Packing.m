@@ -39,5 +39,9 @@ function [packed_squares, remaining_space] = pack_squares_genetic_lkh(container_
 end
 
 function population = generate_population(population_size, square_sizes, container_width, container_height)
+    % Generate initial population randomly
+    num_squares = numel(square_sizes);
+    population = zeros(population_size, num_squares * 2);
+
     
 end
