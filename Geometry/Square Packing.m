@@ -58,3 +58,7 @@ function solution = generate_random_solution(square_sizes, container_width, cont
         solution((i-1)*2+1:i*2) = [x, y];
     end
 end
+
+function fitness = evaluate_fitness(population, square_sizes, container_width, container_height)
+    
+end
