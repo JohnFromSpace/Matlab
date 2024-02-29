@@ -139,3 +139,7 @@ function new_solution = apply_lkh_once(solution, square_sizes, container_width, 
     new_packed_squares = decode_tour(new_tour, square_sizes, container_width, container_height);
     new_solution = encode_solution(new_packed_squares);    
 end
+
+function tour = encode_tour(packed_squares, square_sizes, container_width, container_height)
+    
+end
