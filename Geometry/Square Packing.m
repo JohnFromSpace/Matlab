@@ -130,3 +130,7 @@ function mutated_population = apply_lkh(population, square_sizes, container_widt
         mutated_population(i, :) = solution;
     end    
 end
+
+function new_solution = apply_lkh_once(solution, square_sizes, container_width, container_height)
+    
+end
