@@ -37,3 +37,7 @@ function [packed_squares, remaining_space] = pack_squares_genetic_lkh(container_
     % Calculate remaining space
     remaining_space = calculate_remaining_space(container_width, container_height, packed_squares);    
 end
+
+function population = generate_population(population_size, square_sizes, container_width, container_height)
+    
+end
