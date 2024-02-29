@@ -132,5 +132,10 @@ function mutated_population = apply_lkh(population, square_sizes, container_widt
 end
 
 function new_solution = apply_lkh_once(solution, square_sizes, container_width, container_height)
-    
+    % Apply Lin-Kernighan Heuristic once to improve a solution
+    packed_squares = decode_solution(solution, square_sizes);
+    tour = encode_tour(packed_squares, square_sizes, container_width, container_height);
+    new_tour = LKH(tour);
+    new_packed_squares = decode_tour(new_tour, square_sizes, container_width, container_height);
+    new_solution = encode_solution(new_packed_squares);    
 end
