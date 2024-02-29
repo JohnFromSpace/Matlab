@@ -84,3 +84,10 @@ function selected_parents = tournament_selection(population, fitness, k)
         end
     end
 end
+
+function offspring = crossover(selected_parents, crossover_rate)
+    % One-point crossover
+    num_parents = size(selected_parents, 1);
+    offspring = zeros(num_parents, size(selected_parents, 2));
+    
+end
