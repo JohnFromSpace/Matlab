@@ -167,3 +167,7 @@ function solution = encode_solution(packed_squares)
         solution((i-1)*2+1:i*2) = packed_squares(i, :);
     end    
 end
+
+function packed_squares = decode_solution(solution, square_sizes)
+    
+end
