@@ -116,5 +116,8 @@ function mutated_offspring = mutation(offspring, mutation_rate, container_width,
 end
 
 function mutated_population = apply_lkh(population, square_sizes, container_width, container_height, iterations)
-    
+    % Apply Lin-Kernighan Heuristic to each individual in the population
+    num_individuals = size(population, 1);
+    mutated_population = population;
+        
 end
