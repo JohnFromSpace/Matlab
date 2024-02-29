@@ -158,3 +158,7 @@ function packed_squares = decode_tour(tour, square_sizes, container_width, conta
         packed_squares(i, :) = tour(i, :) - square_sizes(i)/2; % Square position is at the center
     end    
 end
+
+function solution = encode_solution(packed_squares)
+    
+end
