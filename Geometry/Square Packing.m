@@ -176,3 +176,7 @@ function packed_squares = decode_solution(solution, square_sizes)
         packed_squares(i, :) = [solution((i-1)*2+1), solution((i-1)*2+2)];
     end    
 end
+
+function remaining_space = calculate_remaining_space(container_width, container_height, packed_squares)
+    
+end
