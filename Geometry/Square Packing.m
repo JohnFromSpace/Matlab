@@ -119,5 +119,14 @@ function mutated_population = apply_lkh(population, square_sizes, container_widt
     % Apply Lin-Kernighan Heuristic to each individual in the population
     num_individuals = size(population, 1);
     mutated_population = population;
-        
+    parfor i = 1:num_individuals
+        solution = population(i, :);
+        for j = 1:iterations
+            new_solution = apply_lkh_once(solution, square_sizes, container_width, container_height);
+            if calculate_fitness(new_solution, square_sizes, container_width, container_height) > calculate_fitness(solution, square_sizes, container_width, container_height)
+                solution = new_solution;
+            end
+        end
+        mutated_population(i, :) = solution;
+    end    
 end
