@@ -60,5 +60,8 @@ function solution = generate_random_solution(square_sizes, container_width, cont
 end
 
 function fitness = evaluate_fitness(population, square_sizes, container_width, container_height)
-    
+    % Evaluate fitness of each individual
+    num_individuals = size(population, 1);
+    fitness = zeros(num_individuals, 1);
+        
 end
