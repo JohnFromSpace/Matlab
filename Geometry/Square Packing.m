@@ -178,5 +178,7 @@ function packed_squares = decode_solution(solution, square_sizes)
 end
 
 function remaining_space = calculate_remaining_space(container_width, container_height, packed_squares)
-    
+    % Calculate remaining space in the container
+    total_area = sum(packed_squares(:, 1).^2);
+    remaining_space = container_width * container_height - total_area;    
 end
