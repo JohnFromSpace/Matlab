@@ -43,5 +43,7 @@ function population = generate_population(population_size, square_sizes, contain
     num_squares = numel(square_sizes);
     population = zeros(population_size, num_squares * 2);
 
-    
+    for i = 1:population_size
+        population(i, :) = generate_random_solution(square_sizes, container_width, container_height);
+    end
 end
