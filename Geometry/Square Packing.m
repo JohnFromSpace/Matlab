@@ -69,3 +69,10 @@ function fitness = evaluate_fitness(population, square_sizes, container_width, c
         fitness(i) = -remaining_space; % Maximizing remaining space is equivalent to minimizing used space
     end    
 end
+
+function selected_parents = tournament_selection(population, fitness, k)
+    % Tournament selection
+    num_individuals = size(population, 1);
+    selected_parents = zeros(k, size(population, 2));
+    
+end
