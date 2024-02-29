@@ -102,5 +102,8 @@ function offspring = crossover(selected_parents, crossover_rate)
 end
 
 function mutated_offspring = mutation(offspring, mutation_rate, container_width, container_height)
-    
+    % Mutation
+    mutated_offspring = offspring;
+    [num_offspring, ~] = size(mutated_offspring);
+        
 end
