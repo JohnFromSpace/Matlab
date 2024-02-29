@@ -89,5 +89,14 @@ function offspring = crossover(selected_parents, crossover_rate)
     % One-point crossover
     num_parents = size(selected_parents, 1);
     offspring = zeros(num_parents, size(selected_parents, 2));
-    
+    for i = 1:2:num_parents
+        if rand < crossover_rate
+            crossover_point = randi(size(selected_parents, 2));
+            offspring(i, :) = [selected_parents(i, 1:crossover_point), selected_parents(i+1, crossover_point+1:end)];
+            offspring(i+1, :) = [selected_parents(i+1, 1:crossover_point), selected_parents(i, crossover_point+1:end)];
+        else
+            offspring(i, :) = selected_parents(i, :);
+            offspring(i+1, :) = selected_parents(i+1, :);
+        end
+    end
 end
