@@ -6,5 +6,26 @@ function [packed_squares, remaining_space] = pack_squares_genetic_lkh(container_
     % Generate initial population
     population = generate_population(population_size, square_sizes, container_width, container_height);
     
+    % Evolution loop
+    parfor gen = 1:generations
+        % Evaluate fitness of each individual
+        fitness = evaluate_fitness(population, square_sizes, container_width, container_height);
+        
+        % Selection
+        selected_parents = tournament_selection(population, fitness, 2);
+        
+        % Crossover
+        offspring = crossover(selected_parents, crossover_rate);
+        
+        % Mutation
+        mutated_offspring = mutation(offspring, mutation_rate, container_width, container_height);
+        
+        % Apply LKH local search
+        mutated_offspring = apply_lkh(mutated_offspring, square_sizes, container_width, container_height, local_search_iterations);
+        
+        % Replace old population with new generation
+        population = mutated_offspring;
+    end
+    
         
 end
