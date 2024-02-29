@@ -149,3 +149,7 @@ function tour = encode_tour(packed_squares, square_sizes, container_width, conta
     end
     tour(end, :) = [container_width/2, container_height/2]; % Dummy node at the center of the container
 end
+
+function packed_squares = decode_tour(tour, square_sizes, container_width, container_height)
+    
+end
