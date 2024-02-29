@@ -141,5 +141,11 @@ function new_solution = apply_lkh_once(solution, square_sizes, container_width, 
 end
 
 function tour = encode_tour(packed_squares, square_sizes, container_width, container_height)
-    
+    % Encode packed squares into a tour for LKH
+    num_squares = size(packed_squares, 1);
+    tour = zeros(num_squares+1, 2); % Include a dummy node for LKH
+    for i = 1:num_squares
+        tour(i, :) = packed_squares(i, :) + square_sizes(i)/2; % Tour node at the center of each square
+    end
+    tour(end, :) = [container_width/2, container_height/2]; % Dummy node at the center of the container
 end
