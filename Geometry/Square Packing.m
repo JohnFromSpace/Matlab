@@ -100,3 +100,7 @@ function offspring = crossover(selected_parents, crossover_rate)
         end
     end
 end
+
+function mutated_offspring = mutation(offspring, mutation_rate, container_width, container_height)
+    
+end
