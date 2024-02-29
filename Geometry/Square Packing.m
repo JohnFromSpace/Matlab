@@ -49,5 +49,9 @@ function population = generate_population(population_size, square_sizes, contain
 end
 
 function solution = generate_random_solution(square_sizes, container_width, container_height)
+    % Generate a random solution
+    num_squares = numel(square_sizes);
+    solution = zeros(1, num_squares * 2); % Each square represented by [x, y] coordinates
+
     
 end
