@@ -169,5 +169,10 @@ function solution = encode_solution(packed_squares)
 end
 
 function packed_squares = decode_solution(solution, square_sizes)
-    
+    % Decode solution into packed squares
+    num_squares = numel(square_sizes);
+    packed_squares = zeros(num_squares, 2);
+    for i = 1:num_squares
+        packed_squares(i, :) = [solution((i-1)*2+1), solution((i-1)*2+2)];
+    end    
 end
