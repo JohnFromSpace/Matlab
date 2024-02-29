@@ -160,5 +160,10 @@ function packed_squares = decode_tour(tour, square_sizes, container_width, conta
 end
 
 function solution = encode_solution(packed_squares)
-    
+    % Encode packed squares into a solution
+    num_squares = size(packed_squares, 1);
+    solution = zeros(1, num_squares * 2);
+    for i = 1:num_squares
+        solution((i-1)*2+1:i*2) = packed_squares(i, :);
+    end    
 end
