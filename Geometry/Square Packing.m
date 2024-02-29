@@ -151,5 +151,10 @@ function tour = encode_tour(packed_squares, square_sizes, container_width, conta
 end
 
 function packed_squares = decode_tour(tour, square_sizes, container_width, container_height)
-    
+    % Decode tour from LKH into packed squares
+    num_squares = size(tour, 1) - 1;
+    packed_squares = zeros(num_squares, 2);
+    for i = 1:num_squares
+        packed_squares(i, :) = tour(i, :) - square_sizes(i)/2; % Square position is at the center
+    end    
 end
