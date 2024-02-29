@@ -182,3 +182,12 @@ function remaining_space = calculate_remaining_space(container_width, container_
     total_area = sum(packed_squares(:, 1).^2);
     remaining_space = container_width * container_height - total_area;    
 end
+
+% Example usage
+container_width = 10;
+container_height = 10;
+square_sizes = [4, 3, 2, 1]; % Example square sizes
+population_size = 100;
+generations = 100;
+local_search_iterations = 10;
+num_workers = 4; % Number of parallel workers
