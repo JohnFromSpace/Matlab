@@ -114,3 +114,7 @@ function mutated_offspring = mutation(offspring, mutation_rate, container_width,
         end
     end    
 end
+
+function mutated_population = apply_lkh(population, square_sizes, container_width, container_height, iterations)
+    
+end
