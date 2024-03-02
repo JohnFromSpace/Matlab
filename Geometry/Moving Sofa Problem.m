@@ -63,3 +63,8 @@ function plotSofa(ax, length, width)
     annotation('textbox', [0.2, 0.8, 0.1, 0.1], 'String', sprintf('Length: %.2f\nWidth: %.2f', length, width), 'FitBoxToText', 'on');
     annotation('textbox', [0.2, 0.7, 0.1, 0.1], 'String', sprintf('Area: %.2f', length*width), 'FitBoxToText', 'on');   
 end
+
+% Callback function for optimization
+function optimizeCallback(~, lengthSlider, widthSlider, ax, nonlcon)
+    
+end
