@@ -34,5 +34,7 @@ end
 
 % Non-linear constraints to ensure sofa fits around the corner
 function [c, ceq] = constraints(x)
-    
+    c = []; % No inequality constraints
+    % Equality constraints: Sofa must fit around the corner
+    ceq = (x(1)^2 + x(2)^2) - 1;    
 end
