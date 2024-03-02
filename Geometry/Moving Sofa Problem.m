@@ -41,5 +41,10 @@ end
 
 % Function to plot the sofa around the corner
 function plotSofa(ax, length, width)
+    % Plot the hallway
+    axes(ax);
+    cla(ax);
+    rectangle('Position', [0, 0, 1, 1], 'EdgeColor', 'k', 'LineWidth', 2);
     
+        
 end
