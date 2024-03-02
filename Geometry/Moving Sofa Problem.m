@@ -52,5 +52,12 @@ function plotSofa(ax, length, width)
     y_sofa = width * sin(theta);
     plot(x_sofa, y_sofa, 'r', 'LineWidth', 2);
     
+    % Add labels and title
+    xlabel('Length');
+    ylabel('Width');
+    title(ax, 'Sofa Around the Corner');
+    axis(ax, 'equal');
+    grid(ax, 'on');
+    
        
 end
