@@ -31,3 +31,8 @@ end
 function obj = objective(x)
     obj = -x(1)*x(2); % Negative sign for maximization    
 end
+
+% Non-linear constraints to ensure sofa fits around the corner
+function [c, ceq] = constraints(x)
+    
+end
