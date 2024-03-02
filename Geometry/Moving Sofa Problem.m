@@ -46,5 +46,11 @@ function plotSofa(ax, length, width)
     cla(ax);
     rectangle('Position', [0, 0, 1, 1], 'EdgeColor', 'k', 'LineWidth', 2);
     
-        
+    % Plot the sofa around the corner
+    theta = linspace(0, pi/2, 100);
+    x_sofa = length * cos(theta);
+    y_sofa = width * sin(theta);
+    plot(x_sofa, y_sofa, 'r', 'LineWidth', 2);
+    
+       
 end
