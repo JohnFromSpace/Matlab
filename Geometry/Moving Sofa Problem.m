@@ -92,3 +92,8 @@ function optimizeCallback(~, lengthSlider, widthSlider, ax, nonlcon)
         errordlg('Optimization failed. Please try again with different initial guesses.', 'Optimization Error');
     end    
 end
+
+% Callback function to update plot with slider values
+function updatePlot(~, ~, lengthSlider, widthSlider, ax)
+    
+end
