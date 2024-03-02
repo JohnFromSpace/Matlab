@@ -38,3 +38,8 @@ function [c, ceq] = constraints(x)
     % Equality constraints: Sofa must fit around the corner
     ceq = (x(1)^2 + x(2)^2) - 1;    
 end
+
+% Function to plot the sofa around the corner
+function plotSofa(ax, length, width)
+    
+end
