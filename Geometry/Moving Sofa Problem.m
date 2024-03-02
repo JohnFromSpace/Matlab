@@ -66,5 +66,12 @@ end
 
 % Callback function for optimization
 function optimizeCallback(~, lengthSlider, widthSlider, ax, nonlcon)
+    % Get initial guess from sliders
+    initialLength = lengthSlider.Value;
+    initialWidth = widthSlider.Value;
     
+    % Initialize progress bar
+    progressBar = uiprogressdlg('Title', 'Optimization Progress', 'Message', 'Optimizing...', 'Indeterminate', 'on');
+    
+        
 end
