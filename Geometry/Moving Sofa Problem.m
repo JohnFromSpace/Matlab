@@ -95,5 +95,9 @@ end
 
 % Callback function to update plot with slider values
 function updatePlot(~, ~, lengthSlider, widthSlider, ax)
+    % Get current slider values
+    lengthValue = lengthSlider.Value;
+    widthValue = widthSlider.Value;
     
+        
 end
