@@ -99,5 +99,6 @@ function updatePlot(~, ~, lengthSlider, widthSlider, ax)
     lengthValue = lengthSlider.Value;
     widthValue = widthSlider.Value;
     
-        
+    % Update plot with current slider values
+    plotSofa(ax, lengthValue, widthValue);    
 end
