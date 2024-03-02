@@ -29,5 +29,5 @@ end
 
 % Objective function to maximize sofa area
 function obj = objective(x)
-    
+    obj = -x(1)*x(2); % Negative sign for maximization    
 end
