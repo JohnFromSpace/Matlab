@@ -73,5 +73,22 @@ function optimizeCallback(~, lengthSlider, widthSlider, ax, nonlcon)
     % Initialize progress bar
     progressBar = uiprogressdlg('Title', 'Optimization Progress', 'Message', 'Optimizing...', 'Indeterminate', 'on');
     
+    try
+        % Perform optimization
+        x0 = [initialLength, initialWidth];
+        lb = [0, 0];
+        ub = [1, 0.5];
+        options = optimoptions('fmincon','Display','none', 'OutputFcn', @optimplotfval);
+        [x, fval, ~, ~, ~, ~, ~, output] = fmincon(@objective, x0, [], [], [], [], lb, ub, nonlcon, options);
         
+        % Update plot with optimized sofa
+        plotSofa(ax, x(1), x(2));
+        
+        % Close progress bar
+        close(progressBar);
+    catch
+        % Close progress bar and show error message
+        close(progressBar);
+        errordlg('Optimization failed. Please try again with different initial guesses.', 'Optimization Error');
+    end    
 end
