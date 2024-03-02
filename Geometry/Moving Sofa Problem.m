@@ -26,3 +26,8 @@ function main()
     % Perform optimization on button press
     optimizeButton = uibutton(fig, 'push', 'Text', 'Optimize', 'Position', [100, 100, 100, 22], 'ButtonPushedFcn', @(btn,event) optimizeCallback(btn, lengthSlider, widthSlider, ax, nonlcon));
 end
+
+% Objective function to maximize sofa area
+function obj = objective(x)
+    
+end
