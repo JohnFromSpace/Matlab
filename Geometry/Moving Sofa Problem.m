@@ -59,5 +59,7 @@ function plotSofa(ax, length, width)
     axis(ax, 'equal');
     grid(ax, 'on');
     
-       
+    % Add annotations for sofa dimensions and area
+    annotation('textbox', [0.2, 0.8, 0.1, 0.1], 'String', sprintf('Length: %.2f\nWidth: %.2f', length, width), 'FitBoxToText', 'on');
+    annotation('textbox', [0.2, 0.7, 0.1, 0.1], 'String', sprintf('Area: %.2f', length*width), 'FitBoxToText', 'on');   
 end
