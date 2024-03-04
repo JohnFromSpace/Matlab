@@ -78,5 +78,10 @@ function offspring = crossover_and_mutation(parents, mutation_rate, lower_bound,
         end
     end
     
-        
+    % Mutation
+    mutation_indices = rand(num_offspring, size(parents, 2)) < mutation_rate;
+    mutation_values = rand(num_offspring, size(parents, 2)) .* (upper_bound - lower_bound) + lower_bound;
+    offspring = offspring + mutation_indices .* mutation_values;
+    % Ensure offspring values are within bounds
+    offspring = min(upper_bound, max(lower_bound, offspring));    
 end
