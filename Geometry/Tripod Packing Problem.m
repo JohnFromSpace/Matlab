@@ -13,5 +13,20 @@ function [best_solution, best_fitness] = pack_tripods(container_dimensions, trip
     % Initialize population
     population = initialize_population(population_size, num_genes, lower_bound, upper_bound);
     
+    % Main loop
+    for generation = 1:max_generations
+        % Evaluate fitness of each individual
+        fitness_values = evaluate_fitness(population, container_dimensions, tripods);
+        
+        % Select parents for reproduction
+        parents = select_parents(population, fitness_values);
+        
+        % Perform crossover and mutation
+        offspring = crossover_and_mutation(parents, mutation_rate, lower_bound, upper_bound);
+        
+        % Replace population with offspring
+        population = offspring;
+    end
+    
         
 end
