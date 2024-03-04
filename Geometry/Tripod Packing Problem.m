@@ -43,5 +43,11 @@ function fitness_values = evaluate_fitness(population, container_dimensions, tri
     % Evaluate fitness of each individual (solution)
     num_individuals = size(population, 1);
     fitness_values = zeros(num_individuals, 1);
-        
+    for i = 1:num_individuals
+        solution = reshape(population(i, :), [], 2);
+        packed_tripods = pack_tripods_from_solution(container_dimensions, tripods, solution);
+        packed_area = sum(packed_tripods(:, 3) .* packed_tripods(:, 4));
+        total_area = container_dimensions(1) * container_dimensions(2);
+        fitness_values(i) = packed_area / total_area; % Maximizing packing efficiency
+    end    
 end
