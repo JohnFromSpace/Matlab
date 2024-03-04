@@ -57,5 +57,9 @@ function parents = select_parents(population, fitness_values)
     num_parents = size(population, 1);
     tournament_size = 2;
     parents = zeros(num_parents, size(population, 2));
-        
+    for i = 1:num_parents
+        tournament_indices = randperm(length(fitness_values), tournament_size);
+        [~, idx] = max(fitness_values(tournament_indices));
+        parents(i, :) = population(tournament_indices(idx), :);
+    end    
 end
