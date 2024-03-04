@@ -87,5 +87,8 @@ function offspring = crossover_and_mutation(parents, mutation_rate, lower_bound,
 end
 
 function packed_tripods = pack_tripods_from_solution(container_dimensions, tripods, solution)
-    
+    % Pack tripods based on the solution (gene values)
+    packed_tripods = [];
+    container_grid = zeros(container_dimensions(2), container_dimensions(1));
+        
 end
