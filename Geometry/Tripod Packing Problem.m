@@ -35,5 +35,6 @@ function [best_solution, best_fitness] = pack_tripods(container_dimensions, trip
 end
 
 function population = initialize_population(population_size, num_genes, lower_bound, upper_bound)
-    
+    % Initialize population randomly within the specified bounds
+    population = rand(population_size, num_genes) .* (upper_bound - lower_bound) + lower_bound;    
 end
