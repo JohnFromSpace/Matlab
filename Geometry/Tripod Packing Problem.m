@@ -90,5 +90,16 @@ function packed_tripods = pack_tripods_from_solution(container_dimensions, tripo
     % Pack tripods based on the solution (gene values)
     packed_tripods = [];
     container_grid = zeros(container_dimensions(2), container_dimensions(1));
-        
+    for i = 1:size(tripods, 1)
+        tripod = tripods(i, :);
+        position = solution(i, :);
+        row = round(position(2));
+        col = round(position(1));
+        if row >= 1 && row + tripod(2) - 1 <= container_dimensions(2) && ...
+                col >= 1 && col + tripod(1) - 1 <= container_dimensions(1) && ...
+                all(container_grid(row:row+tripod(2)-1, col:col+tripod(1)-1) == 0)
+            container_grid(row:row+tripod(2)-1, col:col+tripod(1)-1) = 1;
+            packed_tripods = [packed_tripods; [col, row, tripod]];
+        end
+    end    
 end
