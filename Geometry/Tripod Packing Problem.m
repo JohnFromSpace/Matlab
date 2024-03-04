@@ -70,5 +70,13 @@ function offspring = crossover_and_mutation(parents, mutation_rate, lower_bound,
     crossover_point = randi(size(parents, 2));
     crossover_indices = randperm(num_offspring);
     offspring = parents;
+    for i = 1:2:num_offspring
+        if i + 1 <= num_offspring
+            % Perform crossover
+            offspring(i, crossover_point:end) = parents(i + 1, crossover_point:end);
+            offspring(i + 1, crossover_point:end) = parents(i, crossover_point:end);
+        end
+    end
+    
         
 end
