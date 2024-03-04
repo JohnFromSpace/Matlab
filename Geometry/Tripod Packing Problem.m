@@ -38,3 +38,7 @@ function population = initialize_population(population_size, num_genes, lower_bo
     % Initialize population randomly within the specified bounds
     population = rand(population_size, num_genes) .* (upper_bound - lower_bound) + lower_bound;    
 end
+
+function fitness_values = evaluate_fitness(population, container_dimensions, tripods)
+    
+end
