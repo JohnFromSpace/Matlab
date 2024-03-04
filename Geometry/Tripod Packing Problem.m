@@ -28,5 +28,8 @@ function [best_solution, best_fitness] = pack_tripods(container_dimensions, trip
         population = offspring;
     end
     
-        
+    % Find the best solution
+    fitness_values = evaluate_fitness(population, container_dimensions, tripods);
+    [best_fitness, idx] = max(fitness_values);
+    best_solution = population(idx, :);    
 end
