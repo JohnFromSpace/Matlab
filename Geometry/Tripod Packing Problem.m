@@ -33,3 +33,7 @@ function [best_solution, best_fitness] = pack_tripods(container_dimensions, trip
     [best_fitness, idx] = max(fitness_values);
     best_solution = population(idx, :);    
 end
+
+function population = initialize_population(population_size, num_genes, lower_bound, upper_bound)
+    
+end
