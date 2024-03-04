@@ -65,5 +65,10 @@ function parents = select_parents(population, fitness_values)
 end
 
 function offspring = crossover_and_mutation(parents, mutation_rate, lower_bound, upper_bound)
-    
+    % Single-point crossover
+    num_offspring = size(parents, 1);
+    crossover_point = randi(size(parents, 2));
+    crossover_indices = randperm(num_offspring);
+    offspring = parents;
+        
 end
