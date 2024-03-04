@@ -111,3 +111,8 @@ population_size = 50; % Size of the population
 max_generations = 100; % Maximum number of generations
 
 [best_solution, best_fitness] = pack_tripods(container_dimensions, tripods, population_size, max_generations);
+
+% Display the best solution and fitness
+disp('Best Solution:');
+disp(best_solution);
+disp(['Best Fitness: ', num2str(best_fitness * 100), '%']);
