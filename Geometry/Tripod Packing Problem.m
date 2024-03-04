@@ -103,3 +103,9 @@ function packed_tripods = pack_tripods_from_solution(container_dimensions, tripo
         end
     end    
 end
+
+% Example usage:
+container_dimensions = [10, 20]; % Dimensions of the container (width, height)
+tripods = [5, 5; 8, 6; 4, 7; 6, 10]; % Dimensions of tripods (width, height)
+population_size = 50; % Size of the population
+max_generations = 100; % Maximum number of generations
