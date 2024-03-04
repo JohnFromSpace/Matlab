@@ -63,3 +63,7 @@ function parents = select_parents(population, fitness_values)
         parents(i, :) = population(tournament_indices(idx), :);
     end    
 end
+
+function offspring = crossover_and_mutation(parents, mutation_rate, lower_bound, upper_bound)
+    
+end
