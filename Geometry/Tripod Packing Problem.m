@@ -51,3 +51,7 @@ function fitness_values = evaluate_fitness(population, container_dimensions, tri
         fitness_values(i) = packed_area / total_area; % Maximizing packing efficiency
     end    
 end
+
+function parents = select_parents(population, fitness_values)
+    
+end
