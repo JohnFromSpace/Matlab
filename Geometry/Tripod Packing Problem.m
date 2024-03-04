@@ -40,5 +40,8 @@ function population = initialize_population(population_size, num_genes, lower_bo
 end
 
 function fitness_values = evaluate_fitness(population, container_dimensions, tripods)
-    
+    % Evaluate fitness of each individual (solution)
+    num_individuals = size(population, 1);
+    fitness_values = zeros(num_individuals, 1);
+        
 end
