@@ -53,5 +53,9 @@ function fitness_values = evaluate_fitness(population, container_dimensions, tri
 end
 
 function parents = select_parents(population, fitness_values)
-    
+    % Tournament selection
+    num_parents = size(population, 1);
+    tournament_size = 2;
+    parents = zeros(num_parents, size(population, 2));
+        
 end
