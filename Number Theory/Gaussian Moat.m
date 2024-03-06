@@ -22,6 +22,47 @@ classdef GaussianMoatApp < matlab.apps.AppBase
         FeedbackLabel         matlab.ui.control.Label
     end
 
-    
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Button pushed function: PlotButton
+        function PlotButtonPushed(app, event)
+            % Get parameter values
+            island_radius = app.IslandRadiusSlider.Value;
+            moat_width_max = app.MaximumMoatWidthSlider.Value;
+            sigma = app.SigmaSlider.Value;
+            grid_size = app.GridSizeSlider.Value;
+            colormap_choice = app.ColormapDropDown.Value;
+
+            % Generate grid
+            [X, Y] = meshgrid(-grid_size:grid_size);
+
+            % Create island
+            island = (X.^2 + Y.^2 <= island_radius^2);
+
+            % Create moat
+            distance_from_center = sqrt(X.^2 + Y.^2);
+            moat_width = moat_width_max * exp(-(distance_from_center.^2) / (2 * sigma^2));
+            moat = moat_width - island_radius;
+
+            % Plot the island and moat
+            contour(app.UIAxes, X, Y, island, [0.5, 0.5], 'LineWidth', 2, 'LineColor', 'blue');
+            hold(app.UIAxes, 'on');
+            contour(app.UIAxes, X, Y, moat, [0, 0], 'LineWidth', 2, 'LineColor', 'red');
+            axis(app.UIAxes, 'equal');
+            title(app.UIAxes, 'Gaussian Moat Problem');
+            xlabel(app.UIAxes, 'X');
+            ylabel(app.UIAxes, 'Y');
+            legend(app.UIAxes, app.UIAxes.Children(2), {'Island', 'Moat'});
+            colormap(app.UIAxes, colormap_choice);
+            colorbar(app.UIAxes);
+            grid(app.UIAxes, 'on');
+            grid(app.UIAxes, 'minor');
+
+            % Display feedback message
+            app.FeedbackLabel.Text = 'Plot generated successfully.';
+        end
+
+        
 end
 
