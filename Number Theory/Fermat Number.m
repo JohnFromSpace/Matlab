@@ -31,6 +31,12 @@ function fermatNumbers(limit, filename)
         end
     end
     
+    for n = find(fermat_numbers == 0)
+        fermat = 2^(2^n) + 1; % Compute the nth Fermat number
+        fermat_numbers(n) = fermat; % Store the result
+        fprintf('F%d = %d\n', n, fermat); % Display the result
+    end
+    
         
 end
 
