@@ -37,6 +37,8 @@ function fermatNumbers(limit, filename)
         fprintf('F%d = %d\n', n, fermat); % Display the result
     end
     
-        
+    % Save Fermat numbers to file
+    save(filename, 'fermat_numbers', '-ascii');
+    fprintf('Fermat numbers saved to %s\n', filename);    
 end
 
