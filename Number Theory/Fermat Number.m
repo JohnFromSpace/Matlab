@@ -15,6 +15,8 @@ function fermatNumbers(limit, filename)
         return;
     end
     
+    fprintf('Computing Fermat numbers up to F%d:\n', limit);
+    
         
 end
 
