@@ -17,6 +17,9 @@ function fermatNumbers(limit, filename)
     
     fprintf('Computing Fermat numbers up to F%d:\n', limit);
     
+    % Initialize array to store Fermat numbers
+    fermat_numbers = zeros(1, limit + 1);
+    
         
 end
 
