@@ -9,6 +9,12 @@ function fermatNumbers(limit, filename)
         filename = 'fermat_numbers.txt'; % Default filename
     end
     
+    % Check if limit is a non-negative integer
+    if ~isnumeric(limit) || limit < 0 || mod(limit, 1) ~= 0
+        disp('Please enter a non-negative integer as the limit.');
+        return;
+    end
+    
         
 end
 
