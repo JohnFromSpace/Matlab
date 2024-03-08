@@ -42,3 +42,6 @@ function fermatNumbers(limit, filename)
     fprintf('Fermat numbers saved to %s\n', filename);    
 end
 
+% Example usage:
+% Compute Fermat numbers up to F5 and save/load them to/from a file
+fermatNumbers(5, 'fermat_numbers.txt');
