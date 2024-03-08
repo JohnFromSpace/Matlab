@@ -20,6 +20,17 @@ function fermatNumbers(limit, filename)
     % Initialize array to store Fermat numbers
     fermat_numbers = zeros(1, limit + 1);
     
+    % Load previously computed Fermat numbers from file if it exists
+    if exist(filename, 'file') == 2
+        loaded_data = load(filename, '-ascii');
+        if length(loaded_data) == limit + 1
+            fermat_numbers = loaded_data;
+            fprintf('Fermat numbers loaded from %s\n', filename);
+        else
+            fprintf('The file %s exists, but it does not contain the required number of Fermat numbers.\n', filename);
+        end
+    end
+    
         
 end
 
