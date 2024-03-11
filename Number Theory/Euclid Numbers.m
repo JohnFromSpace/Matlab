@@ -38,7 +38,13 @@ function EuclidNumbers(varargin)
         error('Invalid range of prime numbers.');
     end
 
-    
+    % Generate prime numbers within the specified range
+    primes_list = segmentedSieve(start_prime, end_prime);
+
+    % Calculate Euclid numbers corresponding to prime numbers within the range
+    euclid_nums = arrayfun(@(x) 2^x - 1, primes_list);
+
+        
 end
 
 
