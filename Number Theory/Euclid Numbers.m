@@ -56,4 +56,8 @@ function EuclidNumbers(varargin)
     end    
 end
 
+function primes = segmentedSieve(start, stop)
+    % Function to generate primes in the range [start, stop] using segmented sieve algorithm
 
+    
+end
