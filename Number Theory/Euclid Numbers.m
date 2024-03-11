@@ -59,5 +59,17 @@ end
 function primes = segmentedSieve(start, stop)
     % Function to generate primes in the range [start, stop] using segmented sieve algorithm
 
-    
+    % Sieve the range
+    max_prime = ceil(sqrt(stop));
+    base_primes = primes(max_prime);
+    sieve = ones(1, stop - start + 1);
+    for prime = base_primes
+        if prime >= start
+            first_multiple = max(2 * prime, ceil(start / prime) * prime);
+            sieve(first_multiple - start + 1:prime:stop - start + 1) = 0;
+        end
+    end
+
+    % Extract primes
+    primes = start - 1 + find(sieve);    
 end
