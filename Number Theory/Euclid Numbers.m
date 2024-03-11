@@ -43,8 +43,17 @@ function EuclidNumbers(varargin)
 
     % Calculate Euclid numbers corresponding to prime numbers within the range
     euclid_nums = arrayfun(@(x) 2^x - 1, primes_list);
-
-        
+    
+    % Display the Euclid numbers based on display_option
+    disp('Euclid Numbers:');
+    switch lower(display_option)
+        case 'list'
+            disp(euclid_nums);
+        case 'matrix'
+            disp(reshape(euclid_nums, 1, []));
+        otherwise
+            error('Invalid display option. Use "list" or "matrix".');
+    end    
 end
 
 
