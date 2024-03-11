@@ -33,6 +33,10 @@ function EuclidNumbers(varargin)
     if ~isnumeric(start_prime) || ~isnumeric(end_prime) || ~isscalar(start_prime) || ~isscalar(end_prime)
         error('Start and end primes must be scalar.');
     end
+    
+    if start_prime < 2 || end_prime < 2 || start_prime > end_prime
+        error('Invalid range of prime numbers.');
+    end
 
     
 end
