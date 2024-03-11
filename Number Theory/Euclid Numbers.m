@@ -29,6 +29,11 @@ function EuclidNumbers(varargin)
             error('Too many input arguments.');
     end
 
+    % Validate input arguments
+    if ~isnumeric(start_prime) || ~isnumeric(end_prime) || ~isscalar(start_prime) || ~isscalar(end_prime)
+        error('Start and end primes must be scalar.');
+    end
+
     
 end
 
