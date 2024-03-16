@@ -22,5 +22,6 @@ function result = isPerfect(num)
         factor_sum = sum(factors);
     end
     
-        
+    % Check if sum of factors is equal to the number itself
+    result = (factor_sum == num);    
 end
