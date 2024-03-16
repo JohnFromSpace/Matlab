@@ -10,3 +10,7 @@ function perfectNumbers(limit)
         end
     end    
 end
+
+function result = isPerfect(num)
+    
+end
