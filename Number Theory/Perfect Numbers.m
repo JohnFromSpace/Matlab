@@ -12,5 +12,8 @@ function perfectNumbers(limit)
 end
 
 function result = isPerfect(num)
+    % Compute factors up to square root of num
+    factors = [1, find(mod(num, 2:sqrt(num)) == 0)];
     
+        
 end
