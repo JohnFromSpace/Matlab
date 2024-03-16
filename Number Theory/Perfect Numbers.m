@@ -15,5 +15,12 @@ function result = isPerfect(num)
     % Compute factors up to square root of num
     factors = [1, find(mod(num, 2:sqrt(num)) == 0)];
     
+    % Adjust factor sum for perfect squares
+    if sqrt(num) == floor(sqrt(num))
+        factor_sum = sum(factors) - sqrt(num);
+    else
+        factor_sum = sum(factors);
+    end
+    
         
 end
